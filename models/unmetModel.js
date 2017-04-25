@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var unmetSchema = new Schema ({
+  battleName: String,
   user: {type: Schema.Types.ObjectId, ref:"User"},
   video: {type: Schema.Types.ObjectId, ref:"Video"}
 });

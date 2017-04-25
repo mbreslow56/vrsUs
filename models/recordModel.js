@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var recordSchema = new Schema ({
   //participants: [{type: Schema.Types.ObjectId, ref:"User"}], DEPRACATED- ask
+  battleName: String,
   date: Date,
   voteGoal: Number,
   winner: {type: Schema.Types.ObjectId, ref:"User"},
