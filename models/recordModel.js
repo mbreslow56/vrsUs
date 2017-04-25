@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var recordSchema = new Schema {
+var recordSchema = new Schema ({
   //participants: [{type: Schema.Types.ObjectId, ref:"User"}], DEPRACATED- ask
   date: Date,
   voteGoal: Number,
@@ -11,7 +11,7 @@ var recordSchema = new Schema {
   winnerVideo: {type: Schema.Types.ObjectId, ref:"Video"}, // url? string??
   loserVotes: Number,
   loserVideo: {type: Schema.Types.ObjectId, ref:"Video"} // url? string??
-};
+});
 
 
 var record = mongoose.model("Record", recordSchema);

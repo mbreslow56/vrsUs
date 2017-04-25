@@ -1,11 +1,11 @@
 var express = require('express');
 var expressSession = require('express-session');
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
+var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
-var User = require("./models/UserModel");
 
 mongoose.connect('mongodb://localhost/voutr');
 
@@ -25,9 +25,9 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
 // Configure passport-local to use user model for authentication
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.use(User.createStrategy());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 //This tells the server that when a request comes into '/beers'
 //that it should use the routes in 'beerRoutes'

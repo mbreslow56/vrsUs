@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
+var plm = require('passport-local-mongoose');
 var Schema = mongoose.Schema;
 
-var ratingSchema = new Schema {
+var ratingSchema = new Schema ({
   wins: Number,
   losses: Number,
   total: Number
-};
-var userSchema =  new Schema {
+});
+
+var userSchema =  new Schema ({
    userName: String,
    passWord: String,
    artistRating: ratingSchema,
@@ -15,6 +17,9 @@ var userSchema =  new Schema {
    unmetBattles: [{type: Schema.Types.ObjectId, ref:"Unmet"}], //unmetBattles
    ongoingBattles: [{type: Schema.Types.ObjectId, ref:"Battle"}], //battle
    records: [{type: Schema.Types.ObjectId, ref:"Record"}]
-};
-var user = mongoose.model("User", userSchema);
-module.exports = user;
+});
+
+userSchema.plugin(plm);
+
+module.exports = mongoose.model("User", userSchema);
+ 
