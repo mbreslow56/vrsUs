@@ -1,0 +1,15 @@
+<form ng-submit="join()">
+  <h3>Join The Revolution!</h3>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Username" ng-model="user.username"></input>
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="Password" ng-model="user.password"></input>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+<br>
+<a ui-sref="login">Already have an account? Log in!</a>
