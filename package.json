@@ -19,10 +19,18 @@
   "homepage": "https://github.com/mbreslow56/voutr#readme",
   "dependencies": {
     "angular": "^1.6.4",
-    "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
-    "express": "^4.15.2",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.6",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
   }
 }
