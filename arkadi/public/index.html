@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Battle-Video </title>
+      <script src="/jquery/dist/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+      <script src="/ng-youtube-embed/build/ng-youtube-embed.min.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/js/services/youtubeFactory.js"></script>
+      <script src="/js/controllers/mainController.js"></script>
+      <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="myCtrl">
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" alt="ng-youtube-embed icon" />
+          <h1>Rap Battle</h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video1" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Simple embed (Add youtube video URL or Id)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video2" playlist="https://www.youtube.com/watch?v=dulxbKkj9Wg,https://www.youtube.com/watch?v=lxgelwqe8-E" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Playlist</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video3" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Update video URL / Id (watch scope changes)</label>
+              <form>
+                <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="video3">
+              </form>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video4" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Out of the box <a href="https://gaming.youtube.com/" target="_blank">gaming.youtube.com</a> support (without any extra parameter)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed listtype="search" list="jsconfeu" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Support for preloaded lists (no need to provide video URL or Id)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video5" enablejsapi="true" videoid="stillEchoes" onstatechange="stateChanged" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center">Youtube iframe embed JS API support (with all supported events and actions)</label>
+              <button class="btn btn-primary" ng-click="playVideo()">Play video</button>
+              <button class="btn btn-danger" ng-click="stopVideo()">Stop video</button>
+              <button class="btn btn-info" ng-click="showVideoInfo()">Show video info</button>
+            </div> -->
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video6" enablejsapi="true" videoid="whtbb" width="100%" autoplay=true>
+              </ng-youtube-embed>
+              <label class="text-center"> Autoplay </label>
+              <button class="btn btn-danger" id="mybutton" ng-click = "showSecondVid()">Skip</button>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <ng-youtube-embed video="video7" enablejsapi="true" videoid="brain-game" width="100%">
+              </ng-youtube-embed>
+              <label class="text-center"> Second vid </label>
+              <!-- <button class="btn btn-danger" id="mybutton2">Skip</button> -->
+            </div>
+            <script>
+              $(document).ready(function() {
+                $('#mybutton').hide().delay(10 * 1000).fadeIn(500);
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
