@@ -7,12 +7,19 @@ h1 {
   text-align: center;
 }
 
+.voteButton {
+    display:block; /* change this from inline-block */
+    width:20%; /* setting the width */
+    margin:0 auto; /* this will center  it */
+}
+
 h2 {
   text-align: center;
 }
 .navbar-brand { 
 	margin-top: -15px; 
 }
+
 #glyphicon {
 	float: 	left;
 	margin-top: -5px;
