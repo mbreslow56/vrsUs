@@ -1,52 +1,53 @@
- <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
 
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <button type="button" id="glyphicon" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-        </button>
-          <!-- <span class="caret"></span> --></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">My Profile</a></li>
-              <li><a href="#">My Battles</a></li>
-              <li><a href="#">Account Settings</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a ui-sref="login" ng-hide="currentUser.username">Log In</a></li>
-              <li><a ui-sref="join" ng-hide="currentUser.username">Join</a></li>
-              <li><a ui-sref="logout" ng-show="currentUser.username" ng-click="logout()">Log Out</a></li>
-            </ul>
-          </li>
-        </ul>
-              <a class="navbar-brand" ui-sref="battle"><img alt="Brand" src="chUsr_word_tiny-PNG-NoBackground.png"></a>
-        <form class="navbar-form navbar-left">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <a ui-sref="home" class="navbar-brand">VoUtr</a>
+    </div>
+      <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" class="form-control" placeholder="Find a battle">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+        <div class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="battle"><span class="glyphicon glyphicon-plus"></span> Join Battle</a></li>
           <li><a href="battle"><span class="glyphicon glyphicon-ok"></span> Create Battle</a></li>
           <li class="active" ng-show="currentUser.username"><a href="#"><span class="glyphicon glyphicon-user"> {{ currentUser.username }}</span></a></li>
           <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class="glyphicon glyphicon-user"></span></a></li>
+           
+ <i class="fa fa-bars" data-toggle="dropdown"> </button>
+  <span class="caret"></span></i>
+  <ul class="dropdown-menu">
+     <li><a href="#feature" class="smoothScroll">My profile</a></li>
+        <li><a href="#about" class="smoothScroll">My battles</a></li>
+        <li><a href="#menu" class="smoothScroll">Account Settings</a></li>
+        <li><a href="#team" class="smoothScroll">About us</a></li>
+        <li><a href="#gallery" class="smoothScroll">Browse video</a></li>
+        <li><a href="#gallery" class="smoothScroll">Upload video</a></li>
+        <li><a href="#contact" class="smoothScroll">Contact us</a></li>
+         <li role="separator" class="divider"></li>
+              <li><a ui-sref="login" ng-hide="currentUser.username">Log In</a></li>
+              <li><a ui-sref="join" ng-hide="currentUser.username">Join</a></li>
+              <li><a ui-sref="logout" ng-show="currentUser.username" ng-click="logout()">Log Out</a></li>
+  </ul>
+          <!-- <li><a href="battle">      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <button type="button" id="glyphicon" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon glyphicon-align-justify" aria-hidden="true"></span></a></li> -->
+          <!-- <li class="active" ng-show="currentUser.username"><a href="#"><span class="glyphicon glyphicon-user"> {{ currentUser.username }}</span></a></li>
+          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class="glyphicon glyphicon-user"></span></a></li> -->
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+    </div>
+
+  </div>
+</div>

@@ -1,5 +1,5 @@
-
-body {
+body { 
+    /*background-color: #A5ACAF;*/
     background: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -20,11 +20,18 @@ h1,h2,h3, .btn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 h1 {
   font-weight: bold;
   font-size: 100px;
+}
+
+.voteButton {
+    display:block; /* change this from inline-block */
+    width:20%; /* setting the width */
+    margin:0 auto; /* this will center  it */
 }
 
 h2 {

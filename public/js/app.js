@@ -2,8 +2,16 @@ var app = angular.module("appName", ['ui.router']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
-  $urlRouterProvider.otherwise('/battle');
+  $urlRouterProvider.otherwise('/home');
   $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'js/templates/home.html',
+      controller: function($rootScope, authFactory){
+        $rootScope.currentUser = authFactory.currentUser;
+        console.log(authFactory.currentUser)
+      } 
+  })
     .state('battle', {
       url: '/battle',
       templateUrl: 'js/templates/battle.html',
