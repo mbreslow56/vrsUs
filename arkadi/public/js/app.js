@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
+var myApp = angular.module('myApp', ['youtube-embed']);

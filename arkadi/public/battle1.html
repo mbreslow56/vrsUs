@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Battle-Video </title>
+      <script src="/jquery/dist/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+      <script src="https://www.youtube.com/iframe_api"></script>
+      <script src="/angular-youtube-embed/src/angular-youtube-embed.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/js/services/youtubeFactory.js"></script>
+      <script src="/js/controllers/mainController.js"></script>
+      <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="myCtrl">
+        <div class="text-center">
+          <img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" alt="ng-youtube-embed icon" />
+          <h1>Rap Battle</h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 wrapper">
+              <label class="text-center"> First video </label>
+              <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="playerVars">
+              </youtube-video>
+              <button class="btn btn-danger" id="mybutton" ng-click = "pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
+              <button ng-show="showVotes" class="btn btn-success" id="vote1" ng-click="pauseSecond(bestPlayer2)">Vote!</button>
+            </div>
+            <div class="col-sm-6 wrapper">
+              <label class="text-center"> Second video </label>
+              <youtube-video id="second" video-url="video2" player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'">
+              </youtube-video>
+              <button ng-hide="video2NotStarted" class="btn btn-danger" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
+              <button ng-show="showVotes" class="btn btn-success" id="vote2" ng-click="pauseSecond(bestPlayer2)">Vote!</button>
+            </div>
+            <script>
+              $(document).ready(function() {
+                $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
