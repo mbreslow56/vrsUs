@@ -1,7 +1,10 @@
-
 <!DOCTYPE html>
 <html ng-app="appName">
 <head>
+
+  <title>VoUtr</title>
+
+
     <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +13,7 @@
 
   <!-- stylesheets css -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://www.youtube.com/iframe_api"></script>
-
+<script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="css/magnific-popup.css">
 
   <link rel="stylesheet" href="css/animate.min.css">
@@ -25,12 +27,27 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="templates/join.html">
+   <link rel="stylesheet" href="templates/login.html">
+    <link rel="stylesheet" href="templates/battle.html">
+     <link rel="stylesheet" href="templates/createbattle.html">
+      <link rel="stylesheet" href="templates/joinunmatched.html">
+       <link rel="stylesheet" href="templates/ongoingbattle.html">
+        <link rel="stylesheet" href="templates/unmatchedbattles.html">
+
+
+
+
+
+
+
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
-  <title>voUtr</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lemon" />
   <base href="/">
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
 <!-- Preloader section -->
 <div class="preloader">
   <div class="sk-spinner sk-spinner-pulse"></div>
@@ -38,26 +55,26 @@
 <div ng-controller='authCtrl'>
   <div ng-controller='masterCtrl'>
   <nav-directive></nav-directive>
-  <div class="container">
-    <div class="col-md-8">
+
       <div ui-view></div>
-  <!-- chusr starts here -->
-<!--  <input type="text" ng-model="test" placeholder="search" />
-      {{test}}
-   <button type="button" >Search</button> -->
-    </div>
+
   </div>
   </div>
 </div>
 
 
+<footer-directive></footer-directive>
 
-<br><br>
+
+
+
+<!-- javascript js -->
 
 
 <footer-directive></footer-directive>
 
 
+<!-- <script src="/progressbar.js/dist/progressbar.js"></script> -->
 <script src="angular/angular.js"></script>
 <script src="js/app.js"></script>
 <script src="angular-ui-router/release/angular-ui-router.js"></script>
@@ -92,5 +109,6 @@
 <script src="js/wow.min.js"></script>
 
 <script src="js/custom.js"></script>
+
 </body>
 </html>
