@@ -1,19 +1,35 @@
-<!-- <head>
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-</head> TESTING-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="page-header">
-        <h2>Create a new battle!</h2>
-      </div>
-      <form>
-        <h4>Enter Battle name: <input type="text" placeholder="Battle name"></h4>
-        <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button>
-        <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
+<div class="framebattle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="page-header">
+          <h2>Create a new battle!</h2>
+        </div>
 
-        <button class="btn btn-warning" type="submit" name="button">TO BATTLE!!</button>
-    </form>
+        <fieldset>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_name">Battle name</label>
+            <div class="col-md-4">
+              <input id="source_name" name="source_name" ng-model="bName" type="text" placeholder="Battle Name" class="form-control input-md">
+            </div>
+          </div>
+          <br />
+
+                    <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_url">URL</label>
+            <div class="col-md-4">
+              <input id="source_url" ng-model="vidtext" name="source_url" type="text" placeholder="URL of the video">
+              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" ng-click="getVidId()" name="button">preview</button>
+              <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
+            </div>
+          </div>
+
+        <!-- <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button> -->
+        <br /> <br /> <br />
+        <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" type="submit" name="button">TO BATTLE!!</button>
+      </fieldset>
     </div>
   </div>
 </div>
