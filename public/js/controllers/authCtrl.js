@@ -25,3 +25,24 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
       });
   }
 });
+
+// <script>
+//   window.fbAsyncInit = function() {
+//     FB.init({
+//       appId      : '671277003082097',
+//       xfbml      : true,
+//       version    : 'v2.9'
+//     });
+//     FB.AppEvents.logPageView();
+//   };
+
+//   (function(d, s, id){
+//      var js, fjs = d.getElementsByTagName(s)[0];
+//      if (d.getElementById(id)) {return;}
+//      js = d.createElement(s); js.id = id;
+//      js.src = "//connect.facebook.net/en_US/sdk.js";
+//      fjs.parentNode.insertBefore(js, fjs);
+//    }(document, 'script', 'facebook-jssdk'));
+// </script>
+// 
+// secret: 3587b03e9bd14c9b0b4ca0f373904dd3

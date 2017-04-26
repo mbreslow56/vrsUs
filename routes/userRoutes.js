@@ -51,16 +51,17 @@ router.get('/currentuser', function (req, res){
   }
 });
 
-router.get('/facebook', 
-  passport.authenticate('facebook', 
-  	{ scope: 'email' }));
+// router.get('/facebook', 
+//   passport.authenticate('facebook', 
+//   	{ scope: 'email' }));
 
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+// router.get('/facebook/callback',
+//   passport.authenticate('facebook', { failureRedirect: '/' }),
+//   function(req, res) {
+//     console.log(req.user);
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
 
 
 module.exports = router;
