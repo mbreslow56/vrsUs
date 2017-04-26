@@ -1,12 +1,21 @@
-app.controller( 'btlCtrl1', function($scope, btlFactory, authFactory){
-  $scope.user = authFactory.currentUser.username;
-  
+app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
+  $scope.user = authFactory.currentUser;
+
   $scope.getUnjoined = function() {
 
   }; //get all unjoined battles from server. also: //unjoinedUpdate
   $scope.addUnjoined = function() {
     var user = $rootScope.currentUser;
-    var url = $stateParams.user;
+    console.log("user object from inside btlctrl: ", user);
+    var umObj = {
+      battleName: $scope.bName,
+      user: user._id,
+      video: $scope.videourl,
+    }
+    btlFactory.addUnjoined(umObj).then(function(){
+      //update??
+    });
+    //create a new unmatched battle object to push
   }; //add a new unjoined battle to the collection and update
   $scope.getOngoing = function(){
 
@@ -15,7 +24,7 @@ app.controller( 'btlCtrl1', function($scope, btlFactory, authFactory){
 
   }; // add a new ongoing battle. delete corresponding unjoined instance
   $scope.getVidId = function(){
-  var url = $scope.vidtext;
+  $scope.videourl = $scope.vidtext;
   console.log("url is", url);
   var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
   if(videoid != null) {
