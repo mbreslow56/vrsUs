@@ -11,25 +11,32 @@
     </div>
       <form class="navbar-form navbar-left">
           <div class="form-group">
-            <i class="fa fa-search fa-2x"></i>
+            <i class="fa fa-search fa-1x"></i>
             <input type="text" class="form-control" placeholder="Find a battle">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+
+
         <div class="nav navbar-nav navbar-right">
-        <!-- <ul class="nav navbar-nav navbar-right"> -->
-         <i class="fa fa-bars fa-3x" data-toggle="dropdown"> </button>
-  <span class="caret"></span></i>
-  <ul class="dropdown-menu">
+          <i class="fa fa-user fa-2x"></i>
+          <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li>
+          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li>
           <li><a href="ongoing"><span class="glyphicon glyphicon-plus"></span>Ongoing Battles</a></li>
           <li><a href="unmatched"><span class="glyphicon glyphicon-plus"></span> Join Battle</a></li>
           <li><a href="create"><span class="glyphicon glyphicon-ok"></span> Create Battle</a></li>
+
           <li class="active" ng-show="currentUser.username"><a href="#"><span class="glyphicon glyphicon-user"> {{ currentUser.username }}</span></a></li>
           <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class="glyphicon glyphicon-user"></span></a></li>
 
  <i class="fa fa-bars" data-toggle="dropdown"> </button>
   <span class="caret"></span></i>
   <ul class="dropdown-menu">
+          
+<!--            
+ <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
+  <span class="caret"></span></i>
+ <!--  <ul class="dropdown-menu"> -->
      <li><a href="#feature" class="smoothScroll">My profile</a></li>
         <li><a href="#about" class="smoothScroll">My battles</a></li>
         <li><a href="#menu" class="smoothScroll">Account Settings</a></li>
