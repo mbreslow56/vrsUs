@@ -892,6 +892,12 @@ h3 {
     color: red;
 }
 
+.framebattle {
+  background: linear-gradient(to left, #c21500 , #ffc500);
+      opacity: 0.8;
+      
+}
+
 @media (min-width: 768px) {
 .col-sm-2 {
      width: 24.66666667%; 
