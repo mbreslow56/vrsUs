@@ -1,4 +1,19 @@
-app.controller( 'btlCtrl1',['$scope', 'authFactory','$state', function($scope, authFactory, $state){
+app.controller( 'btlCtrl1', function($scope, btlFactory, authFactory){
+  $scope.user = authFactory.currentUser.username;
+  
+  $scope.getUnjoined = function() {
+
+  }; //get all unjoined battles from server. also: //unjoinedUpdate
+  $scope.addUnjoined = function() {
+    var user = $rootScope.currentUser;
+    var url = $stateParams.user;
+  }; //add a new unjoined battle to the collection and update
+  $scope.getOngoing = function(){
+
+  }; // get all ongoing battles. MIGHT RELOCATE
+  $scope.addOngoing = function(){
+
+  }; // add a new ongoing battle. delete corresponding unjoined instance
   $scope.getVidId = function(){
   var url = $scope.vidtext;
   console.log("url is", url);
@@ -11,4 +26,4 @@ app.controller( 'btlCtrl1',['$scope', 'authFactory','$state', function($scope, a
   alert("The youtube url is not valid.");
 }
 }
-}]);
+});
