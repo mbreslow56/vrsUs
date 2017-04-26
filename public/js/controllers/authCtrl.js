@@ -1,4 +1,5 @@
 app.controller('authCtrl', function($scope, authFactory, $state) {
+  
   $scope.join = function() {
     authFactory.join($scope.user)
       .then(function() {
