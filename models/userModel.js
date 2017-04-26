@@ -8,9 +8,9 @@ var ratingSchema = new Schema ({
   total: Number
 });
 
-var userSchema =  new Schema ({
-   userName: String,
-   passWord: String,
+var UserSchema =  new Schema ({
+   username: String,
+   password: String,
    artistRating: ratingSchema,
    voterRating: ratingSchema,
    videos: [{type: Schema.Types.ObjectId, ref:"Video"}],//videos populate array
@@ -19,7 +19,7 @@ var userSchema =  new Schema ({
    records: [{type: Schema.Types.ObjectId, ref:"Record"}]
 });
 
-userSchema.plugin(plm);
+UserSchema.plugin(plm);
 
-module.exports = mongoose.model("User", userSchema);
- 
+var User = mongoose.model("User", UserSchema);
+module.exports = User;

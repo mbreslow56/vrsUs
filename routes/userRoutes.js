@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
-// var User = require("../models/UserModel");
+var User = require("../models/userModel");
 
 
 //the user routes go here

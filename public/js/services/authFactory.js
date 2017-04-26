@@ -1,8 +1,6 @@
 app.factory('authFactory', function($http){
   var auth = {};
-
   auth.currentUser = {};
-  
   auth.join = function(user) {
   	return $http.post('/users/join', user)
   	  .then(function(response){
