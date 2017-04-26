@@ -1,4 +1,4 @@
-<div class="container">	  
+<div class="container">
   <div class="row">
 
 	<div ng-controller="myCtrl">
@@ -23,11 +23,6 @@
               <button ng-hide="video2NotStarted" class="btn btn-danger" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
               <button ng-show="showVotes" class="btn btn-success" id="vote2" ng-click="pauseSecond(bestPlayer2)">Vote!</button>
             </div>
-            <script>
-              $(document).ready(function() {
-                $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
-              });
-            </script>
           </div>
         </div>
       </div>
@@ -39,7 +34,7 @@
   	  <h3 >Add a category you'd like to see:	 </h3>
   	  <input type="text" ng-model="category"/>
   	  <input type="button" value="Add" ng-click="addCategory()">
-	  <ul class="categoryList"> 
+	  <ul class="categoryList">
 	    <li ng-repeat="category in categories">{{category}}  <a href="" ng-click="removeCategory($index)">Remove</a></li>
 	  </ul>
 	</div>

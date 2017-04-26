@@ -5,6 +5,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.video1 = 'https://www.youtube.com/watch?v=bvZolRM7ifA&t=15s';
   $scope.video2 = 'https://www.youtube.com/watch?v=-z9NwrIj6oA';
 
+  $(document).ready(function() {
+    $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
+  });
   // autoplay the first video
   $scope.playerVars = {
     autoplay: 1
@@ -13,7 +16,6 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.pauseSecond = function(player) {
     player.stopVideo();
     $scope.showVotes = true;
-    alert("now I will show vote option!");
   };
 
   $scope.pauseFirstBeginSecond = function(player1, player2) {
@@ -39,7 +41,6 @@ app.controller('myCtrl', ['$scope', function($scope) {
     }
     else if ($scope.numOfVidsEnded == 1) {
       $scope.showVotes = true;
-      alert("now I will show vote option!");
     }
 });
 
