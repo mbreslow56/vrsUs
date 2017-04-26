@@ -19,7 +19,8 @@ app.factory('authFactory', function($http){
   auth.getCurrentUser = function() {
   	return $http.get('/users/currentUser')
   	  .then(function(response){
-  	  	auth.currentUser = angular.copy(response.data)
+  	  	auth.currentUser = angular.copy(response.data);
+        return response.data;
   	  })
   }
 

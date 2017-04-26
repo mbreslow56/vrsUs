@@ -22,8 +22,17 @@
             <label class="col-md-4 control-label" for="source_url">URL</label>
             <div class="col-md-4">
               <input id="source_url" ng-model="vidtext" name="source_url" type="text" placeholder="URL of the video">
-              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" ng-click="getVidId()" name="button">preview</button>
+              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" ng-click="getVidId()" name="button">preview</button> <br />
               <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
+            </div>
+          </div>
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_url">Vote limit</label>
+            <div class="col-md-4">
+              <input id="source_vote" ng-model="numVotes" name="source_vote" type="text" placeholder="number of votes to win">
             </div>
           </div>
 
@@ -34,6 +43,3 @@
       </fieldset>
     </div>
   </div>
-
-
-   
