@@ -6,5 +6,5 @@ var unmetSchema = new Schema ({
   video: String
 });
 
-var unmet = mongoose.model("Unmet", recordSchema);
+var unmet = mongoose.model("Unmet", unmetSchema);
 module.exports = unmet;
