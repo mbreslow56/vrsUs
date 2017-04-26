@@ -4,8 +4,8 @@ app.factory('btlFactory', function($http){
     .then(function(response){
       console.log(response);
     });
-  }
-  return {    addUnjoined: addUnjoined
-
+  }// creating a new unjoined battle
+  return {
+    addUnjoined: addUnjoined
   }
 });
