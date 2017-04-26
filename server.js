@@ -6,7 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
-var btlRoutes = require('./routes/btlRoutes');
+
 mongoose.connect('mongodb://localhost/voutr');
 
 var app = express();
@@ -14,26 +14,26 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-passport.use(new FacebookStrategy({
-    clientID: '671277003082097',
-    clientSecret: '3587b03e9bd14c9b0b4ca0f373904dd3',
-    callbackURL: 'http://localhost:8008/auth/facebook/callback',
-    profileFields: ['email', 'displayName']
-  },
-  function(accessToken, refreshToken, profile, done) {
+// passport.use(new FacebookStrategy({
+//     clientID: '671277003082097',
+//     clientSecret: '3587b03e9bd14c9b0b4ca0f373904dd3',
+//     callbackURL: 'http://localhost:8008/auth/facebook/callback',
+//     profileFields: ['email', 'displayName']
+//   },
+//   function(accessToken, refreshToken, profile, done) {
 
-    //code to check database goes here
+//     //code to check database goes here
 
-    //code to create JWT goes here
+//     //code to create JWT goes here
     
-    return done(null, profile)
-  }
-));
+//     return done(null, profile)
+//   }
+// ));
 
 //Configure passport and session middleware
-app.use(expressSession({
-  secret: 'thisIsASecret',
-  resave: false,
+app.use(expressSession({ 
+  secret: 'thisIsASecret', 
+  resave: false, 
   saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,7 +49,8 @@ passport.deserializeUser(User.deserializeUser());
 //that it should use the routes in 'beerRoutes'
 //and those are in our new beerRoutes.js file
 app.use('/users', userRoutes);
-app.use('/btls', btlRoutes);
+
+
 
 app.all('[^.]+', function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
@@ -68,3 +69,4 @@ app.use(function(err, req, res, next) {
 app.listen(8008, function() {
   console.log("8008. voUtr bitch!");
 })
+
