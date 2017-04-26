@@ -16,7 +16,7 @@ router.post('/join', function(req, res, next){
       if (err) {
       	return next(err);
       }
-      res.send(req.user.username);
+      res.send(req.user);
     });
   });
 });
@@ -26,8 +26,8 @@ router.post('/join', function(req, res, next){
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
   // If this function gets called, authentication was successful.
-  // `req.user` contains the authenticated user. 
-  res.send(req.user.username)
+  // `req.user` contains the authenticated user.
+  res.send(req.user)
 });
 
 // router.get('/success', function (req, res){
@@ -45,14 +45,14 @@ router.get('/logout', function (req, res) {
 
 router.get('/currentuser', function (req, res){
   if (req.user) {
-  	res.send(req.user.username)
+  	res.send(req.user)
   } else {
   	res.send(null)
   }
 });
 
-router.get('/facebook', 
-  passport.authenticate('facebook', 
+router.get('/facebook',
+  passport.authenticate('facebook',
   	{ scope: 'email' }));
 
 router.get('/facebook/callback',

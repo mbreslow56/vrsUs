@@ -1,11 +1,11 @@
 app.factory('btlFactory', function($http){
-  var addUnjoined = function(btl) {
+  var addUnjoined = function(un) {
     return $http.post('/btls/unjoined', btl)
     .then(function(response){
       console.log(response);
     });
-  }
-  return {    addUnjoined: addUnjoined
-
+  }// creating a new unjoined battle
+  return {
+    addUnjoined: addUnjoined
   }
 });
