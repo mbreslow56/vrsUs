@@ -30,6 +30,20 @@
             </div>
           </div>
  <h3> <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE !</a></h3>
+              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" ng-click="getVidId()" name="button">preview</button> <br />
+              <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
+            </div>
+          </div>
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_url">Vote limit</label>
+            <div class="col-md-4">
+              <input id="source_vote" ng-model="numVotes" name="source_vote" type="text" placeholder="number of votes to win">
+            </div>
+          </div>
+
         <!-- <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button> -->
         <br /> <br /> <br />
 
@@ -37,6 +51,3 @@
       </fieldset>
     </div>
   </div>
-
-
-   
