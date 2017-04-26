@@ -1,7 +1,6 @@
-
 body {
     background: #ffffff;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: ‘Source Sans Pro’, sans-serif;
     font-weight: 300;
   }
 
@@ -17,7 +16,7 @@ html {
 
 /* Typography */
 h1,h2,h3, .btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: ‘Montserrat’, sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
 }
@@ -334,7 +333,7 @@ a:focus {
 
 /* Video section  */
 #video {
-  background: url('../images/video-bg.jpg') 50% 0 repeat-y fixed;
+  background: url(‘../images/video-bg.jpg’) 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -620,7 +619,7 @@ a:focus {
 
 #contact input {height: 45px;}
 
-#contact input[type='submit'] {
+#contact input[type=‘submit’] {
   background: #ffffff;
   border-radius: 4px;
   color: #c21500;
@@ -631,7 +630,7 @@ a:focus {
   margin-top: 20px;
   transition: all 0.4s ease-in-out;
 }
-#contact input[type='submit']:hover {
+#contact input[type=‘submit’]:hover {
   background-color: #c21500;
   border-color: transparent;
   color: #ffffff;
@@ -836,7 +835,7 @@ h3 {
 }
 
 @media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+    .omb_row-sm-offset-3 div:first-child[class*=“col-“] {
         margin-left: 25%;
     }
 }

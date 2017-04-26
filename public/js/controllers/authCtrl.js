@@ -1,8 +1,9 @@
 app.controller('authCtrl', function($scope, authFactory, $state) {
+  
   $scope.join = function() {
     authFactory.join($scope.user)
       .then(function() {
-        $state.go('battle');
+        $state.go('home');
       }, function(err) {
         alert(err.data.message);
       });
@@ -10,7 +11,7 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
   $scope.login = function() {
     authFactory.login($scope.user)
       .then(function() {
-        $state.go('battle');
+        $state.go('home');
       }, function(err) {
         alert(err.data);
       });
@@ -18,7 +19,7 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
   $scope.logout = function() {
     authFactory.logout($scope.user)
       .then(function() {
-        $state.go('battle');
+        $state.go('home');
       }, function(err) {
         alert(err.data);
       });

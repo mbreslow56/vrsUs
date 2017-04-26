@@ -1,72 +1,37 @@
 <div class="framebattle">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="page-header">
-        <h2>Create a new battle!</h2>
-      </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="page-header">
+          <h2>Create a new battle!</h2>
+        </div>
 
-<form class="form-horizontal">
-<fieldset>
+        <fieldset>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_name">Battle name</label>
+            <div class="col-md-4">
+              <input id="source_name" name="source_name" type="text" placeholder="Battle Name" class="form-control input-md">
+            </div>
+          </div>
+          <br />
 
+                    <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="source_url">URL</label>
+            <div class="col-md-4">
+              <input id="source_url" ng-model="vidtext" name="source_url" type="text" placeholder="URL of the video">
+              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" ng-click="getVidId()" name="button">preview</button>
+              <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
+            </div>
+          </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="source_name">Battle name</label>  
-  <div class="col-md-4">
-  <input id="source_name" name="source_name" type="text" placeholder="Battle Name" class="form-control input-md">
-    
+        <!-- <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button> -->
+        <br /> <br /> <br />
+        <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE!!</button>
+      </fieldset>
+    </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="source_url">URL</label>  
-  <div class="col-md-4">
-  <input id="source_url" name="source_url" type="text" placeholder="URL of the video" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="source_description">Description</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="source_description" name="source_description"></textarea>
-  </div>
-</div>
-
-
-<!-- File Button --> 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="source_image">Upload video</label>
-  <div class="col-md-4">
-    <input id="source_image" name="source_image" class="input-file" type="file">
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="source_type">Categories</label>
-  <div class="col-md-4">
-    <select id="source_type" name="source_type" class="form-control">
-      <option value="1">Dance</option>
-      <option value="2">Music</option>
-      <option value="3">Talent</option>
-      <option value="4">Skills</option>
-    
-    </select>
-      <br>
-    <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" type="submit" name="button">GO</button>
-  </div>
-
-</div>
-   
-</div>
-</div>
-
-</fieldset>
-</form>
 
 
    

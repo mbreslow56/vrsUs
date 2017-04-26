@@ -10,40 +10,40 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       controller: function($rootScope, authFactory){
         $rootScope.currentUser = authFactory.currentUser;
         console.log(authFactory.currentUser)
-      } 
+      }
   })
     .state('battle', {
       url: '/battle',
       templateUrl: 'js/templates/battle.html',
       controller: function($rootScope, authFactory){
         $rootScope.currentUser = authFactory.currentUser;
-        console.log(authFactory.currentUser)
-      }	
+        console.log(authFactory.currentUser);
+      }
   })
     .state('unmatched', {
       url: '/unmatched',
       templateUrl: 'js/templates/unmatchedBattles.html',
-      controller: 'authCtrl'    
+      controller: 'authCtrl'
   })
     .state('challenge', {
       url: '/challenge',
       templateUrl: 'js/templates/joinUnmatched.html',
-      controller: 'authCtrl'    
+      controller: 'btlCtrl1'
   })
     .state('ongoing', {
       url: '/ongoing',
       templateUrl: 'js/templates/ongoingBattles.html',
-      controller: 'authCtrl'    
+      controller: 'authCtrl'
   })
     .state('create', {
       url: '/create',
       templateUrl: 'js/templates/createBattle.html',
-      controller: 'authCtrl'    
+      controller: 'btlCtrl1'
   })
     .state('join', {
       url: '/join',
       templateUrl: 'js/templates/join.html',
-      controller: 'authCtrl'		
+      controller: 'authCtrl'
   })
     .state('login', {
       url: '/login',
