@@ -11,7 +11,8 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="source_name">Battle name</label>
             <div class="col-md-4">
-              <input id="source_name" name="source_name" type="text" placeholder="Battle Name" class="form-control input-md">
+              <input id="source_name" name="source_name" ng-model="bName" type="text" placeholder="Battle Name" class="form-control input-md">
+
             </div>
           </div>
           <br />
@@ -31,8 +32,8 @@
  <h3> <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE !</a></h3>
         <!-- <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button> -->
         <br /> <br /> <br />
-       <!--  <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE!!</button> -->
 
+        <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE!!</button>
       </fieldset>
     </div>
   </div>

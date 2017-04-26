@@ -8,16 +8,16 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       url: '/home',
       templateUrl: 'js/templates/home.html',
       controller: function($rootScope, authFactory){
-        $rootScope.currentUser = authFactory.currentUser;
-        console.log(authFactory.currentUser)
+        $rootScope.currentUser = authFactory.currentUser.username;
+        console.log(authFactory.currentUser.username);
       }
   })
     .state('battle', {
       url: '/battle',
       templateUrl: 'js/templates/battle.html',
       controller: function($rootScope, authFactory){
-        $rootScope.currentUser = authFactory.currentUser;
-        console.log(authFactory.currentUser);
+        $rootScope.currentUser = authFactory.currentUser.username;
+        console.log(authFactory.currentUser.username);
       }
   })
     .state('unmatched', {
