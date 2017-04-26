@@ -1,4 +1,4 @@
-var app = angular.module("appName", ['ui.router']);
+var app = angular.module("appName", ['ui.router', 'youtube-embed']);
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
@@ -19,6 +19,26 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
         $rootScope.currentUser = authFactory.currentUser;
         console.log(authFactory.currentUser)
       }	
+  })
+    .state('unmatched', {
+      url: '/unmatched',
+      templateUrl: 'js/templates/unmatchedBattles.html',
+      controller: 'authCtrl'    
+  })
+    .state('challenge', {
+      url: '/challenge',
+      templateUrl: 'js/templates/joinUnmatched.html',
+      controller: 'authCtrl'    
+  })
+    .state('ongoing', {
+      url: '/ongoing',
+      templateUrl: 'js/templates/ongoingBattles.html',
+      controller: 'authCtrl'    
+  })
+    .state('create', {
+      url: '/create',
+      templateUrl: 'js/templates/createBattle.html',
+      controller: 'authCtrl'    
   })
     .state('join', {
       url: '/join',

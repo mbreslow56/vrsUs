@@ -7,7 +7,7 @@
         <span class="icon icon-bar"></span>
         <span class="icon icon-bar"></span>
       </button>
-      <a ui-sref="home" class="navbar-brand">VoUtr</a>
+      <a ui-sref="home" class="navbar-brand">voUtr</a>
     </div>
       <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -18,8 +18,9 @@
         </form>
         <div class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="battle"><span class="glyphicon glyphicon-plus"></span> Join Battle</a></li>
-          <li><a href="battle"><span class="glyphicon glyphicon-ok"></span> Create Battle</a></li>
+          <li><a href="ongoing"><span class="glyphicon glyphicon-plus"></span>Ongoing Battles</a></li>
+          <li><a href="unmatched"><span class="glyphicon glyphicon-plus"></span> Join Battle</a></li>
+          <li><a href="create"><span class="glyphicon glyphicon-ok"></span> Create Battle</a></li>
           <li class="active" ng-show="currentUser.username"><a href="#"><span class="glyphicon glyphicon-user"> {{ currentUser.username }}</span></a></li>
           <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class="glyphicon glyphicon-user"></span></a></li>
            
@@ -30,7 +31,7 @@
         <li><a href="#about" class="smoothScroll">My battles</a></li>
         <li><a href="#menu" class="smoothScroll">Account Settings</a></li>
         <li><a href="#team" class="smoothScroll">About us</a></li>
-        <li><a href="#gallery" class="smoothScroll">Browse video</a></li>
+        <li><a ui-sref="unmatched" class="smoothScroll">Browse Unmatched</a></li>
         <li><a href="#gallery" class="smoothScroll">Upload video</a></li>
         <li><a href="#contact" class="smoothScroll">Contact us</a></li>
          <li role="separator" class="divider"></li>

@@ -1,39 +1,36 @@
 <div class="container">	  
   <div class="row">
 
-	<div ng-controller="battleName">
-      <h2>{{ text }}</h2>
-    </div> 	
-	<div class="col-xs-6" ng-controller="battlePart1">
- 	  <h2>{{ text }}</h2>
- 	</div>
- 	<div class="col-xs-6" ng-controller="battlePart2">
- 	  <h2>{{ text }}</h2>
- 	</div>
-    <div class="col-md-6" ng-controller="video1"/>
-      <div class="videoWrapper">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vYlaLl9a6Rc" frameborder="0" allowfullscreen></iframe>
+	<div ng-controller="myCtrl">
+        <div class="text-center">
+          <h2>#iCharlton Dance Challenge</h2>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 wrapper">
+<!--               <label class="text-center"> First video </label> -->
+			  <h2> First video </h2>
+              <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="playerVars">
+              </youtube-video>
+              <button class="btn btn-danger" id="mybutton" ng-click = "pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
+              <button ng-show="showVotes" class="btn btn-success" id="vote1" ng-click="pauseSecond(bestPlayer2)">Vote!</button>
+            </div>
+            <div class="col-sm-6 wrapper">
+<!--               <label class="text-center"> Second video </label> -->
+			  <h2> Second Video </h2>
+              <youtube-video id="second" video-url="video2" player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'">
+              </youtube-video>
+              <button ng-hide="video2NotStarted" class="btn btn-danger" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
+              <button ng-show="showVotes" class="btn btn-success" id="vote2" ng-click="pauseSecond(bestPlayer2)">Vote!</button>
+            </div>
+            <script>
+              $(document).ready(function() {
+                $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
+              });
+            </script>
+          </div>
+        </div>
       </div>
-      Video 1: {{ text }}
-      <br>
-      <div class="voteButton">
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>oUte
-        </button>
-      </div>
-	</div>
-	<div class="col-md-6" ng-controller="video2"/>
-	  <div class="videoWrapper">
-	    <iframe width="560" height="315" src="https://www.youtube.com/embed/0WSHTZl0j0E" frameborder="0" allowfullscreen></iframe>
-      </div>
-      Video 2: {{ text }}
-      <br>
-      <div class="voteButton">
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>oUte
-        </button>
-      </div>
-	</div>
   </div>
 </div>
 	<br><br>

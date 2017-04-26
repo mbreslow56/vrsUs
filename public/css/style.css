@@ -5,6 +5,11 @@ body {
     font-weight: 300;
   }
 
+input[type="text"] {
+  width: 70%;
+  margin: 0 auto;
+}
+
 html,body {
   width: 100%;
   overflow-x: hidden;
