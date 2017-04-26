@@ -11,7 +11,7 @@
         <h4>Challenger name: <input type="text" placeholder="Challenger name"></h4>
         <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button>
         <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
-        <button class="btn btn-warning" type="submit" name="button">CHALLENGE</button>
+        <button class="btn btn-warning" ng-click="foundMatch()" type="submit" name="button">CHALLENGE</button>
     </form>
     </div>
   </div>
