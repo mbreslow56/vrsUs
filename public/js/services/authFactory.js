@@ -4,7 +4,7 @@ app.factory('authFactory', function($http){
   auth.join = function(user) {
   	return $http.post('/users/join', user)
   	  .then(function(response){
-  	  	auth.currentUser.username = angular.copy(response.data)
+  	  	auth.currentUser = angular.copy(response.data)
   	  });
   };
 
@@ -12,7 +12,7 @@ app.factory('authFactory', function($http){
   	return $http.post('/users/login', user)
   	  .then(function(response){
   	  	console.log(response.data)
-  	  	auth.currentUser.username = angular.copy(response.data)
+  	  	auth.currentUser = angular.copy(response.data)
   	  });
   };
 

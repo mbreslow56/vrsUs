@@ -9,7 +9,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'js/templates/home.html',
       controller: function($rootScope, authFactory){
         $rootScope.currentUser = authFactory.currentUser.username;
-        console.log(authFactory.currentUser.username);
+        console.log(authFactory.currentUser);
       }
   })
     .state('battle', {
