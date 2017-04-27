@@ -56,11 +56,8 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
          console.log("added ongoing battle. ");
          $scope.updateOngoing();
        });// add ongoing callback
-<<<<<<< HEAD
-     } // getCurrentUser callback
-=======
+
      }) // getCurrentUser callback
->>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
    }; //foundMatch   NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
    $scope.voted = function (numVideo) {
 
@@ -70,11 +67,9 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
      var recordObj = {
        battleName: battle.battleName,
        date: new Date(),
-<<<<<<< HEAD
-       voteGoal: battle.voteGoal;
-=======
+
        voteGoal: battle.voteGoal
->>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
+
      }// solid parameters on recordObj
      if (battle.video1Votes > battle.video2Votes) {
        recordObj.winner = battle.user1;
@@ -118,11 +113,7 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
   } //getVidId
 
   $scope.updateUnmatched = function() {
-<<<<<<< HEAD
-    btlFactory.getAllUnmtached().then(function(result){
-=======
     btlFactory.getAllUnmatched().then(function(result){
->>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
       $scope.allUnmatched = result;
     }, function(error){
       throw (error);
