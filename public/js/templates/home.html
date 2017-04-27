@@ -10,21 +10,21 @@
             Your Artists. Your Choice. <br>
             The place for artists to put their talent in the ultimate competition platform. The place for voters to have their voices heard.
           </p>
-          <a href="#battles" ng-show="currentUser.username" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
+          <a href="#battles" ng-show="currentUser" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
             Check it out
           </a>
-          <a ui-sref="join" ng-hide="currentUser.username" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
+          <a ui-sref="join" ng-hide="currentUser" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
             Get Started
           </a>
-          <a ui-sref="login" ng-hide="currentUser.username" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
-            Login / Join 
+          <a ui-sref="login" ng-hide="currentUser" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.0s">
+            Login
           </a>
         </div>
       </div>
     </div>
 </section>
 
-<!-- <div ng-show="currentUser.username"> -->
+<div ng-show="currentUser">
 <section id="gallery" class="parallax-section">
   <div class="container">
     <div class="row">
