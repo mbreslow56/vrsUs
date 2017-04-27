@@ -5,12 +5,10 @@ var Battle = require("../models/battleModel");
 var Record = require("../models/recordModel");
 
 router.get('/unjoined', function(req, res, next){
-  console.log("btlroutesGet");
   Unmet.find(function(error, result){
     if (error) {
       throw (error);
     } else {
-      console.log(result);
       res.send(result);
     } //else
   })// callback
