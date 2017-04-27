@@ -6,6 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
+var btlRoutes = require('./routes/btlRoutes');
 
 mongoose.connect('mongodb://localhost/voutr');
 
@@ -25,15 +26,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //     //code to check database goes here
 
 //     //code to create JWT goes here
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
 //     return done(null, profile)
 //   }
 // ));
 
 //Configure passport and session middleware
-app.use(expressSession({ 
-  secret: 'thisIsASecret', 
-  resave: false, 
+app.use(expressSession({
+  secret: 'thisIsASecret',
+  resave: false,
   saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,9 +54,13 @@ passport.deserializeUser(User.deserializeUser());
 //that it should use the routes in 'beerRoutes'
 //and those are in our new beerRoutes.js file
 app.use('/users', userRoutes);
+app.use('/btls', btlRoutes);
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
 app.all('[^.]+', function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
@@ -69,4 +78,3 @@ app.use(function(err, req, res, next) {
 app.listen(8008, function() {
   console.log("8008. voUtr bitch!");
 })
-
