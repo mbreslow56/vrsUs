@@ -110,7 +110,7 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
   } //getVidId
 
   $scope.updateUnmatched = function() {
-    btlFactory.getAllUnmtached().then(function(result){
+    btlFactory.getAllUnmatched().then(function(result){
       $scope.allUnmatched = result;
     }, function(error){
       throw (error);
