@@ -52,7 +52,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   })
       .state('logout', {
       url: '/logout',
-      templateUrl: 'js/templates/battle.html',
+      templateUrl: 'js/templates/home.html',
       controller: 'authCtrl'
   })
 });
