@@ -232,7 +232,7 @@ a:focus {
     color: #757575;
     font-size: 19px;
     font-weight: 300;
-    line-height: 50px;
+  
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
