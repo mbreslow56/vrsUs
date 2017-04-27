@@ -23,7 +23,7 @@
                     </ul>
 
                     <!-- iso box section -->
-                    <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+                    <!-- <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
                       <div class="iso-box-wrapper col4-iso-box">
 
                         <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
@@ -111,7 +111,7 @@
                         </div>
 
                        </div>
-                    </div>
+                    </div> -->
 
           </div>
 
@@ -120,13 +120,15 @@
     </div>
 
     <section >
-      <h1> new stuff </h1>JJJJJJ
-      {{allUnmatched}}
-      <div ng-repeat = "vid in allUnmatched track by $index">
+      <ul ng-repeat = "vid in allUnmatched track by $index">
         <li>
-          hello
-        </li>
-      </div>
+          <h3 style="font-weight:bold"> {{$index+1}}) Battle name: {{vid.battleName}} </h3>
+          <h4> number of votes to win: {{vid.numVotes}}</h5>
+
+          <iframe width="560" height="315" ng-src="{{trustSrc(vid.video)}}"
+  frameborder="0" allowfullscreen></iframe>
+       </li>
+      </ul>
     </section>
   </div>
 </section>
