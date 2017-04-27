@@ -26,11 +26,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //     //code to check database goes here
 
 //     //code to create JWT goes here
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
 //     return done(null, profile)
 //   }
 // ));
@@ -57,10 +52,7 @@ app.use('/users', userRoutes);
 app.use('/btls', btlRoutes);
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 7fa4284437ddcbb8c7919dfcac55eeb6427610cb
 app.all('[^.]+', function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
