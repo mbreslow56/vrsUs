@@ -9,9 +9,9 @@ var recordSchema = new Schema ({
   winner: {type: Schema.Types.ObjectId, ref:"User"},
   loser: {type: Schema.Types.ObjectId, ref:"User"},
   winnerVotes: Number,
-  winnerVideo: {type: Schema.Types.ObjectId, ref:"Video"}, // url? string??
+  winnerVideo: String
   loserVotes: Number,
-  loserVideo: {type: Schema.Types.ObjectId, ref:"Video"} // url? string??
+  loserVideo: String
 });
 
 
