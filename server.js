@@ -14,6 +14,22 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// passport.use(new FacebookStrategy({
+//     clientID: '671277003082097',
+//     clientSecret: '3587b03e9bd14c9b0b4ca0f373904dd3',
+//     callbackURL: 'http://localhost:8008/auth/facebook/callback',
+//     profileFields: ['email', 'displayName']
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+
+//     //code to check database goes here
+
+//     //code to create JWT goes here
+    
+//     return done(null, profile)
+//   }
+// ));
+
 //Configure passport and session middleware
 app.use(expressSession({ 
   secret: 'thisIsASecret', 
@@ -36,8 +52,8 @@ app.use('/users', userRoutes);
 
 
 
-app.all('*', function(req, res) {
-  res.sendFile(__dirname + "/public/index.html")
+app.all('[^.]+', function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 // main error handler

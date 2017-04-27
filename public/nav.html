@@ -22,9 +22,10 @@
          
          <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
           <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li>
-          <li><a href="ongoing"><span class="fa fa-plus"></span> Ongoing Battles</a></li>
-          <li><a href="unmatched"><span class="fa fa-plus"></span> Join Battle</a></li>
-          <li><a href="create"><span class="fa fa-bolt"></span> Create Battle</a></li>
+        <li ng-hide="currentUser"><a href="login">Login</a></li>
+          <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span> Ongoing Battles</a></li>
+          <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Join Battle</a></li>
+          <li ng-show="currentUser"><a href="create"><span class="fa fa-bolt"></span> Create Battle</a></li>
 
 
         <!-- <ul class="nav navbar-nav navbar-right"> -->
@@ -36,32 +37,31 @@
 
   <span class="caret"></span></i>
   <ul class="dropdown-menu">
-          
-<!--            
+
+<!--
  <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
   <span class="caret"></span></i>
  <!--  <ul class="dropdown-menu"> -->
-     <li><a href="#feature" class="smoothScroll">My profile</a></li>
-        <li><a href="#about" class="smoothScroll">My battles</a></li>
-        
-        <li><a href="create" class="smoothScroll">Upload video</a></li>
+<!--      <li><a href="#feature" class="smoothScroll">My profile</a></li>
+        <li><a href="#about" class="smoothScroll">My battles</a></li> -->
+        <li><a href="create" class="smoothScroll">Create Battle</a></li>
         <li><a ui-sref="unmatched" class="smoothScroll">Browse Unmatched</a>
         </li>
         
         
          <li role="separator" class="divider"></li>
-         <li><a href="#menu" class="smoothScroll">Account Settings</a></li>
-         <li><a href="#contact" class="smoothScroll">Contact us</a></li>
-         <li><a href="#team" class="smoothScroll">About us</a></li>
+         <!-- <li><a href="#menu" class="smoothScroll">Account Settings</a></li> -->
+         <li><a href="home#contact" class="smoothScroll">Contact us</a></li>
+<!--          <li><a href="#team" class="smoothScroll">About us</a></li> -->
            <li role="separator" class="divider"></li>
-              <li><a ui-sref="login" ng-hide="currentUser.username">Log In</a></li>
-              <li><a ui-sref="join" ng-hide="currentUser.username">Join</a></li>
-              <li><a ui-sref="logout" ng-show="currentUser.username" ng-click="logout()">Log Out</a></li>
+              <li><a ui-sref="login" ng-hide="currentUser">Log In</a></li>
+              <li><a ui-sref="join" ng-hide="currentUser">Join</a></li>
+              <li><a href="logout" ng-show="currentUser" ng-click="logout()">Log Out</a></li>
   </ul>
 
-   <button ui-sref="login"> <i class="fa fa-user fa-2x">
-          <li class="active" ng-show="currentUser.username"> <h4>{{ currentUser.username }}</h4></li>
-          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"></a></li></i></button>
+   <button ui-sref="login" ng-show="currentUser"> <i class="fa fa-user fa-2x">
+          <li class="active" ng-show="currentUser"> <h4>{{ currentUser }}</h4></li>
+          <li class="active" ng-hide="currentUser"><a ui-sref="login"></a></li></i></button>
 
           <!-- <li><a href="battle">      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <button type="button" id="glyphicon" class="btn btn-default" aria-label="Left Align">

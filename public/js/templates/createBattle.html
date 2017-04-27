@@ -11,31 +11,41 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="source_name">Battle name</label>
             <div class="col-md-4">
-              <input id="source_name" name="source_name" type="text" placeholder="Battle Name" class="form-control input-md">
+              <input id="source_name" name="source_name" ng-model="bName" type="text" placeholder="Battle Name" class="form-control input-md">
+
             </div>
           </div>
           <br />
 
-                    <!-- Text input-->
+          <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="source_url">Video URL</label>
+            <label class="col-md-4 control-label" for="source_url">URL</label>
             <div class="col-md-4">
               <input id="source_url" ng-model="vidtext" name="source_url" type="text" placeholder="URL of the video">
-              <a href="#feature" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="getVidId()">preview</a> 
-              <br>
+              <button type="button" class="wow fadeInUp btn btn-info hvr-bounce-to-top smoothScroll" id="previewbutton"  ng-click="getVidId()" name="button">preview</button> 
 
-             
+
+
+
+              <br />
               <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
             </div>
           </div>
- <h3> <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE !</a></h3>
+
+          <br />
+          <!-- Text input-->
+          <div class="form-group">
+            <br /><br />
+            <label class="col-md-4 control-label" for="source_url">Vote limit</label>
+            <div class="col-md-4">
+              <input id="source_vote" ng-model="numVotes" name="source_vote" type="text" placeholder="number of votes to win">
+            </div>
+          </div>
+
         <!-- <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button> -->
         <br /> <br /> <br />
-       <!--  <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE!!</button> -->
 
+        <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" ng-click="addUnjoined()" type="submit" name="button">TO BATTLE!!</button>
       </fieldset>
     </div>
   </div>
-
-
-   

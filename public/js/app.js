@@ -8,16 +8,16 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       url: '/home',
       templateUrl: 'js/templates/home.html',
       controller: function($rootScope, authFactory){
-        $rootScope.currentUser = authFactory.currentUser;
-        console.log(authFactory.currentUser)
+        $rootScope.currentUser = authFactory.currentUser.username;
+        console.log(authFactory.currentUser);
       }
   })
     .state('battle', {
       url: '/battle',
       templateUrl: 'js/templates/battle.html',
       controller: function($rootScope, authFactory){
-        $rootScope.currentUser = authFactory.currentUser;
-        console.log(authFactory.currentUser);
+        $rootScope.currentUser = authFactory.currentUser.username;
+        console.log(authFactory.currentUser.username);
       }
   })
     .state('unmatched', {
@@ -52,7 +52,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   })
       .state('logout', {
       url: '/logout',
-      templateUrl: 'js/templates/battle.html',
+      templateUrl: 'js/templates/home.html',
       controller: 'authCtrl'
   })
 });
