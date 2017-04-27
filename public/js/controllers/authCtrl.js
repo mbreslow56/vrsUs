@@ -1,5 +1,19 @@
-app.controller('authCtrl', function($scope, authFactory, $state) {  
+app.controller('authCtrl', function($scope, authFactory, $state) {
   $scope.join = function() {
+    // $scope.user.artistRating = {
+    //   wins: 0,
+    //   losses: 0,
+    //   total: 0
+    // };
+    // $scope.user.voterRating = {
+    //   wins: 0,
+    //   losses: 0,
+    //   total: 0
+    // };
+    $scope.user.artistWins = 0;
+    $scope.user.artistLosses = 0;
+    $scope.user.voterWins = 0;
+    $scope.user.voterLosses = 0;
     authFactory.join($scope.user)
       .then(function() {
         $state.go('home');
@@ -43,5 +57,5 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
 //      fjs.parentNode.insertBefore(js, fjs);
 //    }(document, 'script', 'facebook-jssdk'));
 // </script>
-// 
+//
 // secret: 3587b03e9bd14c9b0b4ca0f373904dd3

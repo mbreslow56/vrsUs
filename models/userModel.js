@@ -2,17 +2,14 @@ var mongoose = require('mongoose');
 var plm = require('passport-local-mongoose');
 var Schema = mongoose.Schema;
 
-var ratingSchema = new Schema ({
-  wins: Number,
-  losses: Number,
-  total: Number
-});
 
 var UserSchema =  new Schema ({
    username: String,
    password: String,
-   artistRating: ratingSchema,
-   voterRating: ratingSchema,
+   artistWins :Number,
+   artistLosses :Number,
+   voterWins:Number,
+   voterLosses :Number,
    videos: [{type: Schema.Types.ObjectId, ref:"Video"}],//videos populate array
    unmetBattles: [{type: Schema.Types.ObjectId, ref:"Unmet"}], //unmetBattles
    ongoingBattles: [{type: Schema.Types.ObjectId, ref:"Battle"}], //battle
