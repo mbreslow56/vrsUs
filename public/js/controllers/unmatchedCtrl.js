@@ -1,15 +1,24 @@
 app.controller('unmatchedCtrl', function($scope, btlFactory) {
   console.log("unmatched controller");
+  $scope.allUnmatched = [];
 
+  $scope.unmatchedUpdate = function(){
   btlFactory.getAllUnmatched().then(function(result){
-    console.log("hi");
+    $scope.allUnmatched = result;
+    console.log($scope.allUnmatched);
   });
+}
 
-  // $scope.video1 = 'https://www.youtube.com/watch?v=bvZolRM7ifA&t=15s';
-  // $scope.video2 = 'https://www.youtube.com/watch?v=-z9NwrIj6oA';
+  $scope.unmatchedUpdate();
+// console.log("not working: ");
+// console.log($scope.allUnmatched);
 
 
-  $scope.videos = [];
+// console.log($scope.allUnmatched.length);
+// console.log("Asdsad");
+// console.log($scope.allUnmatched.length);
+
+
 
 
 //
