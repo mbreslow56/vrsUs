@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="templates/join.html">
   <link rel="stylesheet" href="templates/login.html">
-  <link rel="stylesheet" href="templates/battle.html">   
+  <link rel="stylesheet" href="templates/battle.html">
   <link rel="stylesheet" href="templates/createbattle.html">
   <link rel="stylesheet" href="templates/joinunmatched.html">
   <link rel="stylesheet" href="templates/ongoingbattle.html">
@@ -32,21 +32,122 @@
   <base href="/">
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
-  <nav-directive></nav-directive>
+  <!-- <nav-directive></nav-directive> -->
+
+<!-- NOTE: NAV is here -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <a ui-sref="home" class="navbar-brand">voUtr</a>
+    </div>
+      <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <i class="fa fa-search fa-1x"></i>
+            <input type="text" class="form-control" placeholder="Find a battle">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+
+        <div class="nav navbar-nav navbar-right">
+
+         <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
+          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li>
+        <li ng-hide="currentUser.username"><a href="login">Login</a></li>
+          <li ng-show="currentUser.username"><a href="ongoing"><span class="fa fa-plus"></span> Ongoing Battles</a></li>
+          <li ng-show="currentUser.username"><a href="unmatched"><span class="fa fa-plus"></span> Join Battle</a></li>
+          <li ng-show="currentUser.username"><a href="create"><span class="fa fa-bolt"></span> Create Battle</a></li>
+
+
+        <!-- <ul class="nav navbar-nav navbar-right"> -->
+
+
+
+<i class="fa fa-bars fa-3x" data-toggle="dropdown">
+<!--  <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
+
+  <span class="caret"></span></i>
+  <ul class="dropdown-menu">
+
+<!--
+ <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
+  <span class="caret"></span></i>
+ <!--  <ul class="dropdown-menu"> -->
+<!--      <li><a href="#feature" class="smoothScroll">My profile</a></li>
+        <li><a href="#about" class="smoothScroll">My battles</a></li> -->
+        <li><a href="create" class="smoothScroll">Create Battle</a></li>
+        <li><a ui-sref="unmatched" class="smoothScroll">Browse Unmatched</a>
+        </li>
+
+
+         <li role="separator" class="divider"></li>
+         <!-- <li><a href="#menu" class="smoothScroll">Account Settings</a></li> -->
+         <li><a href="home#contact" class="smoothScroll">Contact us</a></li>
+<!--          <li><a href="#team" class="smoothScroll">About us</a></li> -->
+           <li role="separator" class="divider"></li>
+              <li><a ui-sref="login" ng-hide="currentUser.username">Log In</a></li>
+              <li><a ui-sref="join" ng-hide="currentUser.username">Join</a></li>
+              <li><a href="logout" ng-show="currentUser.username" ng-click="logout()">Log Out</a></li>
+  </ul>
+
+   <button ui-sref="login" ng-show="currentUser.username"> <i class="fa fa-user fa-2x">
+          <li class="active" ng-show="currentUser.username"> <h4>{{ currentUser.username }}</h4></li>
+          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"></a></li></i></button>
+
+          <!-- <li><a href="battle">      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <button type="button" id="glyphicon" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon glyphicon-align-justify" aria-hidden="true"></span></a></li> -->
+          <!-- <li class="active" ng-show="currentUser.username"><a href="#"><span class="glyphicon glyphicon-user"> {{ currentUser.username }}</span></a></li>
+          <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class="glyphicon glyphicon-user"></span></a></li> -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOTE: END OF NAV is here -->
+
+
 <!-- Preloader section -->
   <div class="preloader">
     <div class="sk-spinner sk-spinner-pulse"></div>
   </div>
   <div ng-controller='authCtrl'>
     <div ng-controller='masterCtrl'>
-      
+
     </div>
   </div>
 </div>
 <div ui-view></div>
 <!-- javascript js -->
 
-<footer-directive></footer-directive>
+<!-- <footer-directive></footer-directive> -->
+<!-- Copyright section -->
+<section id="copyright">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <p>Copyright © 2017 Voutr Company</p>
+      </div>
+
+      <div class="col-md-4 col-sm-4 text-right">
+        <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <script src="/progressbar.js/dist/progressbar.js"></script>
 <script src="angular/angular.js"></script>
@@ -65,6 +166,7 @@
 <script src="js/controllers/authCtrl.js"></script>
 <script src="js/controllers/masterCtrl.js"></script>
 <script src="js/controllers/btlctrl1.js"></script>
+<script src="js/controllers/unmatchedCtrl.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
