@@ -18,7 +18,7 @@ app.factory('btlFactory', function($http){
   }// deleteUnmatched
 
   var getAllUnmatched = function() {
-    return $http.get('/btls/unmatched').then(function(result){
+    return $http.get('/btls/unjoined').then(function(result){
       return result.data;
     }, function(error){
     throw (error);

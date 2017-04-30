@@ -2,13 +2,10 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
 
      /*$scope.getUnjoined = function() {
-
     }; //get all unjoined battles from server. also: //unjoinedUpdate
     $scope.getOngoing = function(){
-
     }; // get all ongoing battles. MIGHT RELOCATE
     $scope.addOngoing = function(){
-
     }; // add a new ongoing battle. delete corresponding unjoined instance NOTE: will we even need these? */
     $scope.addUnjoined = function() {
       var user = authFactory.getCurrentUser().then(function(user){

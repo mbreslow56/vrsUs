@@ -8,7 +8,7 @@ var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
 var btlRoutes = require('./routes/btlRoutes');
 
-mongoose.connect('mongodb://localhost/voutr');
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/voutr');
 
 var app = express();
 
@@ -67,6 +67,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(8008, function() {
-  console.log("8008. voUtr bitch!");
+// app.listen(process.env.PORT || '8080');
+
+app.listen(8008, function(){
+  console.log("It's sex o'clock")
 })
