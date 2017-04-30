@@ -1,21 +1,44 @@
 <!-- <head>
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 </head> TESTING -->
+
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="page-header">
-        <h2>Join this battle for glory and lolz</h2>
-        <h5>Battle name: {{featuredVid.battleName}}</h5>
-        <h5>url: {{featuredVid.video}}</h5>
-        <h5>votes: {{featuredVid.numVotes}}</h5>
+    <div class="col-md-9 col-md-offset-1">
+        <div class="headline">
+          <h3>
+            <i class="icon-star opacity-large"></i>
+            <i class="icon-star opacity-medium"></i>
+            <i class="icon-star opacity-medium"></i>
+            <i class="icon-star opacity-small"></i>
+            &nbsp;
+            {{featuredVid.battleName}}
+            &nbsp;
+            <i class="icon-star opacity-small"></i>
+            <i class="icon-star opacity-medium"></i>
+            <i class="icon-star opacity-medium"></i>
+            <i class="icon-star opacity-large"></i>
+          </h3>
+        </div>
+        <br />
+        <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6 join-thumb">
+          <br />
+          <h5> votes to win: {{featuredVid.numVotes}}</h5>
+          <div class="gallery-thumb">
+              <img ng-src="{{thumb}}" class="fluid-img" alt="Gallery">
+          </div>
+        </div>
+
+
+
+        <div class="col-md-5 join-content">
+          <form> <br />
+            <h4> Enter a YouTube url to compete with: </h4> <br /> <input type="text" class="form-control" ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" class="previewbutton" name="button">preview</button>
+            <button class="btn btn-warning" ng-click="foundMatch(featuredVid)" type="submit" name="button">CHALLENGE</button>
+            <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/> <br /> <br />
+        </form>
       </div>
-      <form>
-        <!-- <h4>Challenger name: <input type="text" placeholder="Challenger name"></h4> -->
-        <h4>Enter a YouTube url to compete with: <input type="text"  ng-model="vidtext" placeholder="video URL"><button type="button" ng-click="getVidId()" name="button">preview</button>
-        <img src="https://ytimg.googleusercontent.com/vi/{{vidid}}/default.jpg"/></h4>
-        <button class="btn btn-warning" ng-click="foundMatch()" type="submit" name="button">CHALLENGE</button>
-    </form>
     </div>
   </div>
 </div>

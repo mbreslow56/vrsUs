@@ -1,6 +1,4 @@
 app.controller('ongoingCtrl', function($scope, btlFactory) {
-  console.log("ongoingCtrl");
-
     var getThumbnail = (function () {
     var video, results;
 
@@ -28,23 +26,5 @@ $scope.thumb2 = getThumbnail.thumb('https://www.youtube.com/watch?v=-z9NwrIj6oA'
 
 console.log($scope.thumb1);
 console.log($scope.thumb2);
-
-//  $scope.allUnmatched = [];
-
-//   $scope.unmatchedUpdate = function(){
-//   btlFactory.getAllUnmatched().then(function(result){
-//     $scope.allUnmatched = result;
-//     for (var i = 0; i < result.length; i++) {
-//       console.log(result[i].video);
-//       var url = result[i].video.replace("watch?v=", "embed/");
-//       console.log(url);
-//       $scope.allUnmatched[i].video = url;
-//     }
-//     //console.log($scope.allUnmatched);
-//   });
-// }
-//
-//   $scope.unmatchedUpdate();
-
 
 });
