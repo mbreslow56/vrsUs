@@ -1,16 +1,16 @@
 <section id="gallery" class="parallax-section">
-  <div class="container">
+  <div ng-controller="ongoingCtrl" class="container">
     <div class="row">
 
       <div class="col-md-12">
 
        <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s" id="battles">
-            <h2>Featured Battles</h2>
+         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+            <h2>Ongoing Battles</h2>
             <h4>Vote for the winner and raise your rating!</h4>
         </div>
       </div>
-        
+
           <!-- iso section -->
           <div class="iso-section wow fadeInUp" data-wow-delay="0.6s">
 
@@ -22,104 +22,39 @@
                         <li><a href="#" class="opc-main-bg" data-filter=".dinner">Skills</a></li>
                     </ul>
 
+
+
                     <!-- iso box section -->
                     <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+                      <h3>VS</h3>
                       <div class="iso-box-wrapper col4-iso-box">
 
                         <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
                           <div class="gallery-thumb">
                             <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                             <a ui-sref="battle"><img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
+                              <img ng-src="{{thumb1}}" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
-                                    <i class="fa fa-search"></i></a>
+                                    <i class="fa fa-picture"></i>
                                   </div>
                                 </div>
                             </a>
                           </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3> <a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
                         </div>
+
+
 
                         <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
                           <div class="gallery-thumb">
                             <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
+                              <img ng-src="{{thumb2}}" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-picture"></i>
                                   </div>
                                 </div>
                             </a>
                           </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3><a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
-                        </div>
-
-                        <div class="iso-box dinner col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
-                          <div class="gallery-thumb">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3><a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
-                        </div>
-
-                        <div class="iso-box breakfast col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
-                          <div class="gallery-thumb">
-                           <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3><a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
-                        </div>
-
-                        <div class="iso-box lunch col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
-                          <div class="gallery-thumb">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3><a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
-                        </div>
-
-                        <div class="iso-box pizza lunch col-md-4 col-sm-6">
-                        <h4><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">Battle Name</a></h4>
-                          <div class="gallery-thumb">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img src="http://www.roadtovr.com/wp-content/uploads/2015/03/youtube-logo2.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h5><a ui-sref="battle" data-filter="*" class="selected opc-main-bg">User1 vs User2</a></h5>
-                          <h3><a ui-sref="battle" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">VOTE</a></h3>
                         </div>
 
                        </div>
@@ -132,3 +67,4 @@
     </div>
   </div>
 </section>
+
