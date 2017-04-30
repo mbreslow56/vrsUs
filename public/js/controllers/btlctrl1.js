@@ -1,4 +1,4 @@
-app.controller( 'btlCtrl1', function($scope,$stateParams, authFactory, btlFactory){
+app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
   console.log("state param is: ", $stateParams.id);
   $scope.updateUnmatched = function() {
@@ -79,7 +79,8 @@ btlFactory.getUnmatched($stateParams.id).then(function(result){
         //console.log("number of votes: " + umObj.numVotes);
         btlFactory.addUnmatched(umObj).then(function(){
           $scope.updateUnmatched();
-          console.log("successfully joined");
+          alert("successfully opened a new battle!!");
+          $location.path('/unmatched');
         });
 
 
