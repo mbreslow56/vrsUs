@@ -114,6 +114,7 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
 
   $scope.updateUnmatched = function() {
     btlFactory.getAllUnmatched().then(function(result){
+      console.log("returning to the factory is", result);
       $scope.allUnmatched = result;
     }, function(error){
       throw (error);
