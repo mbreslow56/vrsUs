@@ -1,6 +1,7 @@
-app.controller( 'btlCtrl1', function($scope,$stateParams, authFactory, btlFactory){
+app.controller( 'btlCtrl1', function($scope, $stateParams, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
   console.log("state param is: ", $stateParams.id);
+
   $scope.updateUnmatched = function() {
     btlFactory.getAllUnmatched().then(function(result){
       $scope.allUnmatched = result;
@@ -25,17 +26,6 @@ app.controller( 'btlCtrl1', function($scope,$stateParams, authFactory, btlFactor
     }); // promise callbacks
   } //update ongoing battles
 
-//   $scope.getVideoById = function(id){
-//     if ($scope.updateUnmatched() === 3) {
-//     console.log("all unmatched arr:", $scope.allUnmatched);
-//       for (var i=0;i<$scope.allUnmatched.length;i++) {
-//         if (id===$scope.allUnmatched[i]._id) {
-//           return $scope.allUnmatched[i];
-//         }
-//       };
-//       throw error("no video even though we just clicked it");
-//     };
-// }
 
 
 

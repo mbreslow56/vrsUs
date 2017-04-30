@@ -1,5 +1,6 @@
 var app = angular.module("appName", ['ui.router', 'youtube-embed']);
 
+
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');
@@ -23,7 +24,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     .state('unmatched', {
       url: '/unmatched',
       templateUrl: 'js/templates/unmatchedBattles.html',
-      controller: 'authCtrl'
+      controller: 'unmatchedCtrl'
   })
     .state('challenge', {
       url: '/challenge/:id',
