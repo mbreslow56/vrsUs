@@ -31,6 +31,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
 
 btlFactory.getUnmatched($stateParams.id).then(function(result){
   $scope.featuredVid = result;
+  $scope.thumb = $scope.getThumb(result.video, 'small');
   console.log("this is the featured vid ", $scope.featuredVid);
 }, function(error){
   throw error;
