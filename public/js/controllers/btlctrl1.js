@@ -2,13 +2,10 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
 
      /*$scope.getUnjoined = function() {
-
     }; //get all unjoined battles from server. also: //unjoinedUpdate
     $scope.getOngoing = function(){
-
     }; // get all ongoing battles. MIGHT RELOCATE
     $scope.addOngoing = function(){
-
     }; // add a new ongoing battle. delete corresponding unjoined instance NOTE: will we even need these? */
     $scope.addUnjoined = function() {
       var user = authFactory.getCurrentUser().then(function(user){
@@ -56,6 +53,7 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
          console.log("added ongoing battle. ");
          $scope.updateOngoing();
        });// add ongoing callback
+
      }) // getCurrentUser callback
    }; //foundMatch   NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
    $scope.voted = function (numVideo) {
@@ -66,7 +64,9 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
      var recordObj = {
        battleName: battle.battleName,
        date: new Date(),
+
        voteGoal: battle.voteGoal
+
      }// solid parameters on recordObj
      if (battle.video1Votes > battle.video2Votes) {
        recordObj.winner = battle.user1;
