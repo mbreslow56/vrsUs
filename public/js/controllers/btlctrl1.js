@@ -82,7 +82,7 @@ btlFactory.getUnmatched($stateParams.id).then(function(result){
 
     $scope.foundMatch = function(unmatched) {
       var user = authFactory.getCurrentUser().then(function(user){
-       authFactory.addOngoing();
+      //  authFactory.addOngoing();
        var ongoingObj = {
          battleName: unmatched.battleName,
          voteGoal: unmatched.numVotes,
