@@ -26,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //     //code to check database goes here
 
 //     //code to create JWT goes here
-
 //     return done(null, profile)
 //   }
 // ));
@@ -51,6 +50,7 @@ passport.deserializeUser(User.deserializeUser());
 //and those are in our new beerRoutes.js file
 app.use('/users', userRoutes);
 app.use('/btls', btlRoutes);
+
 
 
 app.all('[^.]+', function(req, res) {
