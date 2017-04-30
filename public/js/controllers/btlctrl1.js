@@ -102,8 +102,9 @@ btlFactory.getUnmatched($stateParams.id).then(function(result){
            $scope.updateUnmatched();
            // NOTE maybe add more functionality here?
          }); // deleting callback
-         console.log("added ongoing battle. ");
+         alert("added ongoing battle. ");
          $scope.updateOngoing();
+         $location.path('/ongoing');
        });// add ongoing callback
 
      }) // getCurrentUser callback
