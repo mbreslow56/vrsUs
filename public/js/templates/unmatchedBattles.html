@@ -1,5 +1,5 @@
 <section id="gallery" class="parallax-section">
-  <div ng-controller="unmatchedCtrl" class="container">
+  <div class="container">
     <div class="row">
 
       <div class="col-md-12">
@@ -123,13 +123,13 @@
       <ul ng-repeat = "vid in allUnmatched track by $index">
         <li>
           <h3 style="font-weight:bold"> {{$index+1}}) Battle name: {{vid.battleName}} </h3>
-          <h4> number of votes to win: {{vid.numVotes}}</h5>
+          <h4> number of votes to win: {{vid.numVotes}}</h5> <br />
 
-          <iframe width="560" height="315" ng-src="{{trustSrc(vid.video)}}"
-  frameborder="0" allowfullscreen></iframe>
-          ID IS: {{vid._id}}
+          <iframe width="400" height="220" ng-src="{{trustSrc(vid.video)}}"
+  frameborder="0" allowfullscreen></iframe> <br />
           <!-- <a ui-sref="beer({beerParam: beer, id: beer._id})">Reviews</a> -->
-        <a ui-sref="challenge({id: vid._id})"> Join </a>
+        <a ui-sref="challenge({id: vid._id})" class="hrefbutton"> Join </a>
+        <hr />
        </li>
       </ul>
     </section>
