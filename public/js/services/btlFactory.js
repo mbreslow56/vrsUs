@@ -1,4 +1,12 @@
 app.factory('btlFactory', function($http){
+  var getUnmatched = function(id) {
+    return $http.get('/btls/unjoined/' + id)
+      .then(function(response) {
+        return response.data;
+      }, function(err) {
+          console.error(err);
+      });
+  }
   var addUnmatched = function(btl) {
     return $http.post('/btls/unjoined', btl)
     .then(function(response){
@@ -72,6 +80,7 @@ var addRecord = function(record){
     addUnmatched: addUnmatched,
     deleteUnmatched: deleteUnmatched,
     getAllUnmatched: getAllUnmatched,
+    getUnmatched: getUnmatched,
     addOnGoing: addOnGoing,
     deleteOngoing: deleteOngoing,
     getAllOngoing: getAllOngoing,
