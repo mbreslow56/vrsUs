@@ -25,10 +25,12 @@
 
 
                     <!-- iso box section -->
+                  <div ng-controller="progressCtrl" id="progress">  
                     <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
-                      <h3>VS</h3>
+                      <h2>VS</h2>
                       <div class="iso-box-wrapper col4-iso-box">
-
+                        <div class="loading">
+    <div class="loading-progress"></div>
                         <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a ui-sref="battle" data-lightbox-gallery="food-gallery">
@@ -56,7 +58,8 @@
                             </a>
                           </div>
                         </div>
-
+<!-- control div -->
+</div>
                        </div>
                     </div>
 
@@ -67,4 +70,3 @@
     </div>
   </div>
 </section>
-
