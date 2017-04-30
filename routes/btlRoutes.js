@@ -3,7 +3,16 @@ var router = express.Router();
 var Unmet = require("../models/unmetModel");
 var Battle = require("../models/battleModel");
 var Record = require("../models/recordModel");
-
+router.get('/unjoined/:id', function(req, res, next) {
+  Unmet.findById(req.params.id, function(error, result) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(result);
+    }
+  });
+});
 router.get('/unjoined', function(req, res, next){
   Unmet.find(function(error, result){
     if (error) {

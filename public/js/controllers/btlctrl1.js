@@ -1,5 +1,65 @@
-app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
+app.controller( 'btlCtrl1', function($scope,$stateParams, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
+  console.log("state param is: ", $stateParams.id);
+  $scope.updateUnmatched = function() {
+    btlFactory.getAllUnmatched().then(function(result){
+      $scope.allUnmatched = result;
+    }, function(error){
+      throw (error);
+    }); // promise callbacks
+  } //update ongoing battles
+
+  $scope.updateOngoing = function() {
+    btlFactory.getAllOngoing().then(function(result){
+      $scope.allOngoing = result;
+    }, function(error){
+      throw (error);
+    }); // promise callbacks
+  } //update ongoing battles
+
+  $scope.updateRecords = function() {
+    btlFactory.getAllRecords().then(function(result){
+      $scope.allRecords = result;
+    }, function(error){
+      throw (error);
+    }); // promise callbacks
+  } //update ongoing battles
+
+//   $scope.getVideoById = function(id){
+//     if ($scope.updateUnmatched() === 3) {
+//     console.log("all unmatched arr:", $scope.allUnmatched);
+//       for (var i=0;i<$scope.allUnmatched.length;i++) {
+//         if (id===$scope.allUnmatched[i]._id) {
+//           return $scope.allUnmatched[i];
+//         }
+//       };
+//       throw error("no video even though we just clicked it");
+//     };
+// }
+
+
+
+btlFactory.getUnmatched($stateParams.id).then(function(result){
+  $scope.featuredVid = result;
+  console.log("this is the featured vid ", $scope.featuredVid);
+}, function(error){
+  throw error;
+});
+
+
+
+  // if (!$stateParams.urlParam) {
+  //   console.log("hellos");
+  //   btlFactory.getUnmatched($stateParams.id)
+  //     .then(function(btl) {
+  //       $scope.btl = btl;
+  //     })
+  // } else {
+  //   console.log("hello");
+  //   // which beer are we reviewing now? The following one:
+  //   $scope.btl = $stateParams.urlParam; // which we got by clicking on the Review link we created
+  // }
+
 
      /*$scope.getUnjoined = function() {
     }; //get all unjoined battles from server. also: //unjoinedUpdate
@@ -109,29 +169,7 @@ app.controller( 'btlCtrl1', function($scope, authFactory, btlFactory){
     }// else
   } //getVidId
 
-  $scope.updateUnmatched = function() {
-    btlFactory.getAllUnmatched().then(function(result){
-      $scope.allUnmatched = result;
-    }, function(error){
-      throw (error);
-    }); // promise callbacks
-  } //update ongoing battles
 
-  $scope.updateOngoing = function() {
-    btlFactory.getAllOngoing().then(function(result){
-      $scope.allOngoing = result;
-    }, function(error){
-      throw (error);
-    }); // promise callbacks
-  } //update ongoing battles
-
-  $scope.updateRecords = function() {
-    btlFactory.getAllRecords().then(function(result){
-      $scope.allRecords = result;
-    }, function(error){
-      throw (error);
-    }); // promise callbacks
-  } //update ongoing battles
 
   // $scope.updateUnmatced(); //NOTE: should run on start- up. maybe put on a different place
   // $scope.updateOngoing();

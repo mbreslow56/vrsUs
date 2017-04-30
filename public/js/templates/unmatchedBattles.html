@@ -127,6 +127,9 @@
 
           <iframe width="560" height="315" ng-src="{{trustSrc(vid.video)}}"
   frameborder="0" allowfullscreen></iframe>
+          ID IS: {{vid._id}}
+          <!-- <a ui-sref="beer({beerParam: beer, id: beer._id})">Reviews</a> -->
+        <a ui-sref="challenge({id: vid._id})"> Join </a>
        </li>
       </ul>
     </section>

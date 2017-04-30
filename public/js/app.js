@@ -26,9 +26,12 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       controller: 'authCtrl'
   })
     .state('challenge', {
-      url: '/challenge',
+      url: '/challenge/:id',
       templateUrl: 'js/templates/joinUnmatched.html',
-      controller: 'btlCtrl1'
+      controller: 'btlCtrl1',
+      params: {
+        urlParam: null
+      }
   })
     .state('ongoing', {
       url: '/ongoing',
