@@ -26,8 +26,6 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
     }); // promise callbacks
   } //update ongoing battles
 
-
-
 if ($stateParams.id) {
   btlFactory.getUnmatched($stateParams.id).then(function(result){
     $scope.featuredVid = result;
