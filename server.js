@@ -7,6 +7,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
 var btlRoutes = require('./routes/btlRoutes');
+var ratingRoutes = require('./routes/ratingRoutes');
 
 mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/voutr');
 
@@ -49,6 +50,7 @@ passport.deserializeUser(User.deserializeUser());
 //that it should use the routes in 'beerRoutes'
 //and those are in our new beerRoutes.js file
 app.use('/users', userRoutes);
+app.use('/rating', ratingRoutes);
 app.use('/btls', btlRoutes);
 
 

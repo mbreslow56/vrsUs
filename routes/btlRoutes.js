@@ -1,73 +1,40 @@
 var express = require('express');
 var router = express.Router();
-var Unmet = require("../models/unmetModel");
 var Battle = require("../models/battleModel");
-var Record = require("../models/recordModel");
-router.get('/unjoined/:id', function(req, res, next) {
-  Unmet.findById(req.params.id, function(error, result) {
+
+router.get('/:state', function(req, res, next) {
+  Battle.find({state: req.params.state}, function(error, result) {
     if (error) {
       console.error(error)
       return next(error);
     } else {
       res.send(result);
+    } //else
+  }); // find callback
+}); //get routes for all unmatched, ongoing and completed battles
+
+router.post('/', function(req, res, next){
+  var btl = new Battle(req.body);
+  btl.save(function(err, result){
+    if (err) {
+      throw(err);
+    }   else {
+      res.send(result);
+    } //else
+  }) //save promise
+}) // new battle route
+
+router.put('/:id', function(req, res, next) {
+  Battle.findByIdAndUpdate(req.params.id, req.body, {new: true}, fuction(err, battle){
+    if (err) {
+      throw err;
+    } else {
+      res.send(battle);
     }
-  });
-});
-router.get('/unjoined', function(req, res, next){
-  Unmet.find(function(error, result){
-    if (error) {
-      throw (error);
-    } else {
-      res.send(result);
-    } //else
-  })// callback
-})// get all unmatched
+  }) // update callback
+}) // battle put route replace battle with new one
 
-router.post('/unjoined', function(req, res, next){
-  var unjoined = new Unmet(req.body);
-  unjoined.save(function(err, result){
-    if (err) {
-      throw(err);
-    }   else {
-      res.send(result);
-    } //else
-  }) //save promise
-}) // unjoined post route
-
-router.delete('/unjoined/:id', function(req, res, next){
-  Unmet.findOneAndRemove({_id: req.params.id}, function(err,unmatched){
-    if (err) {
-      console.log(err);
-      res.send(err);
-    } else {
-      res.send(unmatched.data);
-    } //else
-  }) //mongoose find callback
-}) // unjoined delete route
-
-router.get('/ongoing', function(req, res, next){
-  Battle.find(function(error, result){
-    if (error) {
-      throw (error);
-    } else {
-      res.send(result);
-    } //else
-  })// callback
-})// get all unmatched
-
-router.post('/ongoing', function(req, res, next){
-  var ongoingB = new Battle(req.body);
-  ongoingB.save(function(err, result){
-    if (err) {
-      throw(err);
-    }   else {
-      res.send(result);
-    } //else
-  }) //save promise
-}) // unjoined post route
-
-
-router.delete('/ongoing/:id', function(req, res, next){
+router.delete('/:id', function(req, res, next){
   Battle.findOneAndRemove({_id: req.params.id}, function(err, ongoing){
     if (err) {
       console.log(err);
@@ -76,37 +43,8 @@ router.delete('/ongoing/:id', function(req, res, next){
       res.send(ongoing.data);
     } //else
   }) //mongoose find callback
-}) // ongoing delete route
+}) // battle delete route NOTE: admin?
 
-router.put('/ongoing/:id', function(req, res, next) {
-  Battle.findByIdAndUpdate(req.params.id, req.body, fuction(err, battle){
-    if (err) {
-      throw err;
-    } else {
-      res.send(battle);
-    }
-  }) // update callback
-}) // battle put route
 
-router.get('/record', function(req,res,next) {
-  Record.find(function(error, result){
-    if (error) {
-      throw (error);
-    } else {
-      res.send(result);
-    } //else
-  })// callback
-})// record get route
-
-router.post('/record', function(req, res, next){
-  var newRec = new Record(req.body);
-  newRec.save(function(err, result){
-    if (err) {
-      throw(err);
-    }   else {
-      res.send(result);
-    } //else
-  }) //save promise
-}) // record post route
 
 module.exports = router;

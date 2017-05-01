@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var battleSchema = new Schema ({
-  //participants: [{type: Schema.Types.ObjectId, ref:"User"}], DEPRACATED- ask
+  state: String,
+  weight: Number,
   battleName: String,
   voteGoal: Number,
   user1: {type: Schema.Types.ObjectId, ref:"User"},
@@ -11,8 +12,8 @@ var battleSchema = new Schema ({
   user2: {type: Schema.Types.ObjectId, ref:"User"},
   video2: String,
   video2Votes: Number,
-  video1Voters: [{type: Schema.Types.ObjectId, ref:"User"}],
-  video2Voters: [{type: Schema.Types.ObjectId, ref:"User"}]
+  date: Date,
+  winner: {type: Schema.Types.ObjectId, ref:"User"}
 });
 
 
