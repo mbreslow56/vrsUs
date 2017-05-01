@@ -8,64 +8,63 @@
          <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
             <h2>Ongoing Battles</h2>
             <h4>Vote for the winner and raise your rating!</h4>
+            <div class="iso-section wow fadeInUp" data-wow-delay="0.6s">
+
+                  <ul class="filter-wrapper clearfix">
+                          <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
+                          <li><a href="#" class="opc-main-bg" data-filter=".dance">Dance</a></li>
+                          <li><a href="#" class="opc-main-bg" data-filter=".pizza">Music</a></li>
+                          <li><a href="#" class="opc-main-bg" data-filter=".lunch">Talent</a></li>
+                          <li><a href="#" class="opc-main-bg" data-filter=".dinner">Skills</a></li>
+                      </ul>
+
+
+
+                      <!-- iso box section -->
+                    <div class="col-md-4" ng-controller="progressCtrl" id="progress"> </div>
+                      <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+                        <div class="iso-box-wrapper col4-iso-box">
+                          <div class="loading">
+                            <div class="loading-progress"></div>
+                          <div ng-repeat="thumbnail in thumbnails track by $index" class="iso-box breakfast pizza lunch col-md-4 col-md-offset-4 col-sm-6">
+                            <div class="gallery-thumb ongoing-battle">
+                              <a ui-sref="battle" data-lightbox-gallery="food-gallery">
+                                <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery"> <h3> VS </h3>
+                                <img ng-src="{{thumbnail.video2}}" class="fluid-img" alt="Gallery">
+                                  <div class="gallery-overlay">
+                                    <div class="gallery-item">
+                                      <i class="fa fa-picture"></i>
+                                    </div>
+                                  </div>
+                              </a>
+                            </div>
+                          </div>
+
+                          <!-- <div class="iso-box breakfast lunch dinner col-md-4 col-md-offset-4 col-sm-6">
+                            <div class="gallery-thumb">
+                              <a ui-sref="battle" data-lightbox-gallery="food-gallery">
+                                <img ng-src="{{thumb2}}" class="fluid-img" alt="Gallery">
+                                  <div class="gallery-overlay">
+                                    <div class="gallery-item">
+                                      <i class="fa fa-picture"></i>
+                                    </div>
+                                  </div>
+                              </a>
+                            </div>
+                          </div> -->
+  <!-- control div -->
+  </div>
+                         </div>
+                      </div>
+
+
+
+        </div>
         </div>
       </div>
 
           <!-- iso section -->
-          <div class="iso-section wow fadeInUp" data-wow-delay="0.6s">
 
-                <ul class="filter-wrapper clearfix">
-                        <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".dance">Dance</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".pizza">Music</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".lunch">Talent</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".dinner">Skills</a></li>
-                    </ul>
-
-
-
-                    <!-- iso box section -->
-                  <div ng-controller="progressCtrl" id="progress">  
-                    <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
-                      <h2>VS</h2>
-                      <div class="iso-box-wrapper col4-iso-box">
-                        <div class="loading">
-    <div class="loading-progress"></div>
-                        <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img ng-src="{{thumb1}}" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-picture"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                        </div>
-
-
-
-                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                              <img ng-src="{{thumb2}}" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-picture"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                        </div>
-<!-- control div -->
-</div>
-                       </div>
-                    </div>
-
-          </div>
-
-      </div>
 
     </div>
   </div>

@@ -49,6 +49,33 @@
   border-top: 1px solid black;
 }
 
+.dropmenu {
+  margin-top: 16px;
+}
+
+.caret {
+    margin-top: 16px;
+    margin-left: -4px;
+}
+
+.navbar-left{
+  margin-top: 16px;
+}
+
+.user-btn {
+  margin-top: -16px !important;
+}
+
+.ongoing-battle {
+  margin-right: 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+label {
+  pointer-events:none;
+}
+
 ul {
   list-style-type: none;
 }

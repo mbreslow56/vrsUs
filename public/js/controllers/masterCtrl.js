@@ -1,6 +1,7 @@
 app.controller('masterCtrl', function($scope, authFactory) {
-  $scope.currentUser = authFactory.currentUser;
   authFactory.getCurrentUser();
+  $scope.currentUser = authFactory.currentUser;
+
 
   var video, results;
 

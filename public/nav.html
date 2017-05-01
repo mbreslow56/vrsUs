@@ -21,7 +21,7 @@
 
          <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
 
-      <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li>
+      <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
       <li ng-hide="currentUser"><a href="login">Login</a></li>
       <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span> Ongoing Battles</a></li>
       <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Unmatched Battles</a></li>
@@ -33,7 +33,7 @@
 
 
 
-<i class="fa fa-bars fa-3x" data-toggle="dropdown">
+<i class="fa fa-bars fa-3x dropmenu" data-toggle="dropdown">
 <!--  <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
 
   <span class="caret"></span></i>
@@ -60,7 +60,7 @@
               <li><a href="logout" ng-show="currentUser" ng-click="logout()">Log Out</a></li>
   </ul>
 
-   <button ui-sref="login" ng-show="currentUser"> <i class="fa fa-user fa-2x">
+   <button class="btn btn-default user-btn" ui-sref="login" ng-show="currentUser"> <i class="fa fa-user fa-2x">
           <li class="active" ng-show="currentUser"> <h4>{{ currentUser }}</h4></li>
           <li class="active" ng-hide="currentUser"><a ui-sref="login"></a></li></i></button>
 
