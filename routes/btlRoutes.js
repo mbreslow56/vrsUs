@@ -78,6 +78,16 @@ router.delete('/ongoing/:id', function(req, res, next){
   }) //mongoose find callback
 }) // ongoing delete route
 
+router.put('/ongoing/:id', function(req, res, next) {
+  Battle.findByIdAndUpdate(req.params.id, req.body, fuction(err, battle){
+    if (err) {
+      throw err;
+    } else {
+      res.send(battle);
+    }
+  }) // update callback
+}) // battle put route
+
 router.get('/record', function(req,res,next) {
   Record.find(function(error, result){
     if (error) {

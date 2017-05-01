@@ -59,6 +59,13 @@ app.factory('btlFactory', function($http){
   }) //promise callbacks
   } //getAllOngoing
 
+  var updateVotes(battle) {
+    return $http.put('/btls/ongoing/'+battle._id, battle).then(function(result){
+      return result.data;
+    }, function(error){
+      throw error;
+    })
+  }
   var getAllRecords = function() {
     return $http.get('/btls/records').then(function(result){
       return result.data;
@@ -84,6 +91,7 @@ var addRecord = function(record){
     addOnGoing: addOnGoing,
     deleteOngoing: deleteOngoing,
     getAllOngoing: getAllOngoing,
+    updateVotes: updateVotes,
     getAllRecords: getAllRecords,
     addRecord: addRecord
   }

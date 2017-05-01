@@ -110,17 +110,32 @@ if ($stateParams.id) {
 
      }) // getCurrentUser callback
    }; //foundMatch   NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
-   $scope.voted = function (numVideo) {
-
-   }//function
+   $scope.voted = function (battle, numVideo) {
+     var user = authFactory.getCurrentUser().then(function(user){
+       if (numVideo===1) {
+        battle.video1Votes++;
+        battle.video1Voters.push(user._id);
+       } else {
+        battle.video2Votes++;
+        battle.video2Voters.push(user._id);
+       }//else
+       btlFactory.updateVotes(battle).then(function(result){
+         if ((battle.video1Votes === battle.voteGoal)||(battle.video2Votes===battle.voteGoal)) { //wanna say >= but that SHOULDNT happen
+           $scope.finishBattle(battle);
+         } else {
+           //display result progress bars and related videos. which Im not sure how to tackle
+         }// else voting commented but no winner yet
+       }, function(error){
+         throw error;
+       }) //update callback
+     }//get current user callback
+   }// voted function
 
    $scope.finishBattle = function(battle){
      var recordObj = {
        battleName: battle.battleName,
        date: new Date(),
-
        voteGoal: battle.voteGoal
-
      }// solid parameters on recordObj
      if (battle.video1Votes > battle.video2Votes) {
        recordObj.winner = battle.user1;
