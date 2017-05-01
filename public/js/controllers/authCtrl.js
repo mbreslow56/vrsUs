@@ -32,6 +32,7 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
   $scope.logout = function() {
     authFactory.logout($scope.user)
       .then(function() {
+        authFactory.getCurrentUser();
         $state.go('home');
       }, function(err) {
         alert(err.data);
