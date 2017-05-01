@@ -3,7 +3,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
   console.log("state param is: ", $stateParams.id);
 
   $scope.updateUnmatched = function() {
-    btlFactory.getAllUnmatched().then(function(result){
+    btlFactory.getBattles('unmatched').then(function(result){
       $scope.allUnmatched = result;
     }, function(error){
       throw (error);
@@ -11,7 +11,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
   } //update ongoing battles
 
   $scope.updateOngoing = function() {
-    btlFactory.getAllOngoing().then(function(result){
+    btlFactory.getBattles('ongoing').then(function(result){
       $scope.allOngoing = result;
     }, function(error){
       throw (error);
@@ -59,17 +59,25 @@ if ($stateParams.id) {
     }; // get all ongoing battles. MIGHT RELOCATE
     $scope.addOngoing = function(){
     }; // add a new ongoing battle. delete corresponding unjoined instance NOTE: will we even need these? */
-    $scope.addUnjoined = function() {
+    $scope.addBattle = function() {
       var user = authFactory.getCurrentUser().then(function(user){
         console.log("user from inside btlctrl: ", user);
-        var umObj = {
+        var btlObj = {
+          state: "unmatched",
+          weight: 1,
           battleName: $scope.bName,
-          user: user._id,
-          video: $scope.videourl,
-          numVotes: $scope.numVotes
+          voteGoal: $scope.numVotes,
+          user1: user._id,
+          video1: $scope.videourl,
+          video1Votes: 0,
+          user2: "",
+          video2: "",
+          video2Votes:0,
+          date: "",
+          winner: ""
         }
         //console.log("number of votes: " + umObj.numVotes);
-        btlFactory.addUnmatched(umObj).then(function(){
+        btlFactory.addBattle(bltObj).then(function(){
           $scope.updateUnmatched();
           alert("successfully opened a new battle!!");
           $location.path('/unmatched');
@@ -81,25 +89,13 @@ if ($stateParams.id) {
       //create a new unmatched battle object to push
     }; //add a new unjoined battle to the collection and update
 
-    $scope.foundMatch = function(unmatched) {
+    $scope.foundMatch = function(battle) {
       var user = authFactory.getCurrentUser().then(function(user){
       //  authFactory.addOngoing();
-       var ongoingObj = {
-         battleName: unmatched.battleName,
-         voteGoal: unmatched.numVotes,
-         user1: unmatched.user,
-         video1: unmatched.video,
-         video1Votes: 0,
-         user2: user._id ,
-         video2: $scope.vidtext,
-         video2Votes: 0,
-         video1Voters: [],
-         video2Voters: []
-       }; // ongoingObj
-
-       btlFactory.addOnGoing(ongoingObj).then(function(){//  result unmatched just as an id?
-         btlFactory.deleteUnmatched(unmatched._id).then(function(result){
-           console.log("deleted unmatched battle");
+       battle.user2 = user._id;
+       battle.video2 = $scope.videourl;
+       battle.state = "ongoing";
+       btlFactory.updateBattle(battle).then(function(){//  result unmatched just as an id?
            $scope.updateUnmatched();
            // NOTE maybe add more functionality here?
          }); // deleting callback
@@ -107,9 +103,7 @@ if ($stateParams.id) {
          $scope.updateOngoing();
          $location.path('/ongoing');
        });// add ongoing callback
-
-     }) // getCurrentUser callback
-   }; //foundMatch   NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
+     } // getCurrentUser callback  NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
    $scope.voted = function (battle, numVideo) {
      var user = authFactory.getCurrentUser().then(function(user){
        if (numVideo===1) {
@@ -131,39 +125,12 @@ if ($stateParams.id) {
      }//get current user callback
    }// voted function
 
-   $scope.finishBattle = function(battle){
-     var recordObj = {
-       battleName: battle.battleName,
-       date: new Date(),
-       voteGoal: battle.voteGoal
-     }// solid parameters on recordObj
-     if (battle.video1Votes > battle.video2Votes) {
-       recordObj.winner = battle.user1;
-       recordObj.winnerVotes = battle.user1Votes;
-       recordObj.winnerVideo = battle.video1;
-       recordObj.loser = battle.user2;
-       recordObj.loserVotes = battle.user2Votes;
-       recordObj.loserVideo = battle.video2;
-     } else {
-       recordObj.winner = battle.user2;
-       recordObj.winnerVotes = battle.user2Votes;
-       recordObj.winnerVideo = battle.video2;
-       recordObj.loser = battle.user1;
-       recordObj.loserVotes = battle.user1Votes;
-       recordObj.loserVideo = battle.video1;
-     } //else user2 won
-     btlFactory.addRecord(recordObj).then(function(){//  result unmatched just as an id?
-       btlFactory.deleteOngoing(battle._id).then(function(result){
-         console.log("deleted battle");
-         $scope.updateOngoing();
-         // NOTE maybe add more functionality here?
-       }); // deleting callback
-       console.log("added record to the mix~ ");
-       $scope.updateRecords();
-     });// add record callback
-   } //finishBattle NOTE: TRANSITION: ONGOING BATTLE ===> RECORD
-
-
+   $scope.finishBattle = function(battle, userId){
+     battle.date = new Date();
+     battle.winner = userId;
+     battle.state = "completed";
+     //$location.path('/home'); // to be added: winner screen!!
+     }; //finishBattle NOTE: TRANSITION: ONGOING BATTLE ===> RECORD
 
     $scope.getVidId = function(){
     $scope.videourl = $scope.vidtext;
