@@ -9,6 +9,8 @@ app.controller('unmatchedCtrl', function($sce, $scope, btlFactory) {
   btlFactory.getBattles('unmatched').then(function(result){
     $scope.allUnmatched = result;
     for (var i = 0; i < result.length; i++) {
+      console.log("vid object: ");
+      console.log(result[i]);
       console.log(result[i].video1);
       var url = result[i].video1.replace("watch?v=", "embed/");
       console.log(url);
@@ -19,6 +21,4 @@ app.controller('unmatchedCtrl', function($sce, $scope, btlFactory) {
 }
 
   $scope.unmatchedUpdate();
-
-
 });

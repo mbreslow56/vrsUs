@@ -13,6 +13,17 @@ router.get('/:state', function(req, res, next) {
   }); // find callback
 }); //get routes for all unmatched, ongoing and completed battles
 
+router.get('/:state/:id', function(req, res, next) {
+  Battle.find({_id: req.params.id}, function(error, result) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(result);
+    } //else
+  }); // find callback
+}); //get route for a specific battle
+
 router.post('/', function(req, res, next){
   var btl = new Battle(req.body);
   btl.save(function(err, result){
@@ -25,7 +36,7 @@ router.post('/', function(req, res, next){
 }) // new battle route
 
 router.put('/:id', function(req, res, next) {
-  Battle.findByIdAndUpdate(req.params.id, req.body, {new: true}, fuction(err, battle){
+  Battle.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, battle){
     if (err) {
       throw err;
     } else {

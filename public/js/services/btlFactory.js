@@ -1,12 +1,20 @@
 app.factory('btlFactory', function($http){
-
     var getBattles = function(state){
-      return $http.get('/btls/'+state).then(function(result) {
+      return $http.get('/btls/' + state).then(function(result) {
         return result.data;
       }, function(error){
         throw (error);
       }) // add promise
     }// get battles of a certain state
+
+    var getBattle = function(id, state) {
+      return $http.get('/btls/' + state + '/' + id)
+        .then(function(response) {
+          return response.data;
+        }, function(err) {
+            console.error(err);
+        });
+    }
 
     var addBattle = function(battle){
       return $http.post('/btls/', battle).then(function(result) {
@@ -25,7 +33,8 @@ app.factory('btlFactory', function($http){
       throw (error);
     }) //promise callbacks
   }// delete a battle
-  var updateBattle(battle) {
+
+  var updateBattle = function(battle) {
     return $http.put('/btls/' + battle._id , battle).then(function(result){
       return result.data;
     }, function(error){
@@ -41,23 +50,25 @@ app.factory('btlFactory', function($http){
   }) //promise callbacks
 } //getAll ratings of a user
 
-var addRatings = function(rating) {
-  return $http.post('/rating', rating).then(function(result){
-    return result.data;
-  }, function(error){
-    throw error;
-  })
-}
+  var addRatings = function(rating) {
+    return $http.post('/rating', rating).then(function(result){
+      return result.data;
+    }, function(error){
+      throw error;
+    })
+  }
 
-  var updateRatings(battle, vidNo) {
+  var updateRatings = function(battle, vidNo) {
     return $http.put('/rating/' + battle._id + '/' + vidNo).then(function(result){
       return result.data;
     }, function(error){
       throw error;
     })
   }
+
   return {
     getBattles: getBattles,
+    getBattle: getBattle,
     addBattle: addBattle,
     updateBattle: updateBattle,
     getUserRatings: getUserRatings,

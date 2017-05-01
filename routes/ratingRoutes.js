@@ -25,7 +25,7 @@ router.post('/', function(req, res, next){
 }) // rating post route
 
 router.put('/:battleId/:vidNo', function(req, res, next) {
-  Rating.update({$and: {battle: req.params.battleId, video: req.params.vidNo}},{$set: {winner: true}}, {multi: true}, fuction(err, ratings){
+  Rating.update({$and: {battle: req.params.battleId, video: req.params.vidNo}},{$set: {winner: true}}, {multi: true}, function(err, ratings){
     if (err) {
       throw err;
     } else {
