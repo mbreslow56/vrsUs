@@ -1,9 +1,9 @@
-app.controller('ongoingCtrl', function($scope, btlFactory) {
+app.controller('ongoingCtrl', function($scope, $location, btlFactory) {
   $scope.allOngoing = [];
   $scope.thumbnails = [];
 
   $scope.ongoingUpdate = function(){
-    btlFactory.getAllOngoing().then(function(result){
+    btlFactory.getBattles('ongoing').then(function(result){
       $scope.allOngoing = result;
       for (var i = 0; i < result.length; i++) {
         console.log(result);
@@ -18,6 +18,14 @@ app.controller('ongoingCtrl', function($scope, btlFactory) {
 }
 
   $scope.ongoingUpdate();
+  $scope.getCurr =function(battle){
+    $scope.SelectedBattle = battle;
+    $location.path('/battle');
+  }//getCurr
+
+
+  // voting function from btlCtrl1
+  // finishBattle
 
     var getThumbnail = (function () {
     var video, results;

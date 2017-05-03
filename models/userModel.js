@@ -10,10 +10,8 @@ var UserSchema =  new Schema ({
    artistLosses :Number,
    voterWins:Number,
    voterLosses :Number,
-   videos: [{type: Schema.Types.ObjectId, ref:"Video"}],//videos populate array
-   unmetBattles: [{type: Schema.Types.ObjectId, ref:"Unmet"}], //unmetBattles
-   ongoingBattles: [{type: Schema.Types.ObjectId, ref:"Battle"}], //battle
-   records: [{type: Schema.Types.ObjectId, ref:"Record"}]
+  //  videos: [{type: Schema.Types.ObjectId, ref:"Video"}],//videos populate array
+   battles: [{type: Schema.Types.ObjectId, ref:"Battle"}]
 });
 
 UserSchema.plugin(plm);

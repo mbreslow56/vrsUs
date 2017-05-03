@@ -120,15 +120,15 @@
     </div>
 
     <section >
-      <ul ng-repeat = "vid in allUnmatched track by $index">
+      <ul ng-repeat = "btl in allUnmatched track by $index">
         <li>
-          <h3 style="font-weight:bold"> {{$index+1}}) Battle name: {{vid.battleName}} </h3>
-          <h4> number of votes to win: {{vid.numVotes}}</h5> <br />
+          <h3 style="font-weight:bold"> {{$index+1}}) Battle name: {{btl.battleName}} </h3>
+          <h4> number of votes to win: {{btl.voteGoal}}</h5> <br />
 
-          <iframe width="400" height="220" ng-src="{{trustSrc(vid.video)}}"
+          <iframe width="400" height="220" ng-src="{{trustSrc(btl.video1)}}"
   frameborder="0" allowfullscreen></iframe> <br />
           <!-- <a ui-sref="beer({beerParam: beer, id: beer._id})">Reviews</a> -->
-        <a ui-sref="challenge({id: vid._id})" class="hrefbutton"> Join </a>
+        <a ui-sref="challenge({id: btl._id})" class="hrefbutton"> Join </a>
         <hr />
        </li>
       </ul>
