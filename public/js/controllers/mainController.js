@@ -1,7 +1,14 @@
 app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { //, authfactory
   $scope.currentBattle = CBFactory.getBattle();
-  console.log("current battle from main, after CBF", $scope.currentBattle);
-  function drawFirstCircleBar(videoVotes, voteLimit) {
+
+  $scope.showVotes = false;
+  $scope.numOfVidsEnded = 0;
+  $scope.video2NotStarted = true;
+  $scope.video1 = "'"+$scope.currentBattle.video1+"'";
+  $scope.video2 = "'"+$scope.currentBattle.video2+"'";
+  $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
+
+  function drawFirstCircleBar(videoVotes) {
     var bar = new ProgressBar.Circle(graph, {
       color: '#aaa',
       // This has to be the same size as the maximum width to
@@ -20,21 +27,20 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
         circle.path.setAttribute('stroke', state.color);
         circle.path.setAttribute('stroke-width', state.width);
 
-        var value = Math.round(circle.value() * voteLimit);
+        var value = Math.round(circle.value() * $scope.currentBattle.voteGoal);
         if (value === 0) {
           circle.setText('');
         } else {
-          circle.setText(value + "/" + voteLimit);
+          circle.setText(value + "/" + $scope.currentBattle.voteGoal);
         }
       }
     } );
-    console.log(videoVotes, voteLimit);
-    bar.animate(videoVotes / voteLimit);  // Number from 0.0 to 1.0
+    bar.animate(videoVotes / $scope.currentBattle.voteGoal);  // Number from 0.0 to 1.0
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '2rem';
   }
 
-    function drawSecondCircleBar(videoVotes, voteLimit) {
+    function drawSecondCircleBar(videoVotes) {
       var bar = new ProgressBar.Circle(graph2, {
         color: '#aaa',
         // This has to be the same size as the maximum width to
@@ -53,27 +59,21 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
           circle.path.setAttribute('stroke', state.color);
           circle.path.setAttribute('stroke-width', state.width);
 
-          var value = Math.round(circle.value() * voteLimit);
+          var value = Math.round(circle.value() * $scope.currentBattle.voteGoal);
           if (value === 0) {
             circle.setText('');
           } else {
-            circle.setText(value + "/" + voteLimit);
+            circle.setText(value + "/" + $scope.currentBattle.voteGoal);
           }
         }
-      } );
-      console.log(videoVotes, voteLimit);
-      bar.animate(videoVotes / voteLimit);  // Number from 0.0 to 1.0
+      });
+
+      bar.animate(videoVotes / $scope.currentBattle.voteGoal);  // Number from 0.0 to 1.0
       bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
       bar.text.style.fontSize = '2rem';
-    }
+    }// drawSecondCircleBar
 
 
-  $scope.showVotes = false;
-  $scope.numOfVidsEnded = 0;
-  $scope.video2NotStarted = true;
-  $scope.video1 = "'"+$scope.currentBattle.video1+"'";
-  $scope.video2 = "'"+$scope.currentBattle.video2+"'";
-  $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
 
   // randomize the order of the 2 vids //
   function shuffle(array) {
@@ -98,9 +98,7 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   $scope.video2 = $scope.videoArr[1].video;
   $scope.video1Votes = $scope.videoArr[0].votes;
   $scope.video2Votes = $scope.videoArr[1].votes;
-  //console.log("video1 has", $scope.currentBattle.video1Votes);
-  console.log("video 1 votes: " + $scope.video1Votes);
-  console.log("video 2 votes: " + $scope.video2Votes);
+
 
   $(document).ready(function() {
     $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
@@ -149,6 +147,9 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
 });
 
 // voting functionality below
+var checkWin = function(battle) {
+
+}//checkWin
 
 $scope.voted = function(numVideo) {
   var user = authFactory.getCurrentUser().then(function(user){
@@ -158,6 +159,7 @@ $scope.voted = function(numVideo) {
       battle: $scope.currentBattle._id,
       winner: false
     };
+
      if (numVideo === 1) {
        $scope.currentBattle.video1Votes++;
        rating.video = 1;
@@ -165,32 +167,41 @@ $scope.voted = function(numVideo) {
        $scope.currentBattle.video2Votes++;
        rating.video = 2;
     }//else
+
+
     btlFactory.addRatings(rating).then(function(result){
-        if (($scope.currentBattle.video1Votes===$scope.currentBattle.voteGoal)||($scope.currentBattle.video2Votes===$scope.currentBattle.voteGoal)) {
-          $scope.currentBattle.state = 'completed';
-          $scope.currentBattle.date = new Date();
-          if (numVideo === 1) {
-            $scope.currentBattle.winner = $scope.currentBattle.user1;
-          } else {
-            $scope.currentBattle.winner = $scope.currentBattle.user2;
-          }
-          btlFactory.updateBattle($scope.currentBattle).then(function(res){
-            drawFirstCircleBar($scope.currentBattle.video1Votes, $scope.currentBattle.voteGoal);
-            drawSecondCircleBar($scope.currentBattle.video2Votes, $scope.currentBattle.voteGoal);
-              if ($scope.currentBattle.state === 'completed'){
-                alert('that was the winning vote!');
-                //winning screen
-              } else {
-                console.log("not winning vote");
-                //suggested videos
-              }//else
-          }, function(error){
-            throw error;
-          })// else update callback
-        } //if battle is won
+
+
+      btlFactory.updateBattle($scope.currentBattle).then(function(res){
+        drawFirstCircleBar($scope.currentBattle.video1Votes);
+        drawSecondCircleBar($scope.currentBattle.video2Votes);
+
+          if (($scope.currentBattle.video1Votes===$scope.currentBattle.voteGoal)||($scope.currentBattle.video2Votes===$scope.currentBattle.voteGoal)) {
+            $scope.currentBattle.date = new Date();
+            alert('that was the winning vote!');
+
+            if (numVideo === 1) {
+              $scope.currentBattle.winner = $scope.currentBattle.user1;
+            } else {
+              $scope.currentBattle.winner = $scope.currentBattle.user2;
+            }
+          } //if battle is won
+
+      }, function(error){
+        throw error;
+      })// else update callback
+
+
+
+
+
+
+
       })// rating callback
     })//then auth callback
-    }// voted
+  }// voted
+
+
   //   btlFactory.updateVotes(battle).then(function(result){
   //     if ((battle.video1Votes === battle.voteGoal)||(battle.video2Votes===battle.voteGoal)) { //wanna say >= but that SHOULDNT happen
   //       $scope.finishBattle(battle);

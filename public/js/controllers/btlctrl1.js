@@ -48,11 +48,11 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
         user1: user._id,
         video1: $scope.videourl,
         video1Votes: 0,
-        // user2: "",
-        video2: "",
+         user2: null,
+        video2: null,
         video2Votes: 0,
-        // date: "",
-        // winner: ""
+         date: null,
+         winner: null
       }
       console.log("video1 url: " + btlObj.video1);
       btlFactory.addBattle(btlObj).then(function(){
@@ -77,7 +77,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
          $scope.updateUnmatched(); // NOTE: $scope.allUnmatched changes here
          // NOTE maybe add more functionality here?
        }); // deleting callback
-       alert("added ongoing battle. ");
+       alert("added ongoing battle.");
       //  $scope.updateOngoing();
        $location.path('/ongoing');
      });// add ongoing callback

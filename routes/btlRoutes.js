@@ -41,6 +41,7 @@ router.put('/:id', function(req, res, next) {
     if (err) {
       throw err;
     } else {
+      console.log("the battle after voting, fresh from the route is", battle);
       res.send(battle);
     }
   }) // update callback
