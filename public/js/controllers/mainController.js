@@ -1,5 +1,6 @@
-app.controller('myCtrl', ['$scope', function($scope) {
-
+app.controller('myCtrl', function($scope, CBFactory) { //, authfactory
+  $scope.currentBattle = CBFactory.getBattle();
+  console.log("current battle from main, after CBF", $scope.currentBattle);
   function drawFirstCircleBar(videoVotes, voteLimit) {
     var bar = new ProgressBar.Circle(graph, {
       color: '#aaa',
@@ -70,13 +71,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.showVotes = false;
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
-
-  $scope.video1Votes = 12;
-  $scope.video2Votes = 15;
-  $scope.voteLimit = 16;
-  $scope.video1 = 'https://www.youtube.com/watch?v=bvZolRM7ifA&t=15s';
-  $scope.video2 = 'https://www.youtube.com/watch?v=-z9NwrIj6oA';
-  $scope.videoArr = [{video: $scope.video1, votes: $scope.video1Votes}, {video: $scope.video2, votes: $scope.video2Votes}];
+  $scope.video1 = "'"+$scope.currentBattle.video1+"'";
+  $scope.video2 = "'"+$scope.currentBattle.video2+"'";
+  $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
 
   // randomize the order of the 2 vids //
   function shuffle(array) {
@@ -151,15 +148,15 @@ app.controller('myCtrl', ['$scope', function($scope) {
 });
 
 // voting functionality below
-$scope.showVidRank = function(whichVid) {
-  if (whichVid == 1) {
-    $scope.video1Votes++;
-  }
-  else {
-    $scope.video2Votes++;
-  }
-  drawFirstCircleBar($scope.video1Votes, $scope.voteLimit);
-  drawSecondCircleBar($scope.video2Votes, $scope.voteLimit);
-}
+// $scope.showVidRank = function(whichVid) {
+//   if (whichVid == 1) {
+//     $scope.video1Votes++;
+//   }
+//   else {
+//     $scope.video2Votes++;
+//   }
+//   drawFirstCircleBar($scope.video1Votes, $scope.voteLimit);
+//   drawSecondCircleBar($scope.video2Votes, $scope.voteLimit);
+// }
 
-}]);
+});
