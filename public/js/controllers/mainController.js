@@ -74,7 +74,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.video1Votes = 12;
   $scope.video2Votes = 15;
   $scope.voteLimit = 16;
-  $scope.video1 = 'https://www.youtube.com/watch?v=bvZolRM7ifA&t=15s';
+  $scope.video1 = 'https://www.youtube.com/watch?v=EMHw2iyBW10';
   $scope.video2 = 'https://www.youtube.com/watch?v=-z9NwrIj6oA';
   $scope.videoArr = [{video: $scope.video1, votes: $scope.video1Votes}, {video: $scope.video2, votes: $scope.video2Votes}];
 
