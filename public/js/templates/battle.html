@@ -1,26 +1,19 @@
 <!-- <link rel="stylesheet" href="../../css/style.css"/> -->
-  
-  
-
   <div ng-controller='authCtrl'>
     <div ng-controller='masterCtrl'>
       <div class="framebattle">
 <div class="container">
   <div class="row">
-
-      
  <!--  <div class="container">
     <div class="row"> -->
      <!--  <div class="col-md-6 col-md-offset-3"> -->
         <div class="page-header">
-
-
 	<div ng-controller="myCtrl">
         <div class="text-center">
           <h2 class="wow fadeInUp" data-wow-delay="0.6s">iCharlton Dance Challenge</h2>
           <br>
           <div class="sharethis-inline-share-buttons"></div>
-        
+
         <!-- <div class="container">
           <div class="row"> -->
             <div class="col-sm-6 wrapper">
@@ -31,7 +24,7 @@
               <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
               </youtube-video>
               <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click = "pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
-              <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="showVidRank(1)">Vote!</button>
+              <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
 
               <div class="container">
   <div class="row">
@@ -45,15 +38,15 @@
             <div class="col-sm-6 wrapper">
 <!--               <label class="text-center"> Second video </label> -->
               <h2> <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i><!--  #2 --> </h2>
-              <youtube-video id="second" video-url="video2" player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
+              <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
               </youtube-video>
 
 
               <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
-              <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="showVidRank(2)">Vote!</button>
+              <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
 
 
-   
+
 <div class="container">
   <div class="row">
               <div id="graph2" style= "margin:20px;width:200px;height:200px;position:relative"></div>

@@ -8,6 +8,7 @@ router.get('/:state', function(req, res, next) {
       console.error(error)
       return next(error);
     } else {
+      console.log(result);
       res.send(result);
     } //else
   }); // find callback
@@ -55,7 +56,5 @@ router.delete('/:id', function(req, res, next){
     } //else
   }) //mongoose find callback
 }) // battle delete route NOTE: admin?
-
-
 
 module.exports = router;

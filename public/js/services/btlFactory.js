@@ -1,6 +1,8 @@
 app.factory('btlFactory', function($http){
     var getBattles = function(state){
       return $http.get('/btls/' + state).then(function(result) {
+        console.log("result from btlfactory: ");
+        console.log(result.data);
         return result.data;
       }, function(error){
         throw (error);
@@ -19,6 +21,7 @@ app.factory('btlFactory', function($http){
     var addBattle = function(battle){
       return $http.post('/btls/', battle).then(function(result) {
         console.log("battle made and set!");
+        console.log(result.data);
         return result.data;
       }, function(error){
         throw (error);

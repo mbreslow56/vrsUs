@@ -1,5 +1,6 @@
-app.controller('myCtrl', ['$scope', function($scope) {
-
+app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { //, authfactory
+  $scope.currentBattle = CBFactory.getBattle();
+  console.log("current battle from main, after CBF", $scope.currentBattle);
   function drawFirstCircleBar(videoVotes, voteLimit) {
     var bar = new ProgressBar.Circle(graph, {
       color: '#aaa',
@@ -70,13 +71,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.showVotes = false;
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
-
-  $scope.video1Votes = 12;
-  $scope.video2Votes = 15;
-  $scope.voteLimit = 16;
-  $scope.video1 = 'https://www.youtube.com/watch?v=EMHw2iyBW10';
-  $scope.video2 = 'https://www.youtube.com/watch?v=-z9NwrIj6oA';
-  $scope.videoArr = [{video: $scope.video1, votes: $scope.video1Votes}, {video: $scope.video2, votes: $scope.video2Votes}];
+  $scope.video1 = "'"+$scope.currentBattle.video1+"'";
+  $scope.video2 = "'"+$scope.currentBattle.video2+"'";
+  $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
 
   // randomize the order of the 2 vids //
   function shuffle(array) {
@@ -101,6 +98,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
   $scope.video2 = $scope.videoArr[1].video;
   $scope.video1Votes = $scope.videoArr[0].votes;
   $scope.video2Votes = $scope.videoArr[1].votes;
+  //console.log("video1 has", $scope.currentBattle.video1Votes);
   console.log("video 1 votes: " + $scope.video1Votes);
   console.log("video 2 votes: " + $scope.video2Votes);
 
@@ -151,15 +149,69 @@ app.controller('myCtrl', ['$scope', function($scope) {
 });
 
 // voting functionality below
-$scope.showVidRank = function(whichVid) {
-  if (whichVid == 1) {
-    $scope.video1Votes++;
-  }
-  else {
-    $scope.video2Votes++;
-  }
-  drawFirstCircleBar($scope.video1Votes, $scope.voteLimit);
-  drawSecondCircleBar($scope.video2Votes, $scope.voteLimit);
-}
 
-}]);
+$scope.voted = function(numVideo) {
+  var user = authFactory.getCurrentUser().then(function(user){
+    var rating = {
+      user: user._id,
+      weight: 1,
+      battle: $scope.currentBattle._id,
+      winner: false
+    };
+     if (numVideo === 1) {
+       $scope.currentBattle.video1Votes++;
+       rating.video = 1;
+     } else {
+       $scope.currentBattle.video2Votes++;
+       rating.video = 2;
+    }//else
+    btlFactory.addRatings(rating).then(function(result){
+        if (($scope.currentBattle.video1Votes===$scope.currentBattle.voteGoal)||($scope.currentBattle.video2Votes===$scope.currentBattle.voteGoal)) {
+          $scope.currentBattle.state = 'completed';
+          $scope.currentBattle.date = new Date();
+          if (numVideo === 1) {
+            $scope.currentBattle.winner = $scope.currentBattle.user1;
+          } else {
+            $scope.currentBattle.winner = $scope.currentBattle.user2;
+          }
+          btlFactory.updateBattle($scope.currentBattle).then(function(res){
+            drawFirstCircleBar($scope.currentBattle.video1Votes, $scope.currentBattle.voteGoal);
+            drawSecondCircleBar($scope.currentBattle.video2Votes, $scope.currentBattle.voteGoal);
+              if ($scope.currentBattle.state === 'completed'){
+                alert('that was the winning vote!');
+                //winning screen
+              } else {
+                console.log("not winning vote");
+                //suggested videos
+              }//else
+          }, function(error){
+            throw error;
+          })// else update callback
+        } //if battle is won
+      })// rating callback
+    })//then auth callback
+    }// voted
+  //   btlFactory.updateVotes(battle).then(function(result){
+  //     if ((battle.video1Votes === battle.voteGoal)||(battle.video2Votes===battle.voteGoal)) { //wanna say >= but that SHOULDNT happen
+  //       $scope.finishBattle(battle);
+  //     } else {
+  //       //display result progress bars and related videos. which Im not sure how to tackle
+  //     }// else voting commented but no winner yet
+  //   }, function(error){
+  //     throw error;
+  //   }) //update callback
+  // }//get current user callback
+// voted function
+
+// $scope.showVidRank = function(whichVid) {
+//   if (whichVid == 1) {
+//     $scope.video1Votes++;
+//   }
+//   else {
+//     $scope.video2Votes++;
+//   }
+//   drawFirstCircleBar($scope.video1Votes, $scope.voteLimit);
+//   drawSecondCircleBar($scope.video2Votes, $scope.voteLimit);
+// }
+
+});
