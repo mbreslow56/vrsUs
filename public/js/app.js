@@ -1,4 +1,4 @@
-var app = angular.module("appName", ['ui.router', 'youtube-embed']);
+var app = angular.module("appName", ['ui.router', 'youtube-embed', 'isteven-omni-bar']);
 
 
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
