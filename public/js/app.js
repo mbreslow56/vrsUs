@@ -16,10 +16,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     .state('battle', {
       url: '/battle',
       templateUrl: 'js/templates/battle.html',
-      controller: function($rootScope, authFactory){
-        $rootScope.currentUser = authFactory.currentUser.username;
-        console.log(authFactory.currentUser.username);
-      }
+      controller: 'myCtrl'
   })
     .state('unmatched', {
       url: '/unmatched',
@@ -68,7 +65,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
         console.log(authFactory.currentUser.username);
       }
   })
-      
-      
+
+
 
 });

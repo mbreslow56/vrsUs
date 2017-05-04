@@ -52,7 +52,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
         video2: null,
         video2Votes: 0,
          date: null,
-         winner: null
+         winner: false
       }
       console.log("video1 url: " + btlObj.video1);
       btlFactory.addBattle(btlObj).then(function(){

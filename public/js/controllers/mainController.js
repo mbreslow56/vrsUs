@@ -1,6 +1,7 @@
 app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { //, authfactory
+  $scope.currentUser = authFactory.currentUser.username;
+  console.log("current myctrl user", authFactory.currentUser);
   $scope.currentBattle = CBFactory.getBattle();
-
   $scope.showVotes = false;
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
@@ -154,11 +155,11 @@ var checkWin = function(battle) {
 $scope.voted = function(numVideo) { //
   $scope.btlCopy = $scope.currentBattle;
   if (numVideo===1) {
-      $scope.currentBattle.video1Ratings.push($scope.currentUser._id);
+      $scope.currentBattle.video1Ratings.push(authFactory.currentUser._id);
     } else {
-      $scope.currentBattle.video2Ratings.push($scope.currentUser._id);
+      $scope.currentBattle.video2Ratings.push(authFactory.currentUser._id);
     } //else
-    btlFactory.vote($scope.currentBattle, $scope.currentUser._id).then(function(result){
+    btlFactory.vote($scope.currentBattle, authFactory.currentUser._id).then(function(result){
       // checkWin happens in the server. if it wins, return the new battle with updated ratings
       drawFirstCircleBar($scope.currentBattle.video1Ratings.length);
       drawSecondCircleBar($scope.currentBattle.video2Ratings.length);
