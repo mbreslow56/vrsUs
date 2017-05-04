@@ -59,7 +59,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'js/templates/home.html',
       controller: 'authCtrl'
   })
-           .state('profile', {
+      .state('profile', {
       url: '/profile',
       templateUrl: 'js/templates/profile.html',
       controller: function($scope, $rootScope, authFactory){
