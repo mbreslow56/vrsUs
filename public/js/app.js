@@ -59,4 +59,16 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'js/templates/home.html',
       controller: 'authCtrl'
   })
+           .state('profile', {
+      url: '/profile',
+      templateUrl: 'js/templates/profile.html',
+      controller: function($scope, $rootScope, authFactory){
+        $rootScope.currentUser = authFactory.currentUser.username;
+        $scope.currentUser = $rootScope.currentUser;
+        console.log(authFactory.currentUser.username);
+      }
+  })
+      
+      
+
 });
