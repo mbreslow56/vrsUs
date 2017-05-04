@@ -22,6 +22,35 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
     $state.go('battle');
   }//getCurr
 
+  function drawProgressBar(videoVotes, voteGoal){
+      
+
+      var bar = new ProgressBar.Line('#progress' + $scope.$index, {
+        strokeWidth: 4,
+        easing: 'easeInOut',
+        duration: 3000,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        svgStyle: {width: '100%', height: '100%'},
+        from: {color: '#109010'},
+        to: {color: '#ED6A5A'},
+        step: (state, bar) => {
+          bar.path.setAttribute('stroke', state.color);
+        }
+      });
+      var percent = (videoVotes/voteGoal);
+      $scope.percent = Math.round(videoVotes/voteGoal * 100);
+      console.log(percent);
+      bar.animate(percent);  // Number from 0.0 to 1.0
+  };
+
+  $scope.videoVotes = 14;
+  $scope.voteGoal = 16;
+  window.setTimeout(function(){
+    drawProgressBar($scope.videoVotes, $scope.voteGoal);
+  }, 10);
+  
 
   // voting function from btlCtrl1
   // finishBattle
