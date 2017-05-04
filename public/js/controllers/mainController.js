@@ -1,6 +1,6 @@
 app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { //, authfactory
   $scope.currentBattle = CBFactory.getBattle();
-
+  $scope.currentUser = authFactory.currentUser.username;
   $scope.showVotes = false;
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
@@ -152,6 +152,8 @@ var checkWin = function(battle) {
 }//checkWin
 
 $scope.voted = function(numVideo) { //
+  console.log("this is the current user:");
+  console.log($scope.currentUser);
   $scope.btlCopy = $scope.currentBattle;
   if (numVideo===1) {
       $scope.currentBattle.video1Ratings.push($scope.currentUser._id);
