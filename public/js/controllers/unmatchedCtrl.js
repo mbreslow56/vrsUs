@@ -6,19 +6,19 @@ app.controller('unmatchedCtrl', function($sce, $scope, btlFactory) {
  }
 
   $scope.unmatchedUpdate = function(){
-  btlFactory.getAllUnmatched().then(function(result){
+  btlFactory.getBattles('unmatched').then(function(result){
     $scope.allUnmatched = result;
     for (var i = 0; i < result.length; i++) {
-      console.log(result[i].video);
-      var url = result[i].video.replace("watch?v=", "embed/");
+      console.log("vid object: ");
+      console.log(result[i]);
+      console.log(result[i].video1);
+      var url = result[i].video1.replace("watch?v=", "embed/");
       console.log(url);
-      $scope.allUnmatched[i].video = url;
+      $scope.allUnmatched[i].video1 = url;
     }
     //console.log($scope.allUnmatched);
   });
 }
 
   $scope.unmatchedUpdate();
-
-
 });

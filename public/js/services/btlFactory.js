@@ -1,90 +1,89 @@
 app.factory('btlFactory', function($http){
-  var getUnmatched = function(id) {
-    return $http.get('/btls/unjoined/' + id)
-      .then(function(response) {
-        return response.data;
-      }, function(err) {
-          console.error(err);
-      });
-  }
-  var addUnmatched = function(btl) {
-    return $http.post('/btls/unjoined', btl)
-    .then(function(response){
-      console.log(response);
-    }, function(error){
-      throw (error);
-    }); // $http callback
-  }// creating a new unjoined battle
+    var getBattles = function(state){
+      return $http.get('/btls/' + state).then(function(result) {
+        console.log("result from btlfactory: ");
+        console.log(result.data);
+        return result.data;
+      }, function(error){
+        throw (error);
+      }) // add promise
+    }// get battles of a certain state
 
-  var deleteUnmatched = function(uId) {
-    return $http.delete('/btls/unjoined/'+uId).then(function(result){
-      console.log("unmatched battle that was deleted: ", result);
-      return result.data; //??
-    }, function(error){
-      throw (error);
-    })
-  }// deleteUnmatched
+    var getBattle = function(id, state) {
+      return $http.get('/btls/' + state + '/' + id)
+        .then(function(response) {
+          return response.data;
+        }, function(err) {
+            console.error(err);
+        });
+    }
 
-  var getAllUnmatched = function() {
-    return $http.get('/btls/unjoined').then(function(result){
-      return result.data;
-    }, function(error){
-    throw (error);
-  }) //promise callbacks
-} //getAllUnmatched
-
-    var addOnGoing = function(battle){
-      return $http.post('/btls/ongoing', battle).then(function(result) {
+    var addBattle = function(battle){
+      return $http.post('/btls/', battle).then(function(result) {
         console.log("battle made and set!");
+        console.log(result.data);
         return result.data;
       }, function(error){
         throw (error);
       }) // add promise
     }// addOnGoing
 
-  var deleteOngoing = function(oId) {
-    return $http.delete('/btls/ongoing/'+oId).then(function(result){
+  var deleteBattle = function(oId) {
+    return $http.delete('/btls/' + oId).then(function(result){
       console.log("ongoing battle that was deleted: ", result);
       return result.data; //??
     }, function(error){
       throw (error);
     }) //promise callbacks
-  }// deleteOngoing
+  }// delete a battle
 
-  var getAllOngoing = function() {
-    return $http.get('/btls/ongoing').then(function(result){
+  var updateBattle = function(battle) {
+    return $http.put('/btls/' + battle._id , battle).then(function(result){
+      return result.data;
+    }, function(error){
+      throw error;
+    })
+  }
+  var vote = function(battle, userId) {
+    return $http.put('/btls/'+battle._id+'/'+userId, battle).then(function(result){
+      return result.data;
+    }, function(error){
+      console.error(error);
+    });
+  }//
+
+  var getUserRatings = function(id) {
+    return $http.get('/rating/' + id).then(function(result){
       return result.data;
     }, function(error){
     throw (error);
   }) //promise callbacks
-  } //getAllOngoing
+} //getAll ratings of a user
 
-  var getAllRecords = function() {
-    return $http.get('/btls/records').then(function(result){
+  var addRatings = function(rating) {
+    return $http.post('/rating', rating).then(function(result){
       return result.data;
     }, function(error){
-    throw (error);
-  }) //promise callbacks
-} //getAllrecords
+      throw error;
+    })
+  }
 
-var addRecord = function(record){
-  return $http.post('/btls/record',record ).then(function(result) {
-    console.log("record made and set in time!");
-    return result.data;
-  }, function(error){
-    throw (error);
-  }) // add promise
-}// addRecord
+  var updateRatings = function(battle, vidNo) {
+    return $http.put('/rating/' + battle._id + '/' + vidNo).then(function(result){
+      return result.data;
+    }, function(error){
+      throw error;
+    })
+  }
 
   return {
-    addUnmatched: addUnmatched,
-    deleteUnmatched: deleteUnmatched,
-    getAllUnmatched: getAllUnmatched,
-    getUnmatched: getUnmatched,
-    addOnGoing: addOnGoing,
-    deleteOngoing: deleteOngoing,
-    getAllOngoing: getAllOngoing,
-    getAllRecords: getAllRecords,
-    addRecord: addRecord
+    getBattles: getBattles,
+    getBattle: getBattle,
+    addBattle: addBattle,
+    updateBattle: updateBattle,
+    getUserRatings: getUserRatings,
+    addRatings: addRatings,
+    updateRatings: updateRatings,
+    vote: vote
   }
 });

@@ -12,9 +12,7 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
     //   total: 0
     // };
     $scope.user.artistWins = 0;
-    $scope.user.artistLosses = 0;
     $scope.user.voterWins = 0;
-    $scope.user.voterLosses = 0;
     authFactory.join($scope.user)
       .then(function() {
         $state.go('home');
