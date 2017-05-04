@@ -3,8 +3,6 @@
 app.controller('progressCtrl', ['$scope', function($scope){
 
   function drawProgressBar(videoVotes, voteGoal){
-      
-
       var bar = new ProgressBar.Line('#progress' + $scope.$index, {
         strokeWidth: 4,
         easing: 'easeInOut',
@@ -28,8 +26,8 @@ app.controller('progressCtrl', ['$scope', function($scope){
   window.setTimeout(function(){
     drawProgressBar($scope.videoVotes, $scope.voteGoal);
   }, 10);
-  
-  
+
+
 }]);
 
 

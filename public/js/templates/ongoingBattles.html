@@ -35,7 +35,7 @@
                           <h4 >{{result.battleName}}</h4>
 
                             <div ng-controller="progressCtrl">
-                            <div  ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
+                            <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
                               <a ui-sref="battle" data-lightbox-gallery="food-gallery">
                                 <h4>{{currentUser.username}}</h4>
                                 <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery"> <h2> VS </h2>
@@ -64,4 +64,3 @@
       </div>
     </div>
 </section>
-                         
