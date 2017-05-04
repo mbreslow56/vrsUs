@@ -40,6 +40,7 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 
 router.get('/logout', function (req, res) {
   req.logout();
+  console.log("in logout server route");
   res.send('Logged out!');
 });
 
@@ -51,8 +52,8 @@ router.get('/currentuser', function (req, res){
   }
 });
 
-// router.get('/facebook', 
-//   passport.authenticate('facebook', 
+// router.get('/facebook',
+//   passport.authenticate('facebook',
 //   	{ scope: 'email' }));
 
 

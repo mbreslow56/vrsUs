@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -24,25 +24,24 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/progress-bar.css">
     <link rel="stylesheet" href="css/isteven-omni-bar.css">
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590a27a56632fa57"></script> 
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590a27a56632fa57"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lemon" />
     <base href="/">
 </head>
 
-<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<body ng-controller='authCtrl' id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
     <nav-directive></nav-directive>
 
     <!-- Preloader section -->
     <div class="preloader">
         <div class="sk-spinner sk-spinner-pulse"></div>
     </div>
-    <div ng-controller='authCtrl'>
-        <div ng-controller='masterCtrl'>
+    <div ng-controller='masterCtrl'>
         <div ui-view></div>
-      </div>
     </div>
+
     <!-- javascript js -->
 
     <footer-directive></footer-directive>
@@ -54,14 +53,10 @@
     <script src="//code.angularjs.org/1.2.20/angular-sanitize.min.js"></script>
     <script src="js/directives/navDirective.js"></script>
     <script src="js/directives/footerDirective.js"></script>
-    <script src="js/controllers/battleParts.js"></script>
-    <script src="js/controllers/battleName.js"></script>
     <script src="js/controllers/isteven-omni-bar.js"></script>
     <script src="js/services/currentBattleFactory.js"></script>
     <script src="js/controllers/ongoingCtrl.js"></script>
     <script src="js/controllers/mainController.js"></script>
-    <script src="js/controllers/video1.js"></script>
-    <script src="js/controllers/video2.js"></script>
     <script src="js/services/authFactory.js"></script>
     <script src="js/services/btlFactory.js"></script>
     <script src="js/controllers/authCtrl.js"></script>
