@@ -1,3 +1,6 @@
+<div class="framebattle">
+  <div class="container">
+
 <section id="gallery" class="parallax-section">
   <div class="container">
     <div class="row">
@@ -122,16 +125,21 @@
     <section >
       <ul ng-repeat = "btl in allUnmatched track by $index">
         <li>
-          <h4 style="font-weight:bold"> {{$index+1}}) Battle name: {{btl.battleName}} </h4>
+          <h4 style="font-weight:bold"> {{$index+1}}) {{btl.battleName}} </h4>
           <h4> number of votes to win: {{btl.voteGoal}}</h5> <br />
 
           <iframe width="400" height="220" ng-src="{{trustSrc(btl.video1)}}"
   frameborder="0" allowfullscreen></iframe> <br />
           <!-- <a ui-sref="beer({beerParam: beer, id: beer._id})">Reviews</a> -->
-        <a ui-sref="challenge({id: btl._id})" class="hrefbutton"> Join </a>
+        <!-- <a ui-sref="challenge({id: btl._id})" class="hrefbutton"> Join </a> -->
+
+        <button ui-sref="challenge({id: btl._id})" class="button button-neutral" type="button">Join <i class="fa fa-plus"></i></button>
+
+    
         <hr />
        </li>
       </ul>
     </section>
   </div>
 </section>
+
