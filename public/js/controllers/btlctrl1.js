@@ -1,4 +1,4 @@
-app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactory, btlFactory){
+app.controller( 'btlCtrl1', function($scope, $state, $stateParams, authFactory, btlFactory){
   $scope.user = authFactory.currentUser;
   console.log("state param is: ", $stateParams.id);
 
@@ -58,7 +58,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
       btlFactory.addBattle(btlObj).then(function(){
         $scope.updateUnmatched();
         alert("successfully opened a new battle!!");
-        $location.path('/unmatched');
+        $state.go('unmatched');
       });
 
 
@@ -79,7 +79,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
        }); // deleting callback
        alert("added ongoing battle.");
       //  $scope.updateOngoing();
-       $location.path('/ongoing');
+       $state.go('ongoing');
      });// add ongoing callback
    } // getCurrentUser callback  NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
 
@@ -87,7 +87,7 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
    battle.date = new Date();
    battle.winner = userId;
    battle.state = "completed";
-   //$location.path('/home'); // to be added: winner screen!!
+   //$state.go('home'); // to be added: winner screen!!
    }; //finishBattle NOTE: TRANSITION: ONGOING BATTLE ===> RECORD
 
   $scope.getVidId = function(){
