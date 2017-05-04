@@ -44,6 +44,13 @@ app.factory('btlFactory', function($http){
       throw error;
     })
   }
+  var vote = function(battle, userId) {
+    return $http.put('/btls/'+battle._id+'/'+userId, battle).then(function(result){
+      return result.data;
+    }, function(error){
+      console.error(error);
+    });
+  }//
 
   var getUserRatings = function(id) {
     return $http.get('/rating/' + id).then(function(result){
@@ -76,6 +83,7 @@ app.factory('btlFactory', function($http){
     updateBattle: updateBattle,
     getUserRatings: getUserRatings,
     addRatings: addRatings,
-    updateRatings: updateRatings
+    updateRatings: updateRatings,
+    vote: vote
   }
 });

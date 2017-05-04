@@ -151,54 +151,26 @@ var checkWin = function(battle) {
 
 }//checkWin
 
-$scope.voted = function(numVideo) {
-  var user = authFactory.getCurrentUser().then(function(user){
-    var rating = {
-      user: user._id,
-      weight: 1,
-      battle: $scope.currentBattle._id,
-      winner: false
-    };
-
-     if (numVideo === 1) {
-       $scope.currentBattle.video1Votes++;
-       rating.video = 1;
-     } else {
-       $scope.currentBattle.video2Votes++;
-       rating.video = 2;
-    }//else
-
-
-    btlFactory.addRatings(rating).then(function(result){
-
-
-      btlFactory.updateBattle($scope.currentBattle).then(function(res){
-        drawFirstCircleBar($scope.currentBattle.video1Votes);
-        drawSecondCircleBar($scope.currentBattle.video2Votes);
-
-          if (($scope.currentBattle.video1Votes===$scope.currentBattle.voteGoal)||($scope.currentBattle.video2Votes===$scope.currentBattle.voteGoal)) {
-            $scope.currentBattle.date = new Date();
-            alert('that was the winning vote!');
-
-            if (numVideo === 1) {
-              $scope.currentBattle.winner = $scope.currentBattle.user1;
-            } else {
-              $scope.currentBattle.winner = $scope.currentBattle.user2;
-            }
-          } //if battle is won
-
-      }, function(error){
-        throw error;
-      })// else update callback
-
-
-
-
-
-
-
-      })// rating callback
-    })//then auth callback
+$scope.voted = function(numVideo) { //
+  $scope.btlCopy = $scope.currentBattle;
+  if (numVideo===1) {
+      $scope.currentBattle.video1Ratings.push($scope.currentUser._id);
+    } else {
+      $scope.currentBattle.video2Ratings.push($scope.currentUser._id);
+    } //else
+    btlFactory.vote($scope.currentBattle, $scope.currentUser._id).then(function(result){
+      // checkWin happens in the server. if it wins, return the new battle with updated ratings
+      drawFirstCircleBar($scope.currentBattle.video1Ratings.length);
+      drawSecondCircleBar($scope.currentBattle.video2Ratings.length);
+      $scope.copyBtl = null;
+      if (result.winner) {
+        alert("winning vote");
+      } else {
+        console.log("not winning vote");
+      }//else
+    }, function(error){
+      $scope.currentBattle = btlCopy;
+    })
   }// voted
 
 
