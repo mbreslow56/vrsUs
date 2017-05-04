@@ -122,7 +122,7 @@
     <section >
       <ul ng-repeat = "btl in allUnmatched track by $index">
         <li>
-          <h3 style="font-weight:bold"> {{$index+1}}) Battle name: {{btl.battleName}} </h3>
+          <h4 style="font-weight:bold"> {{$index+1}}) Battle name: {{btl.battleName}} </h4>
           <h4> number of votes to win: {{btl.voteGoal}}</h5> <br />
 
           <iframe width="400" height="220" ng-src="{{trustSrc(btl.video1)}}"
