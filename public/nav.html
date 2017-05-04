@@ -23,23 +23,23 @@
 
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
       <li ng-hide="currentUser"><a href="login">Login</a></li>
-      
+
       <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span>Ongoing Battles</a></li>
       <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Unmatched Battles</a></li>
       <li ng-show="currentUser"><a href="create"><span class="fa fa-bolt"></span> Create Battle</a></li>
 
-<!-- 
+<!--
  <div class="navicon">
      <ul class="icon">
         <li ng-show="currentUser"><i class="icon fa fa-youtube-play fa-2x"></i><a href="ongoing">Ongoing Battles</a></li>
         <li ng-show="currentUser"><i class="icon fa fa-plus fa-2x"></i><a href="unmatched">Unmatched Battles</a></li>
         <li ng-show="currentUser"><i class="icon fa fa-bolt fa-2x"></i><a href="Create">Create Battles</a></li>
-        
+
     </ul>
 </div>
  -->
 
-       
+
 
 
 
@@ -67,7 +67,7 @@
            <li role="separator" class="divider"></li>
               <li><a ui-sref="login" ng-hide="currentUser">Log In</a></li>
               <li><a ui-sref="join" ng-hide="currentUser">Join</a></li>
-              <li><a href="logout" ng-show="currentUser" ng-click="logout()">Log Out</a></li>
+              <li><a ng-show="currentUser" ng-click="logout()">Log Out</a></li>
   </ul>
 
    <button class="btn btn-default user-btn" ui-sref="profile" ng-show="currentUser"> <i class="fa fa-user fa-2x">

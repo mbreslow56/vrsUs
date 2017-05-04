@@ -5,8 +5,9 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   $scope.showVotes = false;
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
-  $scope.video1 = "'"+$scope.currentBattle.video1+"'";
-  $scope.video2 = "'"+$scope.currentBattle.video2+"'";
+  $scope.video1 = $scope.currentBattle.video1;
+  $scope.video2 = $scope.currentBattle.video2;
+  $scope.battleName = $scope.currentBattle.battleName;
   $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
 
   function drawFirstCircleBar(videoVotes) {

@@ -28,6 +28,7 @@ app.factory('authFactory', function($http){
   	return $http.get('/users/logout')
   	  .then(function(reponse) {
   	  	auth.currentUser.username = null;
+        console.log("auth logout");
   	  })
   }
 

@@ -29,10 +29,11 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
       });
   }
   $scope.logout = function() {
+    console.log("logging out");
     authFactory.logout($scope.user)
       .then(function() {
-        authFactory.getCurrentUser();
-        $state.go('home');
+        console.log("logged out");
+        $state.go('home', {}, {reload: true});
       }, function(err) {
         alert(err.data);
       });
