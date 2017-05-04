@@ -1243,3 +1243,118 @@ html {
     color: #fff;
     background-color: #000;
 }
+
+
+/*navbar design icon*/
+
+ul{ list-style-type: none; }
+.navicon ul{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size:0px;
+}
+.navicon ul li i{
+    display: block;
+}
+.navicon ul li:hover i{
+   display: none;
+}
+.navicon ul li a{
+    display: none;
+}
+.navicon ul li:hover a{
+   display: block;
+}
+  .navicon ul li{
+    font-size:12pt;
+    display:inline-block;
+    padding:15px;
+    transition: all 0.2s ease-in-out;
+  }
+  .navicon ul li a{
+    font-family: FontAwesome;
+/*    color:#eee;*/
+    font-size:22pt;
+    text-decoration: none;
+  }
+  
+
+  .navicon ul li a:hover:nth-child(1) { content:"Ongoing Battles"; }
+  .navicon ul li a:hover:nth-child(2) { content:"Unmatched Battles"; }
+  .navicon ul li a:hover:nth-child(3) { content:"Create Battle"; }
+
+  .icon {
+        margin-right: 250px;
+
+  }
+  
+ /* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+
+.profilediv {
+   
+     margin-left: 65px;
+    width: 120%;
+      
+}
+
+@media screen and (min-width: 40.5em) {
+  .product-img {
+    width: 50%;
+    float: left;
+  }
+}
