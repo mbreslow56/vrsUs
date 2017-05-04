@@ -8,10 +8,10 @@ var battleSchema = new Schema ({
   voteGoal: Number,
   user1: {type: Schema.Types.ObjectId, ref:"User"},
   video1: String, //NOTE: left video. first in
-  video1Votes: Number,
+  video1Ratings: [{type: Schema.Types.ObjectId, ref:"User"}],
   user2: {type: Schema.Types.ObjectId, ref:"User"},
   video2: String, //NOTE: right video. second in
-  video2Votes: Number,
+  video2Ratings: [{type: Schema.Types.ObjectId, ref:"User"}],
   date: Date,
   winner: {type: Schema.Types.ObjectId, ref:"User"}
 });

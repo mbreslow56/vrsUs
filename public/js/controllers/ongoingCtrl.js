@@ -18,8 +18,6 @@ app.controller('ongoingCtrl', function($scope, $location, btlFactory, CBFactory,
       }
     });
 }
-
-
   $scope.ongoingUpdate();
 
 

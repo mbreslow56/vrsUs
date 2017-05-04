@@ -2,7 +2,6 @@ app.controller('masterCtrl', function($scope, authFactory) {
   authFactory.getCurrentUser();
   $scope.currentUser = authFactory.currentUser;
 
-
   var video, results;
 
    $scope.getThumb = function(url, size) {

@@ -48,13 +48,13 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
         user1: user._id,
         video1: $scope.videourl,
         video1Votes: 0,
-        // user2: "",
-        video2: "",
+         user2: null,
+        video2: null,
         video2Votes: 0,
-        // date: "",
-        // winner: ""
+         date: null,
+         winner: null
       }
-      //console.log("number of votes: " + umObj.numVotes);
+      console.log("video1 url: " + btlObj.video1);
       btlFactory.addBattle(btlObj).then(function(){
         $scope.updateUnmatched();
         alert("successfully opened a new battle!!");
@@ -77,32 +77,11 @@ app.controller( 'btlCtrl1', function($scope, $stateParams, $location, authFactor
          $scope.updateUnmatched(); // NOTE: $scope.allUnmatched changes here
          // NOTE maybe add more functionality here?
        }); // deleting callback
-       alert("added ongoing battle. ");
+       alert("added ongoing battle.");
       //  $scope.updateOngoing();
        $location.path('/ongoing');
      });// add ongoing callback
    } // getCurrentUser callback  NOTE: TRANSITION: UNMATCHED==> ONGOING BATTLE
-
-  //  $scope.voted = function (battle, numVideo) {
-  //    var user = authFactory.getCurrentUser().then(function(user){
-  //      if (numVideo===1) {
-  //       battle.video1Votes++;
-  //       battle.video1Voters.push(user._id);
-  //      } else {
-  //       battle.video2Votes++;
-  //       battle.video2Voters.push(user._id);
-  //      }//else
-  //      btlFactory.updateVotes(battle).then(function(result){
-  //        if ((battle.video1Votes === battle.voteGoal)||(battle.video2Votes===battle.voteGoal)) { //wanna say >= but that SHOULDNT happen
-  //          $scope.finishBattle(battle);
-  //        } else {
-  //          //display result progress bars and related videos. which Im not sure how to tackle
-  //        }// else voting commented but no winner yet
-  //      }, function(error){
-  //        throw error;
-  //      }) //update callback
-  //    }//get current user callback
-  //  }// voted function
 
  $scope.finishBattle = function(battle, userId){
    battle.date = new Date();

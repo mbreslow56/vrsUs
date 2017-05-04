@@ -1,6 +1,8 @@
 app.factory('btlFactory', function($http){
     var getBattles = function(state){
       return $http.get('/btls/' + state).then(function(result) {
+        console.log("result from btlfactory: ");
+        console.log(result.data);
         return result.data;
       }, function(error){
         throw (error);
@@ -19,6 +21,7 @@ app.factory('btlFactory', function($http){
     var addBattle = function(battle){
       return $http.post('/btls/', battle).then(function(result) {
         console.log("battle made and set!");
+        console.log(result.data);
         return result.data;
       }, function(error){
         throw (error);
@@ -41,6 +44,13 @@ app.factory('btlFactory', function($http){
       throw error;
     })
   }
+  var vote = function(battle, userId) {
+    return $http.put('/btls/'+battle._id+'/'+userId, battle).then(function(result){
+      return result.data;
+    }, function(error){
+      console.error(error);
+    });
+  }//
 
   var getUserRatings = function(id) {
     return $http.get('/rating/' + id).then(function(result){
@@ -73,6 +83,7 @@ app.factory('btlFactory', function($http){
     updateBattle: updateBattle,
     getUserRatings: getUserRatings,
     addRatings: addRatings,
-    updateRatings: updateRatings
+    updateRatings: updateRatings,
+    vote: vote
   }
 });
