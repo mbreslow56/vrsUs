@@ -1,28 +1,43 @@
 // // progressbar.js@1.0.0 version is used
 // // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
-app.controller('progressCtrl', ['$scope', function($scope){
+app.controller('isteven-omni-bar', ['$scope', function($scope){
   
-  function drawProgressBar(videoVotes, voteLimit){
-    var bar = new ProgressBar.Line(progress, {
-      strokeWidth: 4,
-      easing: 'easeInOut',
-      duration: 1500,
-      color: '#FFEA82',
-      trailColor: '#eee',
-      trailWidth: 1,
-      svgStyle: {width: '100%', height: '100%'},
-      from: {color: '#109010'},
-      to: {color: '#ED6A5A'},
-      step: (state, bar) => {
-        bar.path.setAttribute('stroke', state.color);
-      }
-    });
-    bar.animate(videoVotes/voteLimit);  // Number from 0.0 to 1.0
-};
-  $scope.videoVotes = 12;
-  $scope.voteLimit = 16;
-  drawProgressBar($scope.videoVotes, $scope.voteLimit);
+  var currentValue = $scope.currentValue;
+  var maxValue = $scope.maxValue;
+  $scope.currentValue = 700;
+  $scope.maxValue     = 1500;
+  $scope.percent = Math.round(($scope.currentValue/$scope.maxValue) * 100);
+
+  $scope.loadingCurrent1 = {
+      backgroundColor: "#ED6A5A"
+  }
+  
+  // function drawProgressBar(videoVotes, voteGoal){
+
+  //     var bar = new ProgressBar.Line('#progress', {
+  //       strokeWidth: 4,
+  //       easing: 'easeInOut',
+  //       duration: 1500,
+  //       color: '#FFEA82',
+  //       trailColor: '#eee',
+  //       trailWidth: 1,
+  //       svgStyle: {width: '100%', height: '100%'},
+  //       from: {color: '#109010'},
+  //       to: {color: '#ED6A5A'},
+  //       step: (state, bar) => {
+  //         bar.path.setAttribute('stroke', state.color);
+  //       }
+  //     });
+
+  //     bar.animate(videoVotes/voteGoal);  // Number from 0.0 to 1.0
+  // };
+
+  // $scope.videoVotes = 8;
+  // $scope.voteGoal = 16;
+  // drawProgressBar($scope.videoVotes, $scope.voteGoal);
+
 }]);
+
 
 
 
