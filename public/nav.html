@@ -24,9 +24,9 @@
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
       <li ng-hide="currentUser"><a href="login">Login</a></li>
       
-      <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span>Ongoing Battles</a></li>
-      <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Unmatched Battles</a></li>
-      <li ng-show="currentUser"><a href="create"><span class="fa fa-bolt"></span> Create Battle</a></li>
+      <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span>Ongoing</a></li>
+      <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Unmatched</a></li>
+      <li ng-show="currentUser"><a href="create"><span class="fa fa-bolt"></span> Create </a></li>
 
 <!-- 
  <div class="navicon">
@@ -53,16 +53,16 @@
  <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
   <span class="caret"></span></i>
  <!--  <ul class="dropdown-menu"> -->
-     <li><a href="#profile" class="smoothScroll">My profile</a></li>
-        <li><a href="#about" class="smoothScroll">My battles</a></li>
-        <li><a href="create" class="smoothScroll">Create Battle</a></li>
-        <li><a ui-sref="unmatched" class="smoothScroll">Browse Unmatched</a>
+     <li><a ui-sref="profile" class="smoothScroll"><span class="fa fa-user"></span> My profile</a></li>
+        <li><a ui-sref="profile" class="smoothScroll"><span class="fa fa-bolt"></span> My battles</a></li>
+        <li><a ui-sref=="create" class="smoothScroll"><span class="fa fa-plus"></span> Create Battle</a></li>
+        <li><a ui-sref="unmatched" class="smoothScroll"><span class="fa fa-user"></span> Browse Unmatched</a>
         </li>
 
 
          <li role="separator" class="divider"></li>
          <!-- <li><a href="#menu" class="smoothScroll">Account Settings</a></li> -->
-         <li><a href="home#contact" class="smoothScroll">Contact us</a></li>
+         <li><a href="home#contact" class="smoothScroll"><i class="fa fa-envelope-o"></i> Contact us</a></li>
 <!--          <li><a href="#team" class="smoothScroll">About us</a></li> -->
            <li role="separator" class="divider"></li>
               <li><a ui-sref="login" ng-hide="currentUser">Log In</a></li>

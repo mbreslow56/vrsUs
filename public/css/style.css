@@ -4,7 +4,7 @@
 @import url("http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css");
 
 .headline {
-  background-color: lightblue;
+
   color: white;
   text-align: center;
   padding: 20px 0;
@@ -128,7 +128,7 @@ h1 {
 }
 
 h2 {
-  color: #333;
+  color: white;
   font-size: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -192,7 +192,7 @@ a:focus {
 #team,
 #gallery,
 #contact {
-  color: #656565;
+  color: white;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -502,7 +502,7 @@ a:focus {
 }
 
 #team .team-des h4 {
-  color: #666;
+  color: white;
   padding-top: 0px;
   padding-bottom: 10px;
 }
@@ -634,7 +634,7 @@ a:focus {
 }
 
 .filter-wrapper li a {
-    color: #666;
+    color: white;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -1318,11 +1318,11 @@ ul{ list-style-type: none; }
     height: 130px;
 }
 .card-background img {
-    -webkit-filter: blur(25px);
+    /*-webkit-filter: blur(25px);*/
     -moz-filter: blur(25px);
     -o-filter: blur(25px);
     -ms-filter: blur(25px);
-    filter: blur(25px);
+    /*filter: blur(25px);*/
     margin-left: -100px;
     margin-top: -200px;
     min-width: 130%;
@@ -1358,3 +1358,8 @@ ul{ list-style-type: none; }
     float: left;
   }
 }
+/*
+.col-md-4 {
+  background-color: white;
+}
+*/

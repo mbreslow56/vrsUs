@@ -1,5 +1,11 @@
+<div class="framebattle">
+  <div class="container">
+
 <section id="gallery" class="parallax-section">
+
   <div ng-controller="ongoingCtrl" class="container">
+
+
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10">
@@ -28,11 +34,11 @@
                           <div ng-repeat="thumbnail in thumbnails track by $index" class="iso-box breakfast pizza lunch col-md-4 col-md-offset-0 col-sm-6">
                           <h4 >{{result.battleName}}</h4>
 
-                            <div ng-controller="progressCtrl" id="{{'progress' + $index}}">
+                            <div ng-controller="progressCtrl">
                             <div  ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
                               <a ui-sref="battle" data-lightbox-gallery="food-gallery">
                                 <h4>{{currentUser.username}}</h4>
-                                <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery"> <h3> VS </h3>
+                                <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery"> <h2> VS </h2>
                                 <h4>{{currentUser.username}}</h4>
                                 <img ng-src="{{thumbnail.video2}}" class="fluid-img" alt="Gallery">
                                   <div class="gallery-overlay">
@@ -41,6 +47,8 @@
                                     </div>
                                   </div>
                               </a>
+                              <br>
+                             <div id="{{'progress' + $index}}"></div>{{ percent }}% Done
                             </div>
                       </div>
                       </div>
@@ -56,15 +64,4 @@
       </div>
     </div>
 </section>
-                          <!-- <div class="iso-box breakfast lunch dinner col-md-4 col-md-offset-4 col-sm-6">
-                            <div class="gallery-thumb">
-                              <a ui-sref="battle" data-lightbox-gallery="food-gallery">
-                                <img ng-src="{{thumb2}}" class="fluid-img" alt="Gallery">
-                                  <div class="gallery-overlay">
-                                    <div class="gallery-item">
-                                      <i class="fa fa-picture"></i>
-                                    </div>
-                                  </div>
-                              </a>
-                            </div>
-                          </div> -->
+                         
