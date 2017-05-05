@@ -18,7 +18,7 @@ app.factory('btlFactory', function($http){
         });
     }
 
-    // get participant of battle :
+    // get participant of battle by ID:
     var getBattleParticipant = function(battleId, participantId, state) {
       return $http.get('/btls/' + state + '/' + battleId + '/' + participantId)
         .then(function(response) {

@@ -34,7 +34,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     .state('ongoing', {
       url: '/ongoing',
       templateUrl: 'js/templates/ongoingBattles.html',
-      controller: 'authCtrl'
+      controller: 'ongoingCtrl'
   })
     .state('create', {
       url: '/create',

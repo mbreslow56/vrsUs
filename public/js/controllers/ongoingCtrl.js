@@ -53,7 +53,6 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
   }//getCurr
 
   function drawProgressBar(videoVotes, voteGoal){
-
       var bar = new ProgressBar.Line('#progress' + $scope.$index, {
         strokeWidth: 4,
         easing: 'easeInOut',
