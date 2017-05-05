@@ -4,8 +4,6 @@
 app.controller('progressCtrl', ['$scope', function($scope, btlFactory, CBFactory){
   // $scope.currentBattle = CBFactory.getBattle();
   function drawProgressBar(videoVotes, voteGoal){
-      
-
       var bar = new ProgressBar.Line('#progress' + $scope.$index, {
         strokeWidth: 4,
         easing: 'easeInOut',
@@ -31,8 +29,8 @@ app.controller('progressCtrl', ['$scope', function($scope, btlFactory, CBFactory
   window.setTimeout(function(){
     drawProgressBar($scope.videoVotes, $scope.voteGoal);
   }, 10);
-  
-  
+
+
 }]);
 
 

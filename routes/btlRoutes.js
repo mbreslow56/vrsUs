@@ -26,6 +26,17 @@ router.get('/:state/:id', function(req, res, next) {
   }); // find callback
 }); //get route for a specific battle
 
+// find a participant of a certain battle
+router.get('/:state/:battleId/:participantId/', function(req, res, next) {
+  User.find({_id: req.params.participantId}, function(err, participant){
+    if (err) {
+      throw err;
+    } else {
+      res.send(participant);
+    }
+  });
+});
+
 router.post('/', function(req, res, next){
   var btl = new Battle(req.body);
   btl.save(function(err, result){
@@ -37,7 +48,7 @@ router.post('/', function(req, res, next){
   }) //save promise
 }) // new battle route
 router.put('/:id/:userId', function(req, res, next) { //req.body = new battle
-  if (req.body.video1Ratings.length===req.body.voteGoal) {
+  if (req.body.video1Ratings.length === req.body.voteGoal) {
     req.body.winner = req.params.userId;
     req.body.date = new Date();
     req.body.state = "completed";
@@ -52,7 +63,7 @@ router.put('/:id/:userId', function(req, res, next) { //req.body = new battle
           })
         }//else
       });
-  } else if (req.body.video2Ratings.length===req.body.voteGoal){
+  } else if (req.body.video2Ratings.length === req.body.voteGoal){
     req.body.winner = req.params.userId;
     req.body.date = new Date();
     req.body.state = "completed";
