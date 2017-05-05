@@ -2,7 +2,6 @@
 // // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
 
 app.controller('progressCtrl', ['$scope', function($scope, btlFactory, CBFactory){
-  // $scope.currentBattle = CBFactory.getBattle();
   function drawProgressBar(videoVotes, voteGoal){
       var bar = new ProgressBar.Line('#progress' + $scope.$index, {
         strokeWidth: 4,
@@ -18,14 +17,14 @@ app.controller('progressCtrl', ['$scope', function($scope, btlFactory, CBFactory
           bar.path.setAttribute('stroke', state.color);
         }
       });
-      var percent = (videoVotes/voteGoal);
-      $scope.percent = videoVotes/voteGoal;
-      console.log(percent);
-      bar.animate(percent);  // Number from 0.0 to 1.0
+
+      console.log($scope.percent);
+      bar.animate($scope.percent/100);  // Number from 0.0 to 1.0
   };
 
   $scope.videoVotes = 14;
   $scope.voteGoal = 16;
+  $scope.percent = Math.round($scope.videoVotes/$scope.voteGoal * 100);
   window.setTimeout(function(){
     drawProgressBar($scope.videoVotes, $scope.voteGoal);
   }, 10);

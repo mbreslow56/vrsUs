@@ -33,7 +33,7 @@
 
                           <h4 >{{allOngoing[$index].battleName}}</h4>
 
-                            <div ng-controller="progressCtrl">
+                            <div>
                             <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
                               <a ui-sref="battle" data-lightbox-gallery="food-gallery">
                                 <h4>{{vidCompetitor1Names[$index]}}</h4>
@@ -47,7 +47,8 @@
                                   </div>
                               </a>
                               <br>
-                             <div id="{{'progress' + $index}}"></div>{{ percent }}% Done
+                             <div id="{{'progress' + $index}}"></div>
+                             {{ percent[$index] }}% Done
                             </div>
                       </div>
                       </div>

@@ -7,6 +7,9 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   $scope.video2NotStarted = true;
   $scope.video1 = $scope.currentBattle.video1;
   $scope.video2 = $scope.currentBattle.video2;
+  console.log($scope.currentBattle);
+  console.log($scope.video1);
+  console.log($scope.video2);
   $scope.battleName = $scope.currentBattle.battleName;
   $scope.videoArr = [{video: $scope.currentBattle.video1, votes: $scope.currentBattle.video1Votes}, {video: $scope.currentBattle.video2, votes: $scope.currentBattle.video2Votes}];
 
@@ -95,12 +98,10 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
     return array;
   }
 
-  $scope.videoArr = shuffle($scope.videoArr);
-  $scope.video1 = $scope.videoArr[0].video;
-  $scope.video2 = $scope.videoArr[1].video;
-  $scope.video1Votes = $scope.videoArr[0].votes;
-  $scope.video2Votes = $scope.videoArr[1].votes;
-
+  // NOTE: diabled shuffle feature for now
+  // $scope.videoArr = shuffle($scope.videoArr);
+  // $scope.video1 = $scope.videoArr[0].video;
+  // $scope.video2 = $scope.videoArr[1].video;
 
   $(document).ready(function() {
     $('#mybutton').hide().delay(5 * 1000).fadeIn(500);
@@ -174,29 +175,5 @@ $scope.voted = function(numVideo) { //
       $scope.currentBattle = btlCopy;
     })
   }// voted
-
-
-  //   btlFactory.updateVotes(battle).then(function(result){
-  //     if ((battle.video1Votes === battle.voteGoal)||(battle.video2Votes===battle.voteGoal)) { //wanna say >= but that SHOULDNT happen
-  //       $scope.finishBattle(battle);
-  //     } else {
-  //       //display result progress bars and related videos. which Im not sure how to tackle
-  //     }// else voting commented but no winner yet
-  //   }, function(error){
-  //     throw error;
-  //   }) //update callback
-  // }//get current user callback
-// voted function
-
-// $scope.showVidRank = function(whichVid) {
-//   if (whichVid == 1) {
-//     $scope.video1Votes++;
-//   }
-//   else {
-//     $scope.video2Votes++;
-//   }
-//   drawFirstCircleBar($scope.video1Votes, $scope.voteLimit);
-//   drawSecondCircleBar($scope.video2Votes, $scope.voteLimit);
-// }
 
 });
