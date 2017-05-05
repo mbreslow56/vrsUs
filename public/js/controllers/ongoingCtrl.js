@@ -5,6 +5,7 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
   $scope.thumbnails = [];
   $scope.vidCompetitor1Names = [];
   $scope.vidCompetitor2Names = [];
+  $scope.percent = [];
 
   // get the name of a battle participant by his ID
   $scope.getBattleParticipant = function(whichUser, index, battleId, participantId, callback) {
@@ -22,6 +23,14 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
     btlFactory.getBattles('ongoing').then(function(result){
       $scope.allOngoing = result;
       for (var i = 0; i < result.length; i++) {
+        // NOTE: checking here who is the "so far" winner for calculations of the progress-bar
+        if ($scope.allOngoing[i].video1Ratings.length > $scope.allOngoing[i].video2Ratings.length) {
+          $scope.percent[i] = Math.round($scope.allOngoing[i].video1Ratings.length/ $scope.allOngoing[i].voteGoal * 100);
+          console.log("percent- vid1 winning: ", $scope.percent[i]);
+        } else {
+          $scope.percent[i] = Math.round($scope.allOngoing[i].video2Ratings.length/ $scope.allOngoing[i].voteGoal * 100);
+          console.log("percent- vid 2 winning: ", $scope.percent[i]);
+        }
         $scope.getBattleParticipant(1, i, result[i]._id, result[i].user1, function(returnObj) {
           $scope.currentParticipant1Name = returnObj.user1;
           $scope.vidCompetitor1Names[returnObj.index] = returnObj.user;
@@ -44,7 +53,7 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
     }, function(err) {
       console.log(err.data.message);
     });
-}
+  }
   $scope.ongoingUpdate();
 
   $scope.getCurr = function(index){
@@ -52,8 +61,8 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
     $state.go('battle');
   }//getCurr
 
-  function drawProgressBar(videoVotes, voteGoal){
-      var bar = new ProgressBar.Line('#progress' + $scope.$index, {
+  $scope.drawProgressBar = function(index, videoVotes, voteGoal) {
+      var bar = new ProgressBar.Line('#progress' + index, {
         strokeWidth: 4,
         easing: 'easeInOut',
         duration: 3000,
@@ -68,15 +77,35 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
         }
       });
       var percent = (videoVotes/voteGoal);
-      $scope.percent = Math.round(videoVotes/voteGoal * 100);
       console.log(percent);
       bar.animate(percent);  // Number from 0.0 to 1.0
   };
 
-  $scope.videoVotes = 14;
-  $scope.voteGoal = 16;
+
+  // calculate completion rate percentages
+  function calcPercentCompleted() {
+    for (var i = 0; i <$scope.allOngoing.length; i++) {
+      if ($scope.allOngoing[i].video1Ratings.length > $scope.allOngoing[i].video2Ratings.length) {
+        $scope.percent[i] = $scope.allOngoing[i].video1Ratings.length/ $scope.allOngoing[i].voteGoal;
+        console.log("percent: ", $scope.percent[i]);
+      }
+      else {
+        $scope.percent[i] = $scope.allOngoing[i].video2Ratings.length/ $scope.allOngoing[i].voteGoal;
+        console.log("percent: ", $scope.percent[i]);
+      }
+    }
+  }
+  calcPercentCompleted();
+
   window.setTimeout(function(){
-    drawProgressBar($scope.videoVotes, $scope.voteGoal);
-  }, 10);
+    for (var i = 0; i < $scope.allOngoing.length; i++) {
+      var vid1votes = $scope.allOngoing[i].video1Ratings.length;
+      var vid2votes = $scope.allOngoing[i].video2Ratings.length;
+      if (vid1votes > vid2votes) {
+        $scope.drawProgressBar(i, vid1votes, $scope.allOngoing[i].voteGoal);
+      } else {
+        $scope.drawProgressBar(i, vid2votes, $scope.allOngoing[i].voteGoal);
+      }
+   }}, 10);
 
 });
