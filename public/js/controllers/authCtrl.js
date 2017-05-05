@@ -1,16 +1,6 @@
 app.controller('authCtrl', function($scope, authFactory, $state) {
   $scope.username = authFactory.currentUser.username;
   $scope.join = function() {
-    // $scope.user.artistRating = {
-    //   wins: 0,
-    //   losses: 0,
-    //   total: 0
-    // };
-    // $scope.user.voterRating = {
-    //   wins: 0,
-    //   losses: 0,
-    //   total: 0
-    // };
     $scope.user.artistWins = 0;
     $scope.user.voterWins = 0;
     authFactory.join($scope.user)
