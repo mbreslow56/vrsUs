@@ -50,7 +50,9 @@
 }
 
 .dropmenu {
+  cursor: pointer;
   margin-top: 16px;
+  margin-left: 10px;
 }
 
 .caret {
@@ -70,6 +72,10 @@
   margin-right: 20px;
   padding: 20px;
   border: 1px solid black;
+}
+
+.profile-btn {
+  margin-left: 25px;
 }
 
 label {
@@ -97,6 +103,15 @@ hr {
     border-radius: 5px;
     color: white;
     font-weight: bold;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.icon-nav {
+  color: #f94605;
+  font-weight: bold;
 }
 
 body {
@@ -314,14 +329,31 @@ a:focus {
 
 /* Navigation section */
 .navbar-default {
-    background: #ffffff;
+    /*background: linear-gradient(#bc190e, #f9dcd9); /* Standard syntax (must be last) */*/
+    /*background: -webkit-linear-gradient(#bc190e, #f9dcd9); /* For Safari 5.1 to 6.0 */*/
+    /*background: -o-linear-gradient(#bc190e, #f9dcd9); /* For Opera 11.1 to 12.0 */*/
+    /*background: -moz-linear-gradient(#bc190e, #f2c626); /* For Firefox 3.6 to 15 */*/
+    /*background: #ffffff;*/
+    background: rgb(181,189,200); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(181,189,200,1) 0%,rgb(246, 12, 33) 0%,rgb(94, 36, 14) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(181,189,200,1) 0%,rgb(246, 12, 33) 0%,rgb(94, 36, 14) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(181,189,200,1) 0%,rgb(246, 12, 33) 0%,rgb(94, 36, 14) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     border: none;
     box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.04);
     margin: 0 !important;
 }
 
+.navbar-right {
+  color: white;
+}
+
+.navbar .nav>li>a {
+  text-shadow: none;
+}
+
 .navbar-default .navbar-brand {
-  color: #505050;
+  color: #0d0d0d;
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -330,16 +362,18 @@ a:focus {
 }
 
 .navbar-default .navbar-nav li a {
-    color: #757575;
-    font-size: 19px;
-    font-weight: 300;
+    /*color: rgb(249, 194, 51);*/
+    color: black;
+    font-size: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 400;
     line-height: 50px;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
 
 .navbar-default .navbar-nav > li a:hover {
-    color: #c21500 !important;
+    color: white !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -1280,7 +1314,7 @@ ul{ list-style-type: none; }
     font-size:22pt;
     text-decoration: none;
   }
-  
+
 
   .navicon ul li a:hover:nth-child(1) { content:"Ongoing Battles"; }
   .navicon ul li a:hover:nth-child(2) { content:"Unmatched Battles"; }
@@ -1290,7 +1324,7 @@ ul{ list-style-type: none; }
         margin-right: 250px;
 
   }
-  
+
  /* USER PROFILE PAGE */
  .card {
     margin-top: 20px;
@@ -1346,10 +1380,10 @@ ul{ list-style-type: none; }
 
 
 .profilediv {
-   
+
      margin-left: 65px;
     width: 120%;
-      
+
 }
 
 @media screen and (min-width: 40.5em) {
