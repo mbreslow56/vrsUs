@@ -63,15 +63,15 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
 
   $scope.drawProgressBar = function(index, videoVotes, voteGoal) {
       var bar = new ProgressBar.Line('#progress' + index, {
-        strokeWidth: 4,
+        strokeWidth: 6,
         easing: 'easeInOut',
-        duration: 3000,
+        duration: 4500,
         color: '#FFEA82',
         trailColor: '#eee',
-        trailWidth: 1,
+        trailWidth: 0,
         svgStyle: {width: '100%', height: '100%'},
-        from: {color: '#109010'},
-        to: {color: '#ED6A5A'},
+        from: {color: '#ED6A5A'},
+        to: {color: '#109010'},
         step: (state, bar) => {
           bar.path.setAttribute('stroke', state.color);
         }
@@ -106,6 +106,6 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
       } else {
         $scope.drawProgressBar(i, vid2votes, $scope.allOngoing[i].voteGoal);
       }
-   }}, 10);
+   }}, 100);
 
 });
