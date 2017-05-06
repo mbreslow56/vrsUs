@@ -110,7 +110,12 @@ hr {
 }
 
 .icon-nav {
-  color: #f94605;
+  color: #f9a005;
+  font-weight: bold;
+}
+
+.icon-profile {
+  color: #3b5998;
   font-weight: bold;
 }
 
@@ -329,11 +334,10 @@ a:focus {
 
 /* Navigation section */
 .navbar-default {
-    /*background: linear-gradient(#bc190e, #f9dcd9); /* Standard syntax (must be last) */*/
-    /*background: -webkit-linear-gradient(#bc190e, #f9dcd9); /* For Safari 5.1 to 6.0 */*/
-    /*background: -o-linear-gradient(#bc190e, #f9dcd9); /* For Opera 11.1 to 12.0 */*/
-    /*background: -moz-linear-gradient(#bc190e, #f2c626); /* For Firefox 3.6 to 15 */*/
-    /*background: #ffffff;*/
+    /*background: linear-gradient(#bc190e, #f9dcd9); /* Standard syntax (must be last) */
+    /*background: -webkit-linear-gradient(#bc190e, #f9dcd9); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#bc190e, #f9dcd9); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(#bc190e, #f2c626); /* For Firefox 3.6 to 15 */
     background: rgb(181,189,200); /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover, rgba(181,189,200,1) 0%,rgb(246, 12, 33) 0%,rgb(94, 36, 14) 100%); /* FF3.6-15 */
     background: -webkit-radial-gradient(center, ellipse cover, rgba(181,189,200,1) 0%,rgb(246, 12, 33) 0%,rgb(94, 36, 14) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -364,7 +368,7 @@ a:focus {
 .navbar-default .navbar-nav li a {
     /*color: rgb(249, 194, 51);*/
     color: black;
-    font-size: 25px;
+    font-size: 26px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 400;
     line-height: 50px;
@@ -373,13 +377,14 @@ a:focus {
 }
 
 .navbar-default .navbar-nav > li a:hover {
-    color: white !important;
+    color: #f2f2f2;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #606060;
-    background-color: transparent;
+  background: linear-gradient(#dc2411, #d2c03e);
+  background: -webkit-linear-gradient(#dc2411, #d2c03e);
+  background: -o-linear-gradient(#dc2411, #d2c03e);
+  background: -moz-linear-gradient(#dc2411, #d2c03e);
 }
 
 .navbar-default .navbar-nav > .active > a,
