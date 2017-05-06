@@ -1,5 +1,6 @@
 app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { //, authfactory
   $scope.currentUser = authFactory.currentUser.username;
+  var currentUserId = authFactory.currentUser._id;
   console.log("current myctrl user", authFactory.currentUser);
   $scope.currentBattle = CBFactory.getBattle();
   $scope.showVotes = false;
@@ -18,6 +19,25 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
     video: $scope.currentBattle.video2,
     votes: $scope.currentBattle.video2Votes
   }];
+
+  $scope.alreadyVoted = function(userId, battle) {
+    var voted = false;
+    if (battle.video1Ratings) {
+      for (var i = 0;i<battle.video1Ratings.length;i++) {
+        if (userId===battle.video1Ratings[i]) {
+          voted = true;
+        }//if
+      }// first for
+    }//if votes array 1 exists
+    if (battle.video2Ratings) {
+      for (i = 0;i<battle.video2Ratings.length;i++) {
+        if (userId===battle.video1Ratings[i]) {
+          voted = true;
+        }//if
+      }// second for
+    }
+    return voted;
+  }// already voted
 
   function drawFirstCircleBar(videoVotes) {
     var bar = new ProgressBar.Circle(graph, {
@@ -164,7 +184,7 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       $('#mybutton2').hide().delay(5 * 1000).fadeIn(500);
     } else if ($scope.numOfVidsEnded == 1) {
       $scope.showVotes = true;
-    }
+    }//else if
   });
 
   // voting functionality below
@@ -173,6 +193,7 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   } //checkWin
 
   $scope.voted = function(numVideo) { //
+    if (!$scope.alreadyVoted(currentUserId, $scope.currentBattle)) {
     $scope.btlCopy = $scope.currentBattle;
     if (numVideo === 1) {
       $scope.currentBattle.video1Ratings.push(authFactory.currentUser._id);
@@ -192,6 +213,12 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
     }, function(error) {
       $scope.currentBattle = btlCopy;
     })
+  } else {
+    alert("already voted");
+    drawFirstCircleBar($scope.currentBattle.video1Ratings.length);
+    drawSecondCircleBar($scope.currentBattle.video2Ratings.length);
+  } // else alreaddy voted
+  $scope.showVotes = false; //hide buttons
   } // voted
 
 });
