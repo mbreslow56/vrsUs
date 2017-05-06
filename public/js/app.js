@@ -7,7 +7,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'js/templates/home.html',
+      templateUrl: 'templates/home.html',
       controller: function($rootScope, authFactory){
         $rootScope.currentUser = authFactory.currentUser.username;
         console.log("user from state of home is: ", authFactory.currentUser.username);
@@ -15,17 +15,17 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   })
     .state('battle', {
       url: '/battle',
-      templateUrl: 'js/templates/battle.html',
+      templateUrl: '/templates/battle.html',
       controller: 'myCtrl'
   })
     .state('unmatched', {
       url: '/unmatched',
-      templateUrl: 'js/templates/unmatchedBattles.html',
+      templateUrl: '/templates/unmatchedBattles.html',
       controller: 'unmatchedCtrl'
   })
     .state('challenge', {
       url: '/challenge/:id',
-      templateUrl: 'js/templates/joinUnmatched.html',
+      templateUrl: '/templates/joinUnmatched.html',
       controller: 'btlCtrl1',
       params: {
         urlParam: null
@@ -33,32 +33,32 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   })
     .state('ongoing', {
       url: '/ongoing',
-      templateUrl: 'js/templates/ongoingBattles.html',
+      templateUrl: '/templates/ongoingBattles.html',
       controller: 'ongoingCtrl'
   })
     .state('create', {
       url: '/create',
-      templateUrl: 'js/templates/createBattle.html',
+      templateUrl: '/templates/createBattle.html',
       controller: 'btlCtrl1'
   })
     .state('join', {
       url: '/join',
-      templateUrl: 'js/templates/join.html',
+      templateUrl: '/templates/join.html',
       controller: 'authCtrl'
   })
     .state('login', {
       url: '/login',
-      templateUrl: 'js/templates/login.html',
+      templateUrl: '/templates/login.html',
       controller: 'authCtrl'
   })
       .state('logout', {
       url: '/logout',
-      templateUrl: 'js/templates/home.html',
+      templateUrl: '/templates/home.html',
       controller: 'authCtrl'
   })
       .state('profile', {
       url: '/profile',
-      templateUrl: 'js/templates/profile.html',
+      templateUrl: '/templates/profile.html',
       controller: function($scope, $rootScope, authFactory){
         $rootScope.currentUser = authFactory.currentUser.username;
         $scope.currentUser = $rootScope.currentUser;
