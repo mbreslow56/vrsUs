@@ -192,6 +192,15 @@ a:focus {
   text-decoration: none !important;
 }
 
+.icon-star {
+  color: #fbfbfb;
+}
+
+.completed-btl-headline {
+  font-family: 'Oswald', sans-serif;
+  color: black;
+}
+
 .parallax-section {
   background-attachment: fixed !important;
   background-size: cover !important;
@@ -407,8 +416,6 @@ a:focus {
 .navbar-default .navbar-toggle:focus {
   background-color: transparent;
 }
-
-
 
 /* Feature section */
 #feature .feature-thumb {
