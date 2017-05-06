@@ -16,17 +16,15 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
 
-
     <div class="nav navbar-nav navbar-right">
 
          <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
-
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
-      <li ng-hide="currentUser"><a href="login">Login</a></li>     
-      <li ng-show="currentUser"><a href="ongoing"><span class="fa fa-plus"></span>Ongoing</a></li>
-      <li ng-show="currentUser"><a href="unmatched"><span class="fa fa-plus"></span> Unmatched</a></li>
-      <li ng-show="currentUser"><a href="create"><span class="fa fa-bolt"></span> Create </a></li>
-
+      <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i>Login</a></li>
+      <li ng-show="currentUser"><a href="create"><i class="icon-nav fa fa-power-off"></i> Completed </a></li>
+      <li ng-show="currentUser"><a href="ongoing"><i class="icon-nav fa fa-plus"></i> Ongoing</a></li>
+      <li ng-show="currentUser"><a href="unmatched"><i class="icon-nav fa fa-plus"></i> Unmatched</a></li>
+      <li ng-show="currentUser"><a href="create"><i class="icon-nav fa fa-bolt"></i> Create </a></li>
 
 <!--
  <div class="navicon">
@@ -51,28 +49,27 @@
 
 <!--
  <i class="fa fa-bars" data-toggle="dropdown"> </button> -->
-  <span class="caret"></span></i>
  <!--  <ul class="dropdown-menu"> -->
-     <li><a ui-sref="profile" class="smoothScroll"><span class="fa fa-user"></span> My profile</a></li>
-        <li><a ui-sref="profile" class="smoothScroll"><span class="fa fa-bolt"></span> My battles</a></li>
+     <li><a ui-sref="profile" ng-show="currentUser" class="smoothScroll"><i class="icon-nav fa fa-user" aria-hidden="true"></i> My profile</a></li>
+        <!-- <li><a ui-sref="profile" class="smoothScroll"><span class="fa fa-bolt"></span> My battles</a></li>
         <li><a ui-sref=="create" class="smoothScroll"><span class="fa fa-plus"></span> Create Battle</a></li>
-        <li><a ui-sref="unmatched" class="smoothScroll"><span class="fa fa-user"></span> Browse Unmatched</a>
+        <li><a ui-sref="unmatched" class="smoothScroll"><span class="fa fa-user"></span> Browse Unmatched</a> -->
         </li>
 
 
          <li role="separator" class="divider"></li>
          <!-- <li><a href="#menu" class="smoothScroll">Account Settings</a></li> -->
-         <li><a href="home#contact" class="smoothScroll"><i class="fa fa-envelope-o"></i> Contact us</a></li>
+         <li><a href="home#contact" ng-show="currentUser" class="smoothScroll"><i class="icon-nav fa fa-envelope-o"></i> Contact us</a></li>
 <!--          <li><a href="#team" class="smoothScroll">About us</a></li> -->
            <li role="separator" class="divider"></li>
-              <li><a ui-sref="login" ng-hide="currentUser">Log In</a></li>
-              <li><a ui-sref="join" ng-hide="currentUser">Join</a></li>
-              <li><a ng-show="currentUser" ng-click="logout()">Log Out</a></li>
+              <li><a ui-sref="login" ng-hide="currentUser"><i class="icon-nav fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+              <li><a ui-sref="join" ng-hide="currentUser"><i class="icon-nav fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+              <li><a class="logout" ng-show="currentUser" ng-click="logout()"><i class="icon-nav fa fa-sign-out" aria-hidden="true"></i> Log Out</a></li>
   </ul>
 
-   <button class="btn btn-default user-btn" ui-sref="profile" ng-show="currentUser"> <i class="fa fa-user fa-2x">
+   <button class="btn btn-info user-btn profile-btn" ui-sref="profile" ng-show="currentUser"> <i class="fa fa-user fa-2x"></i>
           <li class="active" ng-show="currentUser"> <h4>{{ currentUser }}</h4></li>
-          <li class="active" ng-hide="currentUser"><a ui-sref="login"></a></li></i></button>
+          <li class="active" ng-hide="currentUser"><a ui-sref="login"></a></li></button>
 
           <!-- <li><a href="battle">      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <button type="button" id="glyphicon" class="btn btn-default" aria-label="Left Align">
