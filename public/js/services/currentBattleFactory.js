@@ -1,13 +1,13 @@
-app.factory('CBFactory', function($http){
+app.factory('CBFactory', function($http) {
   var currentB;
   var setBattle = function(battle) {
-     currentB = battle;
+    currentB = battle;
   }; //set
   var getBattle = function() {
     return currentB;
-  };//get
+  }; //get
   return {
     setBattle: setBattle,
     getBattle: getBattle
   };
-});//factory
+}); //factory

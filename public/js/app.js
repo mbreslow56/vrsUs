@@ -56,6 +56,11 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/home.html',
       controller: 'authCtrl'
   })
+      .state('completed', {
+      url: '/completed',
+      templateUrl: '/templates/completedBattles.html',
+      controller: 'authCtrl'
+  })
       .state('profile', {
       url: '/profile',
       templateUrl: '/templates/profile.html',
@@ -65,7 +70,5 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
         console.log(authFactory.currentUser.username);
       }
   })
-
-
 
 });
