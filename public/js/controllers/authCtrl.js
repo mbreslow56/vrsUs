@@ -23,7 +23,9 @@ app.controller('authCtrl', function($scope, authFactory, $state) {
     authFactory.logout($scope.user)
       .then(function() {
         console.log("logged out");
-        $state.go('home', {}, {reload: true});
+        $state.go('home', {}, {
+          reload: true
+        });
       }, function(err) {
         alert(err.data);
       });
