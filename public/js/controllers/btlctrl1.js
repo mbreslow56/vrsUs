@@ -36,6 +36,15 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
       throw error;
     });
   }
+  $scope.validate = function() {
+    debugger;
+    if ($scope.numVotes<13) {
+      alert("Needs more votes!");
+      return false;
+    } else {
+      $scope.addBattle();
+    } //else
+  }//validate
 
   $scope.addBattle = function() {
     var user = authFactory.getCurrentUser().then(function(user) {
