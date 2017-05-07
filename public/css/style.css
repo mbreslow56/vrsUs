@@ -580,10 +580,12 @@ a:focus {
 #team .team-thumb {
   width: 100%;
   position: relative;
+  
 }
 
 #team .team-des {
-  background: #ffffff;
+
+  background: transparent;
   box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.04);
   position: absolute;
   bottom: 0px;
