@@ -61,9 +61,14 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/completedBattles.html',
       controller: 'completeCtrl'
   })
-           .state('about', {
+      .state('about', {
       url: '/about',
       templateUrl: '/templates/about.html',
+      controller: 'authCtrl'
+  })
+      .state('howto', {
+      url: '/howto',
+      templateUrl: '/templates/howto.html',
       controller: 'authCtrl'
   })
       .state('profile', {
