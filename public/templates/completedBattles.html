@@ -12,6 +12,28 @@
           <i class="icon-star opacity-large"></i>
         </h3>
         <br />
+        <div class="iso-box-wrapper col4-iso-box">
+          <div ng-repeat="thumbnail in thumbnails track by $index" class="iso-box breakfast pizza lunch col-md-4 col-md-offset-0 col-sm-6" id="{{'progress' + $index}}">
+            <h4>{{allCompleted[$index].battleName}}</h4> <br />
+            <div>
+              <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">                
+                  <h4>{{allCompleted[$index].user1.username}}</h4>
+                  <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery">
+                  <h2> VS </h2>
+                  <h4>{{allCompleted[$index].user2.username}}</h4>
+                  <img ng-src="{{thumbnail.video2}}" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item">
+                      <i class="fa fa-picture"></i>
+                    </div>
+                  </div>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- control div -->
+      </div>
       </div>
     </div>
   </div>

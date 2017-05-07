@@ -4,15 +4,26 @@ var Battle = require("../models/battleModel");
 var User = require("../models/userModel");
 
 router.get('/:state', function(req, res, next) {
-  Battle.find({state: req.params.state}, function(error, result) {
-    if (error) {
-      console.error(error)
-      return next(error);
-    } else {
-      console.log(result);
-      res.send(result);
-    } //else
-  }); // find callback
+  if (req.params.state==='completed') {
+        Battle.find({state: req.params.state}).populate('user1 user2').exec(function(err, btls){
+          if (err) {
+            throw err;
+          } else {
+            console.log("completed battles: ", btls);
+            res.send(btls);
+          }//else
+        })//find populate callback
+  } else {
+    Battle.find({state: req.params.state}, function(error, result) {
+      if (error) {
+        console.error(error)
+        return next(error);
+      } else {
+        console.log(result);
+        res.send(result);
+      } //else
+    }); // find callback
+  }
 }); //get routes for all unmatched, ongoing and completed battles
 
 router.get('/:state/:id', function(req, res, next) {
