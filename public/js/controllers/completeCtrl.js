@@ -1,7 +1,6 @@
 app.controller('completeCtrl', function($scope, $state, btlFactory){
   $scope.allCompleted = [];
   $scope.thumbnails = [];
-  
 
   $scope.update = function() {
     btlFactory.getBattles('completed').then(function(result){

@@ -1,70 +1,55 @@
-<!-- <link rel="stylesheet" href="../../css/style.css"/> -->
-
 <div class="framebattle">
   <div class="container">
     <div class="row">
-      <!--  <div class="container">
-    <div class="row"> -->
-      <!--  <div class="col-md-6 col-md-offset-3"> -->
-      <div class="page-header">
-        <div class="row text-center">
+      <div class="row text-center">
+        <div class="page-header">
           <h2 class="wow fadeInUp" data-wow-delay="0.6s">{{battleName}}</h2>
-          <br>
-          <!-- <div class="addthis_inline_share_toolbox"></div> -->
-          <i class="fa fa-share"></i>
-
-          <!-- <div class="container">
-          <div class="row"> -->
-          <div class="col-md-6 col-sm-6 wrapper">
-            <!--               <label class="text-center"> First video </label> -->
-
-            <br><br>
-            <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
-            </youtube-video>
-            <button ng-hide="pressedVote" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
-            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
-            <div class="col-md-offset-3">
-              <div id="graph" style="margin:20px;width:300px;height:300px;position:relative"></div>
-            </div>
-          </div>
-
+        </div>
+        <div class="sharethis-inline-share-buttons"></div>
+        <div ng-class="{btlvid: pressedVote}" class="col-md-6 col-sm-6 wrapper">
           <br><br>
+          <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
+          </youtube-video>
+          <button ng-hide="pressedVote" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
+          <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
+          <div class="col-md-offset-3">
+            <div id="graph" style="margin:20px;width:300px;height:300px;position:relative"></div>
+          </div>
+        </div>
 
-          <div class="col-md-6 col-sm-6 wrapper">
-            <!--               <label class="text-center"> Second video </label> -->
-            <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
-            </youtube-video>
-            <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
-            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
-            <div class="col-md-offset-3">
-              <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
-            </div>
+        <div ng-class="{btlvid: pressedVote}" class="col-md-6 col-sm-6 wrapper">
+          <br><br>
+          <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
+          </youtube-video>
+          <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
+          <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
+          <div class="col-md-offset-3">
+            <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
           </div>
         </div>
       </div>
+      <hr ng-show="pressedVote"/>
+      <div class="row" ng-show="pressedVote">
+        <p class="suggested-paragraph">check out these other cool battles in ongoing battles section!</p>
+        <div class="suggesetedBox col-md-2" ng-repeat="sug in suggested | limitTo: 6">
+          <h4>{{sug[$index].battleName}}</h4> <br />
+          <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
+            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
+              <img ng-src="{{suggestedThumbs[$index].video1}}" class="suggestedVid fluid-img" alt="Gallery">
+              <h2> VS </h2>
+              <img ng-src="{{suggestedThumbs[$index].video2}}" class="suggestedVid fluid-img" alt="Gallery">
+            </a>
+          </div>
+        </div>
+      </div>
+      <br />
+      <hr ng-show="didVote"/>
       <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
-      <div ng-show = "afterVote" class="alert alert-success .fade .in">You have voted successfully</div>    
+      <hr ng-show="afterVote"/>
+      <div ng-show="afterVote" class="alert alert-success .fade .in">You have voted successfully</div>
     </div>
   </div>
 </div>
 
 <br><br>
-<!-- to-do list -->
-<!-- 	<div id="categoryDiv" ng-controller="categoryCtrl">
-  	  <h3 >Add a category you'd like to see:	 </h3>
-  	  <input type="text" ng-model="category"/>
-  	  <input type="button" value="Add" ng-click="addCategory()">
-	  <ul class="categoryList">
-	    <li ng-repeat="category in categories">{{category}}  <a href="" ng-click="removeCategory($index)">Remove</a></li>
-	  </ul>
-	</div>
-	<br><br>
-	<div id="userNamesDiv" ng-controller="userNamesCtrl">
-	<h3>Top chUsr Talent</h3>
-	<ul >
-	 <li ng-repeat="userNames in userNames | orderBy: '-rating'">
-	 	User: <a href="#">{{ userNames.username | uppercase }}</a> - Rating: {{userNames.rating}}
-	 </li>
-	</ul>
-	</div> -->
 <br><br>

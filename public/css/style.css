@@ -122,6 +122,20 @@ hr {
   font-weight: bold;
 }
 
+.suggesetedBox {
+  width: 25%;
+  min-height: 200px;
+}
+
+.suggested-paragraph {
+  color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px;
+  background-color: red;
+}
+
+.btlvid {
+  border: 1px solid black;
+}
+
 body {
     background: #ffffff;
     font-family: ‘Source Sans Pro’, sans-serif;
@@ -402,14 +416,14 @@ a:focus {
         margin-top: 5px;
         padding: 0;
     }
- 
+
     #custom-search-form .search-query {
         padding-right: 3px;
         padding-right: 4px \9;
         padding-left: 3px;
         padding-left: 4px \9;
         /* IE7-8 doesn't have border-radius, so don't indent the padding */
- 
+
         margin-bottom: 0;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
@@ -419,7 +433,7 @@ a:focus {
     -o-transition: width  0.2s ease-in-out;
     transition: width  0.2s ease-in-out;
     }
- 
+
     #custom-search-form button {
         border: 0;
         background: none;
@@ -434,13 +448,13 @@ a:focus {
         -moz-border-radius: 3px;
         border-radius: 3px;
     }
- 
+
     .search-query:focus + button {
-        z-index: 3;   
-    }   
+        z-index: 3;
+    }
     .search-query:focus{
         width: 260px;
-    }   
+    }
 
 
 /* Feature section */
