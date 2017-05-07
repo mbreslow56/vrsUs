@@ -23,11 +23,8 @@
             </youtube-video>
             <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
             <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
-
-            <div class="container">
-              <div class="row">
-                <div id="graph" style="margin:20px;width:200px;height:200px;position:relative"></div>
-              </div>
+            <div class="col-md-offset-3">
+              <div id="graph" style="margin:20px;width:300px;height:300px;position:relative"></div>
             </div>
           </div>
 
@@ -40,23 +37,15 @@
             </youtube-video>
             <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
             <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
-            <div class="container">
-              <div class="row">
-                <div id="graph2" style="margin:20px;width:200px;height:200px;position:relative"></div>
-
-              </div>
+            <div class="col-md-offset-3">
+              <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- </div>
-</div>
- -->
 
 <br><br>
 <!-- to-do list -->
