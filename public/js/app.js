@@ -59,7 +59,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       .state('completed', {
       url: '/completed',
       templateUrl: '/templates/completedBattles.html',
-      controller: 'authCtrl'
+      controller: 'completeCtrl'
   })
       .state('profile', {
       url: '/profile',
