@@ -21,13 +21,10 @@
             <h2> <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i> <!-- #1  --></h2>
             <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
             </youtube-video>
-            <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
+            <button ng-hide="pressedVote" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
             <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
-
-            <div class="container">
-              <div class="row">
-                <div id="graph" style="margin:20px;width:200px;height:200px;position:relative"></div>
-              </div>
+            <div class="col-md-offset-3">
+              <div id="graph" style="margin:20px;width:300px;height:300px;position:relative"></div>
             </div>
           </div>
 
@@ -43,23 +40,15 @@
             <br>
             <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
             <div ng-show="afterVote"class="alert alert-success .fade .in">You have voted successfully</div>
-            <div class="container">
-              <div class="row">
-                <div id="graph2" style="margin:20px;width:200px;height:200px;position:relative"></div>
-
+            <div class="col-md-offset-3">
+              <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
               </div>
-            </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- </div>
-</div>
- -->
 
 <br><br>
 <!-- to-do list -->
