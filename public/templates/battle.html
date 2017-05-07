@@ -5,6 +5,7 @@
         <div class="page-header">
           <h2 class="wow fadeInUp" data-wow-delay="0.6s">{{battleName}}</h2>
         </div>
+        <div class="sharethis-inline-share-buttons"></div>
         <div ng-class="{btlvid: pressedVote}" class="col-md-6 col-sm-6 wrapper">
           <br><br>
           <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
@@ -27,12 +28,11 @@
           </div>
         </div>
       </div>
-      <hr ng-show="didVote"/>
-      <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
-      <hr ng-show="afterVote"/>
-      <div ng-show="afterVote" class="alert alert-success .fade .in">You have voted successfully</div>
       <hr ng-show="pressedVote"/>
       <div class="row" ng-show="pressedVote">
+        <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
+        <hr ng-show="afterVote"/>
+        <div ng-show="afterVote" class="alert alert-success .fade .in">You have voted successfully</div>
         <p class="suggested-paragraph">check out these other cool battles in ongoing battles section!</p>
         <div class="suggesetedBox col-md-2" ng-repeat="sug in suggested | limitTo: 6">
           <h4>{{sug[$index].battleName}}</h4> <br />
@@ -46,10 +46,14 @@
         </div>
       </div>
       <br />
-
+      <!-- <hr ng-show="didVote"/>
+      <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
+      <hr ng-show="afterVote"/>
+      <div ng-show="afterVote" class="alert alert-success .fade .in">You have voted successfully</div> -->
     </div>
   </div>
 </div>
 
 <br><br>
 <br><br>
+

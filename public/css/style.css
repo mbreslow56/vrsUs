@@ -214,8 +214,19 @@ a:focus {
 }
 
 .completed-btl-headline {
-  font-family: 'Oswald', sans-serif;
-  color: black;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.create-battle {
+  min-height: 700px;
+}
+
+.join-unmatched {
+  min-height: 700px;
 }
 
 .parallax-section {
@@ -600,7 +611,7 @@ a:focus {
 #team .team-thumb {
   width: 100%;
   position: relative;
-  
+
 }
 
 #team .team-des {
