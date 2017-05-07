@@ -37,8 +37,7 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
     });
   }
   $scope.validate = function() {
-    debugger;
-    if ($scope.numVotes<13) {
+    if ($scope.numVotes < 1) {
       alert("Needs more votes!");
       return false;
     } else {
