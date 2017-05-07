@@ -95,6 +95,12 @@ hr {
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
 }
 
+.progressbar-text {
+  color: black !important;
+  font-size: 40px;
+  font-family: 'Ultra', serif !important;
+}
+
 .hrefbutton {
     display: inline;
     background: #4E9CAF;
