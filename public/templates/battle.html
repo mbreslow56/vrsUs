@@ -21,8 +21,8 @@
             <br><br>
             <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
             </youtube-video>
-            <button ng-hide="pressedVote" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
-            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
+            <button ng-hide="pressedVote" class="btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
+            <button ng-show="showVotes" class="btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote1" ng-click="voted(1)">Vote!</button>
             <div class="col-md-offset-3">
               <div id="graph" style="margin:20px;width:300px;height:300px;position:relative"></div>
             </div>
@@ -34,8 +34,8 @@
             <!--               <label class="text-center"> Second video </label> -->
             <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
             </youtube-video>
-            <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
-            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
+            <button ng-hide="video2NotStarted" class="btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
+            <button ng-show="showVotes" class="btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
             <div class="col-md-offset-3">
               <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
             </div>
