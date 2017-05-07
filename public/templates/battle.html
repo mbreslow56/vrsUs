@@ -19,7 +19,6 @@
             <!--               <label class="text-center"> First video </label> -->
 
             <br><br>
-            <h2> <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i> <!-- #1  --></h2>
             <youtube-video video-url="video1" player="bestPlayer" enablejsapi="true" video-id="whtbb" player-width="'100%'" player-vars="player1Vars">
             </youtube-video>
             <button ng-hide="pressedVote" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton" ng-click="pauseFirstBeginSecond(bestPlayer, bestPlayer2)">Skip</button>
@@ -33,20 +32,18 @@
 
           <div class="col-md-6 col-sm-6 wrapper">
             <!--               <label class="text-center"> Second video </label> -->
-            <h2> <i class="fa fa-play-circle fa-2x" aria-hidden="true"></i><!--  #2 --> </h2>
             <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
             </youtube-video>
             <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
             <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
-            <br>
-            <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
-            <div ng-show="afterVote"class="alert alert-success .fade .in">You have voted successfully</div>
             <div class="col-md-offset-3">
               <div id="graph2" style="margin:20px;width:300px;height:300px;position:relative"></div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
+      <div ng-show = "afterVote" class="alert alert-success .fade .in">You have voted successfully</div>    
     </div>
   </div>
 </div>
