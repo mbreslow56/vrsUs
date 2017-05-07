@@ -39,11 +39,7 @@
             <youtube-video id="second" video-url=video2 player="bestPlayer2" enablejsapi="true" video-id="braingame" player-width="'100%'" player-vars="player2Vars">
             </youtube-video>
             <button ng-hide="video2NotStarted" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="mybutton2" ng-click="pauseSecond(bestPlayer2)">Skip</button>
-            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>
-            <br>
-            <div ng-show="didVote" class="alert alert-info .fade .in">You have already voted </div>
-            <div ng-show="afterVote"class="alert alert-success .fade .in">You have voted successfully</div>
-            <div class="container">
+            <button ng-show="showVotes" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="0.3s" id="vote2" ng-click="voted(2)">Vote!</button>             <div class="container">
               <div class="row">
                 <div id="graph2" style="margin:20px;width:200px;height:200px;position:relative"></div>
 
@@ -53,6 +49,10 @@
           </div>
         </div>
       </div>
+      <div class="row">
+      <div  class="alert alert-info .fade .in">You have already voted </div>
+      <div class="alert alert-success .fade .in">You have voted successfully</div>
+    </div>
     </div>
   </div>
 </div>
