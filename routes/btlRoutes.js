@@ -5,7 +5,7 @@ var User = require("../models/userModel");
 
 router.get('/:state', function(req, res, next) {
   if (req.params.state==='completed') {
-        Battle.find({state: req.params.state}).populate('user1 user2').exec(function(err, btls){
+        Battle.find({state: req.params.state}).populate('user1 user2 winner').exec(function(err, btls){
           if (err) {
             throw err;
           } else {
@@ -60,7 +60,11 @@ router.post('/', function(req, res, next){
 }) // new battle route
 router.put('/:id/:userId', function(req, res, next) { //req.body = new battle
   if (req.body.video1Ratings.length === req.body.voteGoal) {
-    req.body.winner = req.params.userId;
+    if (req.body.video1Ratings>req.body.video2Ratings) {
+      req.body.winner = user1;
+    } else {
+      req.body.winner = user2;
+    }
     req.body.date = new Date();
     req.body.state = "completed";
       User.update({_id: {$in :req.body.video1Ratings }}, {$inc: {voterWins: 1}}, function(error, res){

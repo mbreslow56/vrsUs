@@ -3,7 +3,9 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   var currentUserId = authFactory.currentUser._id;
   console.log("current myctrl user", authFactory.currentUser);
   $scope.currentBattle = CBFactory.getBattle();
-  $scope.showVotes = false;
+  $scope.showVotes = false; // for displaying results
+  $scope.didVote = false; // already voted alert
+  $scope.afterVote = false; //voted successfully alert
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
   $scope.video1 = $scope.currentBattle.video1;
@@ -35,6 +37,9 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
           voted = true;
         }//if
       }// second for
+    }
+    if (voted===true) {
+      $scope.didVote = true;
     }
     return voted;
   }// already voted
@@ -210,11 +215,11 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       } else {
         console.log("not winning vote");
       } //else
+      $scope.afterVote = true;
     }, function(error) {
       $scope.currentBattle = btlCopy;
     })
   } else {
-    alert("already voted");
     drawFirstCircleBar($scope.currentBattle.video1Ratings.length);
     drawSecondCircleBar($scope.currentBattle.video2Ratings.length);
   } // else alreaddy voted
