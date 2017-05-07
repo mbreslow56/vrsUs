@@ -6,6 +6,7 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   $scope.showVotes = false; // for displaying results
   $scope.didVote = false; // already voted alert
   $scope.afterVote = false; //voted successfully alert
+  $scope.pressedVote = false; // just pressed either vote button
   $scope.numOfVidsEnded = 0;
   $scope.video2NotStarted = true;
   $scope.video1 = $scope.currentBattle.video1;
@@ -49,8 +50,8 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       color: '#aaa',
       // This has to be the same size as the maximum width to
       // prevent clipping
-      strokeWidth: 4,
-      trailWidth: 1,
+      strokeWidth: 6,
+      trailWidth: 6,
       easing: 'easeInOut',
       duration: 3000,
       text: {
@@ -58,11 +59,11 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       },
       from: {
         color: '#ED6A5A',
-        width: 1
+        width: 6
       },
       to: {
         color: '#087830',
-        width: 4
+        width: 6
       },
       // Set default step function for all animate calls
       step: function(state, circle) {
@@ -87,8 +88,8 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       color: '#aaa',
       // This has to be the same size as the maximum width to
       // prevent clipping
-      strokeWidth: 4,
-      trailWidth: 1,
+      strokeWidth: 6,
+      trailWidth: 6,
       easing: 'easeInOut',
       duration: 3000,
       text: {
@@ -96,11 +97,11 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
       },
       from: {
         color: '#ED6A5A',
-        width: 1
+        width: 6
       },
       to: {
         color: '#087830',
-        width: 4
+        width: 6
       },
       // Set default step function for all animate calls
       step: function(state, circle) {
@@ -198,6 +199,8 @@ app.controller('myCtrl', function($scope, authFactory, btlFactory, CBFactory) { 
   } //checkWin
 
   $scope.voted = function(numVideo) { //
+    $scope.pressedVote = true;
+    $scope.video2NotStarted = true;
     if (!$scope.alreadyVoted(currentUserId, $scope.currentBattle)) {
     $scope.btlCopy = $scope.currentBattle;
     if (numVideo === 1) {
