@@ -8,21 +8,21 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: function($rootScope, authFactory){
+      controller: function($rootScope, authFactory) {
         $rootScope.currentUser = authFactory.currentUser.username;
         console.log("user from state of home is: ", authFactory.currentUser.username);
       }
-  })
+    })
     .state('battle', {
       url: '/battle',
       templateUrl: '/templates/battle.html',
       controller: 'myCtrl'
-  })
+    })
     .state('unmatched', {
       url: '/unmatched',
       templateUrl: '/templates/unmatchedBattles.html',
       controller: 'unmatchedCtrl'
-  })
+    })
     .state('challenge', {
       url: '/challenge/:id',
       templateUrl: '/templates/joinUnmatched.html',
@@ -30,55 +30,63 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       params: {
         urlParam: null
       }
-  })
+    })
     .state('ongoing', {
       url: '/ongoing',
       templateUrl: '/templates/ongoingBattles.html',
       controller: 'ongoingCtrl'
-  })
+    })
     .state('create', {
       url: '/create',
       templateUrl: '/templates/createBattle.html',
       controller: 'btlCtrl1'
-  })
+    })
     .state('join', {
       url: '/join',
       templateUrl: '/templates/join.html',
       controller: 'authCtrl'
-  })
+    })
     .state('login', {
       url: '/login',
       templateUrl: '/templates/login.html',
       controller: 'authCtrl'
-  })
-      .state('logout', {
+    })
+    .state('logout', {
       url: '/logout',
       templateUrl: '/templates/home.html',
       controller: 'authCtrl'
-  })
-      .state('completed', {
+    })
+    .state('completed', {
       url: '/completed',
       templateUrl: '/templates/completedBattles.html',
       controller: 'completeCtrl'
-  })
-      .state('about', {
+    })
+    .state('about', {
       url: '/about',
       templateUrl: '/templates/about.html',
       controller: 'authCtrl'
-  })
-      .state('howto', {
+    })
+    .state('howto', {
       url: '/howto',
       templateUrl: '/templates/howto.html',
       controller: 'authCtrl'
-  })
-      .state('profile', {
+    })
+    .state('winner', {
+      url: '/winner',
+      templateUrl: '/templates/winner.html',
+      controller: 'winnerCtrl',
+      params: {
+        winner: null
+      }
+    })
+    .state('profile', {
       url: '/profile',
       templateUrl: '/templates/profile.html',
-      controller: function($scope, $rootScope, authFactory){
+      controller: function($scope, $rootScope, authFactory) {
         $rootScope.currentUser = authFactory.currentUser.username;
         $scope.currentUser = $rootScope.currentUser;
         console.log(authFactory.currentUser.username);
       }
-  })
+    })
 
 });
