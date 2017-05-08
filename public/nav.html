@@ -22,7 +22,7 @@
       <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
       <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i> Login</a></li>
-      <li ng-hide="currentUser"><a href="join"><i class="icon-nav fa fa-sign-in"></i> Join</a></li>
+      <li ng-hide="currentUser"><a href="join"><i class="icon-nav fa fa-user-plus"></i> Join</a></li>
       <li ng-show="currentUser"><a href="completed"><i class="icon-nav fa fa-check-square"></i> Completed </a></li>
       <li ng-show="currentUser"><a href="ongoing"><i class="icon-nav fa fa-youtube-play"></i> Ongoing</a></li>
       <li ng-show="currentUser"><a href="unmatched"><i class="icon-nav fa fa-bolt"></i> Unmatched</a></li>
@@ -65,7 +65,7 @@
         <!--          <li><a href="#team" class="smoothScroll">About us</a></li> -->
         <li role="separator" class="divider"></li>
         <li><a ui-sref="login" ng-hide="currentUser"><i class="icon-profile fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-        <li><a ui-sref="join" ng-hide="currentUser"><i class="icon-profile fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+        <li><a ui-sref="join" ng-hide="currentUser"><i class="icon-profile fa fa-user-plus" aria-hidden="true"></i> Join</a></li>
         <li><a class="logout" ng-show="currentUser" ng-click="logout()"><i class="icon-profile fa fa-sign-out" aria-hidden="true"></i> Log Out</a></li>
       </ul>
 
