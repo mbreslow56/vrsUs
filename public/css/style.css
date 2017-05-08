@@ -214,11 +214,29 @@ a:focus {
 }
 
 .completed-btl-headline {
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.completed-btl-headline2 {
   color: white;
   font-size: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-top: 8px;
+}
+
+.completed-stat {
+  text-decoration: underline;
+  color: blue;
+  font-weight: bold;
+}
+
+.numVotes {
+  font-weight: bold;
+  color: blanchedalmond;
 }
 
 .create-battle {
@@ -1445,10 +1463,9 @@ ul{ list-style-type: none; }
 
 
 .profilediv {
-
-     margin-left: 65px;
+  min-height: 700px;
+    margin-left: 65px;
     width: 120%;
-
 }
 
 @media screen and (min-width: 40.5em) {
