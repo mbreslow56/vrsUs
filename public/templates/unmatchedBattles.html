@@ -24,8 +24,8 @@
                   <ul ng-repeat="btl in allUnmatched track by $index">
                     <li>
                       <h4 style="font-weight:bold"> User: {{btl.user1.username}} </h4>
-                      <h4 style="font-weight:bold"> {{$index+1}}) {{btl.battleName}} </h4>
-                      <h4> number of votes to win: {{btl.voteGoal}}</h5> <br />
+                      <h4 style="font-weight:bold">Battle: {{btl.battleName}} </h4>
+                      <h4> Number of votes to win: {{btl.voteGoal}}</h5> <br />
 
                       <iframe width="400" height="220" ng-src="{{trustSrc(btl.video1)}}"
               frameborder="0" allowfullscreen></iframe> <br />

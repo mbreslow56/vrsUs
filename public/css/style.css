@@ -1484,8 +1484,6 @@ ul{ list-style-type: none; }
     width: 1200px;
   }
 
-
-  img {
-    max-width: 60%;
-
-  }
+.home-logo {
+  max-width: 60%;
+}
