@@ -1,6 +1,5 @@
 var app = angular.module("appName", ['ui.router', 'youtube-embed']);
 
-
 app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');
@@ -82,11 +81,7 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     .state('profile', {
       url: '/profile',
       templateUrl: '/templates/profile.html',
-      controller: function($scope, $rootScope, authFactory) {
-        $rootScope.currentUser = authFactory.currentUser.username;
-        $scope.currentUser = $rootScope.currentUser;
-        console.log(authFactory.currentUser.username);
-      }
+      controller: 'profileCtrl'
     })
 
 });
