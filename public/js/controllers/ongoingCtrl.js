@@ -119,6 +119,6 @@ app.controller('ongoingCtrl', function($scope, $state, btlFactory, CBFactory, au
         $scope.drawProgressBar(i, vid2votes, $scope.allOngoing[i].voteGoal);
       }
     }
-  }, 100);
+  }, 2000);
 
 });
