@@ -70,6 +70,7 @@
 }
 
 .user-btn {
+  background-color: #002244 !important;
   margin-top: -16px !important;
 }
 
@@ -118,8 +119,12 @@ hr {
 }
 
 .icon-nav {
-  color: #f9a005;
+  color: #FB4F14;
   font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #002244 !important;
 }
 
 .icon-profile {
@@ -240,7 +245,7 @@ a:focus {
 
 .completed-stat {
   text-decoration: underline;
-  color: blue;
+  color: #002244;
   font-weight: bold;
 }
 
@@ -1140,11 +1145,12 @@ h3 {
 /*login*/
 
 .loginmodal-container {
+  position: relative;
   padding: 30px;
   max-width: 350px;
   width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
+  background-color: #002244;;
+  margin: auto;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -1152,9 +1158,10 @@ h3 {
 }
 
 .loginmodal-container h1 {
+  color: white;
   text-align: center;
   font-size: 1.8em;
-  font-family: roboto;
+  font-family: 'Raleway', 'Open Sans', sans-serif;
 }
 
 .loginmodal-container input[type=submit] {
@@ -1162,6 +1169,7 @@ h3 {
   display: block;
   margin-bottom: 10px;
   position: relative;
+  background-color: #FB4F14;
 }
 
 .loginmodal-container input[type=text], input[type=password] {
@@ -1221,11 +1229,11 @@ h3 {
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  color: white;
   font-weight: 400;
   text-align: center;
   display: inline-block;
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   transition: opacity ease 0.5s;
 }
 
