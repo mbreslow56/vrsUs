@@ -42,7 +42,7 @@ jQuery(function($) {
                 }),
                 $('<div class="sharing-item sharing-li"><div class="sharing-img"><i class="fa fa-tumblr tumblr-icon"></i></div></div>').click(function () {
                     open_popup(
-                        "https://embed.tumblr.com/share" +
+                        "http://www.tumblr.com/share/link?source=" +
                             encodeURIComponent(document.location.href) +
                             "&title=" + encodeURIComponent($(document).find("title").text()),
                         750,
@@ -52,4 +52,3 @@ jQuery(function($) {
                 })
             );
     });
-

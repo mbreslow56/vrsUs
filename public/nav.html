@@ -21,8 +21,9 @@
 
       <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
-      <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i>Login</a></li>
-      <li ng-show="currentUser"><a href="completed"><i class="icon-nav fa fa-power-off"></i> Completed </a></li>
+      <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i> Login</a></li>
+      <li ng-hide="currentUser"><a href="join"><i class="icon-nav fa fa-sign-in"></i> Join</a></li>
+      <li ng-show="currentUser"><a href="completed"><i class="icon-nav fa fa-check-square"></i> Completed </a></li>
       <li ng-show="currentUser"><a href="ongoing"><i class="icon-nav fa fa-youtube-play"></i> Ongoing</a></li>
       <li ng-show="currentUser"><a href="unmatched"><i class="icon-nav fa fa-bolt"></i> Unmatched</a></li>
       <li ng-show="currentUser"><a href="create"><i class="icon-nav fa fa-plus"></i> Create </a></li>
