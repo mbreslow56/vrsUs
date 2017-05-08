@@ -1,5 +1,5 @@
 <div class="framebattle">
-  <div class="container">
+  <div class="join-unmatched container">
     <section id="gallery" class="parallax-section">
       <div class="container">
         <div class="row">
@@ -23,6 +23,7 @@
                   </ul> -->
                   <ul ng-repeat="btl in allUnmatched track by $index">
                     <li>
+                      <h4 style="font-weight:bold"> User: {{btl.userName}} </h4>
                       <h4 style="font-weight:bold"> {{$index+1}}) {{btl.battleName}} </h4>
                       <h4> number of votes to win: {{btl.voteGoal}}</h5> <br />
 

@@ -2,20 +2,25 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9 col-md-offset-1">
+        <br /><br />
         <h3>
           <i class="icon-star opacity-large"></i>
           <i class="icon-star opacity-medium"></i>
           <i class="icon-star opacity-small"></i>
-            <span class="completed-btl-headline"> completed Battles </span>
+          <span class="wow fadeInUp completed-btl-headline2" data-wow-delay="0.3s"> completed Battles</span>
           <i class="icon-star opacity-small"></i>
           <i class="icon-star opacity-medium"></i>
           <i class="icon-star opacity-large"></i>
         </h3>
+        <div class="page-header"></div>
         <br />
-        <div class="iso-box-wrapper col4-iso-box">
+        <div class="wow fadeInUp iso-box-wrapper col4-iso-box" data-wow-delay="0.6s">
           <div ng-repeat="thumbnail in thumbnails track by $index" class="iso-box breakfast pizza lunch col-md-4 col-md-offset-0 col-sm-6" id="{{'progress' + $index}}">
-            <h4>{{allCompleted[$index].battleName}}</h4> <br />
-            <h4>WHO WON: {{allCompleted[$index].winner.username}}</h4>
+            <h3 class="completed-btl-headline">{{allCompleted[$index].battleName}}</h3> <br />
+            <h4><span class="completed-stat">Winner</span>:  <span class="numVotes">{{allCompleted[$index].winner.username}}</span> with a total of <span class="numVotes">{{allCompleted[$index].voteGoal}}</span> votes</h4>
+            <br />
+            <h4><span class="completed-stat">Date of victory</span>: {{allCompleted[$index].date}}</h4>
+            <br />
             <div>
               <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
                 <h4>{{allCompleted[$index].user1.username}}</h4>
