@@ -9,8 +9,8 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/home.html',
       controller: function($rootScope, authFactory) {
         $rootScope.currentUser = authFactory.currentUser.username;
-        console.log("user from state of home is: ", authFactory.currentUser.username);
-      }
+        //console.log("user from state of home is: ", authFactory.currentUser.username);
+      } //NOTE: maybe remove for authControl?
     })
     .state('battle', {
       url: '/battle',

@@ -36,15 +36,14 @@
         <div class="suggesetedBox col-md-2" ng-repeat="sug in suggested | limitTo: 6">
           <h4>{{sug[$index].battleName}}</h4> <br />
           <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
-            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
               <img ng-src="{{suggestedThumbs[$index].video1}}" class="suggestedVid fluid-img" alt="Gallery">
               <h2> VS </h2>
-              <img ng-src="{{suggestedThumbs[$index].video2}}" class="suggestedVid fluid-img" alt="Gallery">
-            </a>
+              <img ng-src="{{suggestedThumbs[$index].video2}}" class="suggestedVid fluid-img" alt="Gallery">            
           </div>
         </div>
       </div>
       <br />
+
     </div>
   </div>
 </div>
