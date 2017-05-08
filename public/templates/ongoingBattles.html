@@ -35,7 +35,19 @@
                         <h4>{{allOngoing[$index].battleName}}</h4> <br />
                         <div>
                           <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
-                            <a ui-sref="battle" data-lightbox-gallery="food-gallery">
+                            <a ng-show="currentUser" ui-sref="battle" data-lightbox-gallery="food-gallery">
+                              <h4>{{vidCompetitor1Names[$index]}}</h4>
+                              <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery">
+                              <h2> VS </h2>
+                              <h4>{{vidCompetitor2Names[$index]}}</h4>
+                              <img ng-src="{{thumbnail.video2}}" class="fluid-img" alt="Gallery">
+                              <div class="gallery-overlay">
+                                <div class="gallery-item">
+                                  <i class="fa fa-picture"></i>
+                                </div>
+                              </div>
+                            </a>
+                            <a ng-hide="currentUser" ui-sref="join" data-lightbox-gallery="food-gallery">
                               <h4>{{vidCompetitor1Names[$index]}}</h4>
                               <img ng-src="{{thumbnail.video1}}" class="fluid-img" alt="Gallery">
                               <h2> VS </h2>
