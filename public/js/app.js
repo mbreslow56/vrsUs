@@ -71,6 +71,12 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/howto.html',
       controller: 'authCtrl'
   })
+      .state('wins', {
+      url: '/wins',
+      templateUrl: '/templates/winner.html',
+      controller: 'authCtrl'
+      
+  })
       .state('profile', {
       url: '/profile',
       templateUrl: '/templates/profile.html',

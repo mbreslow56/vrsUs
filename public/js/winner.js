@@ -1,0 +1,1 @@
+odoo.default({ el:'.winner-body', from: 'WINNER', to: 'PUSSYEATER', animationDelay: 1000 });
