@@ -33,7 +33,7 @@
       <div ng-show="afterVote" class="alert alert-success .fade .in">You have voted successfully</div>
       <hr ng-show="pressedVote"/>
       <div class="row" ng-show="pressedVote">
-        <p class="suggested-paragraph">check out these other cool battles in ongoing battles section!</p>
+        <a href="ongoing"><p class="suggested-paragraph">check out these other cool battles in ongoing battles section!</p></a>
         <div class="suggesetedBox col-md-2" ng-repeat="sug in suggested | limitTo: 6">
           <h4>{{sug[$index].battleName}}</h4> <br />
           <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
