@@ -54,7 +54,7 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
         battleName: $scope.bName,
         voteGoal: $scope.numVotes,
         user1: user._id,
-        video1: $scope.videourl,
+        video1: $scope.vidtext,
         video1Votes: 0,
         user2: null,
         video2: null,
@@ -79,7 +79,7 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
     var user = authFactory.getCurrentUser().then(function(user) {
       //  authFactory.addOngoing();
       battle.user2 = user._id;
-      battle.video2 = $scope.videourl;
+      battle.video2 = $scope.vidtext;
       battle.state = "ongoing";
       btlFactory.updateBattle(battle).then(function() { //  result unmatched just as an id?
         $scope.updateUnmatched(); // NOTE: $scope.allUnmatched changes here
@@ -99,7 +99,6 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
   }; //finishBattle NOTE: TRANSITION: ONGOING BATTLE ===> RECORD
 
   $scope.getVidId = function() {
-    debugger;
     $scope.videourl = $scope.vidtext;
     console.log("url is", $scope.videourl);
     var videoid = $scope.videourl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
