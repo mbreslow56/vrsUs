@@ -4,7 +4,7 @@ var Battle = require("../models/battleModel");
 var User = require("../models/userModel");
 
 router.get('/:state', function(req, res, next) {
-  if (req.params.state === 'completed') {
+  if ((req.params.state === 'completed')||(req.params.state==='unmatched')) {
     Battle.find({
       state: req.params.state
     }).populate('user1 user2 winner').exec(function(err, btls) {

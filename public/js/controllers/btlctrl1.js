@@ -99,6 +99,7 @@ app.controller('btlCtrl1', function($scope, $state, $stateParams, authFactory, b
   }; //finishBattle NOTE: TRANSITION: ONGOING BATTLE ===> RECORD
 
   $scope.getVidId = function() {
+    debugger;
     $scope.videourl = $scope.vidtext;
     console.log("url is", $scope.videourl);
     var videoid = $scope.videourl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
