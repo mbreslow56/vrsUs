@@ -1483,3 +1483,9 @@ ul{ list-style-type: none; }
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
     width: 1200px;
   }
+
+
+  img {
+    max-width: 60%;
+
+  }
