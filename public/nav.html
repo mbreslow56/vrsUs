@@ -9,19 +9,21 @@
       <a ui-sref="home" class="navbar-brand">voUtr</a>
     </div>
     <form class="navbar-form navbar-left">
-      <div class="form-group">
+      <!-- This is where search bar will go -->
+      <!-- <div class="form-group">
         <i class="fa fa-search fa-1x"></i>
         <input type="text" class="form-control" placeholder="Find a battle">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Submit</button> -->
     </form>
 
     <div class="nav navbar-nav navbar-right">
 
       <!--  <li class="active" ng-show="currentUser.username"> {{ currentUser.username }}</span></a></li> -->
       <!-- <li class="active" ng-hide="currentUser.username"><a ui-sref="login"><span class ></span></a></li> -->
-      <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i>Login</a></li>
-      <li ng-show="currentUser"><a href="completed"><i class="icon-nav fa fa-power-off"></i> Completed </a></li>
+      <li ng-hide="currentUser"><a href="login"><i class="icon-nav fa fa-sign-in"></i> Login</a></li>
+      <li ng-hide="currentUser"><a href="join"><i class="icon-nav fa fa-sign-in"></i> Join</a></li>
+      <li ng-show="currentUser"><a href="completed"><i class="icon-nav fa fa-check-square"></i> Completed </a></li>
       <li ng-show="currentUser"><a href="ongoing"><i class="icon-nav fa fa-youtube-play"></i> Ongoing</a></li>
       <li ng-show="currentUser"><a href="unmatched"><i class="icon-nav fa fa-bolt"></i> Unmatched</a></li>
       <li ng-show="currentUser"><a href="create"><i class="icon-nav fa fa-plus"></i> Create </a></li>

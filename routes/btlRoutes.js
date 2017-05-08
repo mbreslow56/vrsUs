@@ -4,17 +4,21 @@ var Battle = require("../models/battleModel");
 var User = require("../models/userModel");
 
 router.get('/:state', function(req, res, next) {
-  if (req.params.state==='completed') {
-        Battle.find({state: req.params.state}).populate('user1 user2 winner').exec(function(err, btls){
-          if (err) {
-            throw err;
-          } else {
-            console.log("completed battles: ", btls);
-            res.send(btls);
-          }//else
-        })//find populate callback
+  if (req.params.state === 'completed') {
+    Battle.find({
+      state: req.params.state
+    }).populate('user1 user2 winner').exec(function(err, btls) {
+      if (err) {
+        throw err;
+      } else {
+        console.log("completed battles: ", btls);
+        res.send(btls);
+      } //else
+    }) //find populate callback
   } else {
-    Battle.find({state: req.params.state}, function(error, result) {
+    Battle.find({
+      state: req.params.state
+    }, function(error, result) {
       if (error) {
         console.error(error)
         return next(error);
@@ -27,7 +31,9 @@ router.get('/:state', function(req, res, next) {
 }); //get routes for all unmatched, ongoing and completed battles
 
 router.get('/:state/:id', function(req, res, next) {
-  Battle.find({_id: req.params.id}, function(error, result) {
+  Battle.find({
+    _id: req.params.id
+  }).populate('user1 user2 winner').exec(function(error, result) {
     if (error) {
       console.error(error)
       return next(error);
@@ -39,7 +45,9 @@ router.get('/:state/:id', function(req, res, next) {
 
 // find a participant of a certain battle
 router.get('/:state/:battleId/:participantId/', function(req, res, next) {
-  User.find({_id: req.params.participantId}, function(err, participant){
+  User.find({
+    _id: req.params.participantId
+  }, function(err, participant) {
     if (err) {
       throw err;
     } else {
@@ -48,53 +56,79 @@ router.get('/:state/:battleId/:participantId/', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next){
+router.post('/', function(req, res, next) {
   var btl = new Battle(req.body);
-  btl.save(function(err, result){
+  btl.save(function(err, result) {
     if (err) {
-      throw(err);
-    }   else {
+      throw (err);
+    } else {
       res.send(result);
     } //else
   }) //save promise
 }) // new battle route
 router.put('/:id/:userId', function(req, res, next) { //req.body = new battle
   if (req.body.video1Ratings.length === req.body.voteGoal) {
-    if (req.body.video1Ratings>req.body.video2Ratings) {
-      req.body.winner = user1;
-    } else {
-      req.body.winner = user2;
-    }
+    req.body.winner = req.body.user1;
     req.body.date = new Date();
     req.body.state = "completed";
-      User.update({_id: {$in :req.body.video1Ratings }}, {$inc: {voterWins: 1}}, function(error, res){
-        if (error) {
-          return next(error);
-        } else {
-          User.update({_id: req.body.user1}, {$inc: {artistWins: 1}}, function(err, result){
-            if (err) {
-              return next(err);
-            }
-          })
-        }//else
-      });
-  } else if (req.body.video2Ratings.length === req.body.voteGoal){
-    req.body.winner = req.params.userId;
-    req.body.date = new Date();
-    req.body.state = "completed";
-    User.update({_id: {$in :req.body.video2Ratings }}, {$inc: {voterWins: 1}}, function(error, res){
+    User.update({
+      _id: {
+        $in: req.body.video1Ratings
+      }
+    }, {
+      $inc: {
+        voterWins: 1
+      }
+    }, function(error, res) {
       if (error) {
         return next(error);
       } else {
-        User.update({_id: req.body.user2}, {$inc: {artistWins: 1}}, function(err, result){
+        User.update({
+          _id: req.body.user1
+        }, {
+          $inc: {
+            artistWins: 1
+          }
+        }, function(err, result) {
           if (err) {
             return next(err);
           }
         })
-      }//else
-    });// update
+      } //else
+    });
+  } else if (req.body.video2Ratings.length === req.body.voteGoal) {
+    req.body.winner = req.body.user2;
+    req.body.date = new Date();
+    req.body.state = "completed";
+    User.update({
+      _id: {
+        $in: req.body.video2Ratings
+      }
+    }, {
+      $inc: {
+        voterWins: 1
+      }
+    }, function(error, res) {
+      if (error) {
+        return next(error);
+      } else {
+        User.update({
+          _id: req.body.user2
+        }, {
+          $inc: {
+            artistWins: 1
+          }
+        }, function(err, result) {
+          if (err) {
+            return next(err);
+          }
+        })
+      } //else
+    }); // update
   } //else if
-  Battle.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, battle){
+  Battle.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  }, function(err, battle) {
     if (err) {
       throw err;
     } else {
@@ -106,7 +140,9 @@ router.put('/:id/:userId', function(req, res, next) { //req.body = new battle
 
 
 router.put('/:id', function(req, res, next) {
-  Battle.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, battle){
+  Battle.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  }, function(err, battle) {
     if (err) {
       throw err;
     } else {
@@ -116,8 +152,10 @@ router.put('/:id', function(req, res, next) {
   }) // update callback
 }) // battle put route replace battle with new one
 
-router.delete('/:id', function(req, res, next){
-  Battle.findOneAndRemove({_id: req.params.id}, function(err, ongoing){
+router.delete('/:id', function(req, res, next) {
+  Battle.findOneAndRemove({
+    _id: req.params.id
+  }, function(err, ongoing) {
     if (err) {
       console.log(err);
       res.send(err);
