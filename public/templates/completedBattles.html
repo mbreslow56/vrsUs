@@ -9,10 +9,13 @@
         <br />
         <div class="wow fadeInUp iso-box-wrapper col4-iso-box" data-wow-delay="0.6s">
           <div ng-repeat="thumbnail in thumbnails track by $index" class="iso-box breakfast pizza lunch col-md-4 col-md-offset-0 col-sm-6" id="{{'progress' + $index}}">
-            <h3 class="completed-btl-headline">{{allCompleted[$index].battleName}}</h3> <br />
-            <h4><span class="completed-stat">Winner</span>:  <span class="numVotes">{{allCompleted[$index].winner.username}}</span> with a total of <span class="numVotes">{{allCompleted[$index].voteGoal}}</span> votes</h4>
+            <h2 class="completed-btl-headline">{{allCompleted[$index].battleName}}</h2> <br />
+            <h4><span class="completed-stat">Winner</span>:
+              <br />  
+                <span class="numVotes">{{allCompleted[$index].winner.username}}</span> with a total of <span class="numVotes">{{allCompleted[$index].voteGoal}}</span> votes</h4>
             <br />
-            <h4><span class="completed-stat">Date of victory</span>: {{allCompleted[$index].date}}</h4>
+            <h4><span class="completed-stat">Date of victory</span>: <br />
+              {{allCompleted[$index].date}}</h4>
             <br />
             <div>
               <div ng-click="getCurr($index)" class="gallery-thumb ongoing-battle">
