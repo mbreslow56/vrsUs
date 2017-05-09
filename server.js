@@ -68,5 +68,5 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(process.env.PORT || '8008', function(){
-  console.log("8008. voUtr bitch!")
+  console.log("8008. vrsUs bitch!")
 });
