@@ -43,11 +43,11 @@
           <div class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
               <div ng-repeat="myBtl in allMyCompleted track by $index">
-                <h4>{{$index + 1}}) Battle Name: {{myBtl.battleName}} <br />
+                <p>{{$index + 1}}) Battle Name: {{myBtl.battleName}} <br />
                   Did I win? {{whichBtlsWon[$index] === true}} <br />
                   Am I the creator of this battle? {{amICreator[$index] === true}} <br />
                   Votes received: {{howMuchVotesWhenWon}} out of {{myBtl.voteGoal}} 
-                </h4>
+                </p>
                 <br />
               </div>
             </div>
