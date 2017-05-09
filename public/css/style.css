@@ -249,6 +249,10 @@ a:focus {
   font-weight: bold;
 }
 
+.winner {
+  font-size: 12px;
+}
+
 .numVotes {
   font-weight: bold;
   color: blanchedalmond;
