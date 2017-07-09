@@ -5,8 +5,8 @@ var Schema = mongoose.Schema;
 var UserSchema =  new Schema ({
    username: String,
    password: String,
-   artistWins :Number, //artist rating
-   voterWins:Number, //rating
+   artistWins: Number, //artist rating
+   voterWins: Number //rating
    //battles: [{type: Schema.Types.ObjectId, ref:"Battle"}]
 });
 
